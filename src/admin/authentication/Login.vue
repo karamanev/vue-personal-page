@@ -1,15 +1,14 @@
 <template>
-      <div class="login">
-      <h1>Login</h1>
-      <form>
-        <label for="login">Email</label>
-        <input type="email" v-model="$v.email.$model" id="login" placeholder="Ivan Ivanov" />
-        <label for="password">Password</label>
-        <input type="password" v-model="$v.password.$model" id="password" placeholder="******" />
-
-        <input type="submit" value="Login" :disabled="$v.$error"/>
-      </form>
-    </div>
+  <div class="login">
+    <h1>Вход</h1>
+    <form @submit.prevent="OnLoginClick">
+      <label for="login">Имейл</label>
+      <input type="email" v-model="$v.email.$model" id="login" placeholder="Имейл" />
+      <label for="password">Парола</label>
+      <input type="password" v-model="$v.password.$model" id="password" placeholder="Парола" />
+      <input type="submit" value="Login" :disabled="$v.$error"/>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -28,13 +27,12 @@ export default {
       password: {required}
   },
     methods: {
-    OnRegisterClick () {
+    OnLoginClick () {
       AuthenticationService.login(this.email, this.password).then(
         (user) => {
-          alert('Oops. ' + user)
-          console.log(user);
-          
-          //          this.$router.replace('home')
+          localStorage.setItem('username', user.user.email) 
+          localStorage.setItem('token', user.user.refreshToken) 
+          this.$router.push('/admin')
         },
         (err) => {
           alert('Oops. ' + err.message)

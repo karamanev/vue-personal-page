@@ -1,4 +1,3 @@
-import axios from 'axios'
 import firebase from 'firebase'
 
 export default {
@@ -8,5 +7,9 @@ export default {
 
     login(email: string, password: string) {
     return firebase.auth().signInWithEmailAndPassword(email, password);
+    },
+
+    logout() {
+    return firebase.auth().signOut();
     }
 }

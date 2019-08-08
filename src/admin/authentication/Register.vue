@@ -30,11 +30,9 @@ export default {
     OnRegisterClick () {
       AuthenticationService.register(this.email, this.password).then(
         (user) => {
-          alert('Oops. ' + user)
-          console.log(user);
-          
-//          this.$router.replace('home')
-        },
+          localStorage.setItem('username', user.email) 
+          localStorage.setItem('token', user.refreshToken) 
+          this.$router.push('/admin')        },
         (err) => {
           alert('Oops. ' + err.message)
         }
