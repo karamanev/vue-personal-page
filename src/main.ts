@@ -13,14 +13,13 @@ Vue.use(firestorePlugin)
 Vue.use(Vuelidate)
 Vue.use(Vuex)
 
-let app = ''
+let app: any = ''
 export const db = firebase
   .initializeApp(firebaseConfig)
   .firestore()
 
 firebase.auth().onAuthStateChanged(() => {
   if (!app) {
-    /* eslint-disable no-new */
     app = new Vue({
       router,
       vuetify,
@@ -28,4 +27,3 @@ firebase.auth().onAuthStateChanged(() => {
     }).$mount('#app')
   }
 })
-

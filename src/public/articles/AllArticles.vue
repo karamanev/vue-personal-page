@@ -1,6 +1,6 @@
 <template>
   <div>
-    <article v-for="(article, idx) in articles" :key="idx">
+    <article v-for="(article, index) in articles" :key="index">
       <h1>{{ article.title }}</h1>
       <h2>{{ article.content }}</h2>
     </article>
@@ -9,7 +9,7 @@
 
 <script>
 
-import {db} from '../../main'
+import {db} from '../../main.ts'
 
 export default {
   data () {
