@@ -1,11 +1,11 @@
 import Vue from 'vue'
 import {firestorePlugin} from 'vuefire'
 import firebase from 'firebase'
-import firebaseConfig from './config/firebaseConfig'
+import firebaseConfig from './core/config/firebaseConfig'
 import App from './App.vue'
 import Vuelidate from 'vuelidate'
-import router from './router/router'
-import vuetify from './plugins/vuetify'
+import router from './core/router/router'
+import vuetify from './core/plugins/vuetify'
 import Vuex from 'vuex'
 
 Vue.config.productionTip = false
@@ -14,9 +14,12 @@ Vue.use(Vuelidate)
 Vue.use(Vuex)
 
 let app: any = ''
-export const db = firebase
+const db = firebase
   .initializeApp(firebaseConfig)
   .firestore()
+
+  export const articlesCollection = db.collection('articles');
+
 
 firebase.auth().onAuthStateChanged(() => {
   if (!app) {

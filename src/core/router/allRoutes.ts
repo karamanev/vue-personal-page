@@ -1,9 +1,9 @@
 
-import Home from '../public/home/Home.vue'
-import Register from '../admin/authentication/Register.vue'
-import Login from '../admin/authentication/Login.vue'
-import Admin from '../admin/Admin.vue'
-import AllArticles from '../public/articles/AllArticles.vue'
+import Home from '../../components/public/home/Home.vue'
+import Register from '../../components/admin/authentication/Register.vue'
+import Login from '../../components/admin/authentication/Login.vue'
+import Admin from '../../components/admin/Admin.vue'
+import AllArticles from '../../components/public/articles/AllArticles.vue'
 
 export default [
   {
@@ -25,7 +25,12 @@ export default [
     path: '/articles',
     name: 'articles',
     component: AllArticles
-  },  
+  },
+  {
+    path: '/articles/:id',
+    name: 'article',
+    component: AllArticles
+  },   
   {
     path: '/admin',
     name: 'admin',
