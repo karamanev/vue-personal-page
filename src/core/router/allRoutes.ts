@@ -25,7 +25,12 @@ export default [
     path: '/articles',
     name: 'articles',
     component: AllArticles
-  },  
+  },
+  {
+    path: '/articles/:id',
+    name: 'article',
+    component: AllArticles
+  },   
   {
     path: '/admin',
     name: 'admin',

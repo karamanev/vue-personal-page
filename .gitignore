@@ -24,4 +24,4 @@ yarn-error.log*
 *.sw?
 
 #firebase keys
-/src/config
+/src/core/config
