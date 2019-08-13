@@ -9,7 +9,7 @@
 
 <script>
 
-import {db} from '../../main.ts'
+//import {db} from '../../main.ts'
 
 export default {
   data () {
@@ -18,7 +18,7 @@ export default {
     }
   },
   firestore: {
-      articles: db.collection('articles').orderBy('date')
+ //     articles: db.collection('articles').orderBy('date')
   },
   
 }
