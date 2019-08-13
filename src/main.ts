@@ -14,9 +14,12 @@ Vue.use(Vuelidate)
 Vue.use(Vuex)
 
 let app: any = ''
-export const db = firebase
+const db = firebase
   .initializeApp(firebaseConfig)
   .firestore()
+
+  export const articlesCollection = db.collection('articles');
+
 
 firebase.auth().onAuthStateChanged(() => {
   if (!app) {

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="articles">
     <article v-for="(article, index) in articles" :key="index">
       <h1>{{ article.title }}</h1>
       <h2>{{ article.content }}</h2>
@@ -9,7 +9,7 @@
 
 <script>
 
-import articlesCollection from '../../../main.ts'
+import {articlesCollection} from '../../../main.ts'
 
 export default {
   data () {
@@ -17,10 +17,11 @@ export default {
       articles: []
     }
   },
-  firestore: {
+  firestore() {
+    return {
       articles: articlesCollection.orderBy('date')
-  },
-  
+    }
+  }  
 }
 </script>
 
