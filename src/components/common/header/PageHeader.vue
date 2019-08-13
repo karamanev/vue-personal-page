@@ -11,7 +11,8 @@
       <v-spacer></v-spacer>
 
       <v-toolbar-items>
-        <v-btn :to="'/articles'">Всички статии</v-btn>
+        <v-btn :to="'/articles/add'">Добави</v-btn>
+        <v-btn :to="'/articles/all'">Всички статии</v-btn>
         <v-btn :to="'/register'">Регистрация</v-btn>
         <v-btn :to="'/login'">Вход</v-btn>
         <v-btn :to="'/admin'">Админ</v-btn>
