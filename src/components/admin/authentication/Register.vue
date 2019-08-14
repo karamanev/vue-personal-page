@@ -45,7 +45,7 @@ export default {
         (user) => {
           localStorage.setItem('username', user.email) 
           localStorage.setItem('token', user.refreshToken) 
-          this.$router.push('/admin')        },
+          this.$router.push('/articles/add')        },
         (err) => {
           alert('Oops. ' + err.message)
         }

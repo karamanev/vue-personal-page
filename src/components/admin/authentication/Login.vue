@@ -22,28 +22,28 @@
   </v-container>
 </template>
 
-<script>
+<script lang="ts">
 import {required, minLength, maxLength, email} from 'vuelidate/lib/validators';
-import AuthenticationService from './AuthenticationService.ts'
+import AuthenticationService from './AuthenticationService'
 
 export default {
   data() {
-      return {
-        password: '',
-        email: '',
-      }
+    return {
+      password: '',
+      email: '',
+    }
   },
   validations: {
-      email: {required, minLength: minLength(3), maxLength: maxLength(20), email},
-      password: {required}
+    email: {required, minLength: minLength(3), maxLength: maxLength(20), email},
+    password: {required}
   },
-    methods: {
+  methods: {
     OnLoginClick () {
       AuthenticationService.login(this.email, this.password).then(
-        (user) => {
+        (user: any) => {
           localStorage.setItem('username', user.user.email) 
           localStorage.setItem('token', user.user.refreshToken) 
-          this.$router.push('/admin')
+          this.$router.push('/articles/add')
         },
         (err) => {
           alert('Oops. ' + err.message)

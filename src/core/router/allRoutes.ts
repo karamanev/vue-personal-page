@@ -23,13 +23,11 @@ export default [
   },
   {
     path: '/articles/all',
-    name: 'articles',
-    component: AllArticles
-  },
-  {
-    path: '/articles/:id',
-    name: 'article',
-    component: AllArticles
+    name: 'allArticles',
+    component: AllArticles,
+    meta: {
+      requiresAuth: true
+    }
   },
   {
     path: '/articles/add',
@@ -38,5 +36,10 @@ export default [
     meta: {
       requiresAuth: true
     }
+  },
+  {
+    path: '/articles/:id',
+    name: 'article',
+    component: AllArticles
   }
 ]
