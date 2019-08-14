@@ -14,7 +14,6 @@
         <v-btn :to="'/articles/all'">Всички статии</v-btn>
         <v-btn :to="'/register'">Регистрация</v-btn>
         <v-btn :to="'/login'">Вход</v-btn>
-        <v-btn :to="'/admin'">Админ</v-btn>
         <v-btn @click="logout">Изход</v-btn>
       </v-toolbar-items>
 
