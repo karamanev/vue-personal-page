@@ -62,7 +62,7 @@ export default Vue.extend({
     OnAddArticle (): void {
       articlesCollection.add({
         ...this.article,
-        createdAt: new Date()
+        date: new Date()
       })
       .then(function(docRef) {
         console.log(docRef);
