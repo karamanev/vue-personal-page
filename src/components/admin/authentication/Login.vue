@@ -25,19 +25,19 @@
 <script lang="ts">
 import {required, minLength, maxLength, email} from 'vuelidate/lib/validators'
 import AuthenticationService from './AuthenticationService'
-import UserInterface from '../../../core/models/UserInterface'
+import {User} from '../../../core/models/UserInterface'
 
 export default {
   data() {
     return { user: {
       password: '',
-      email: ''} as UserInterface
+      email: ''} as User
     }
   },
   validations: {
     user:{
       email: {required, minLength: minLength(3), maxLength: maxLength(20), email},
-      userpassword: {required}
+      password: {required}
     }
   },
   methods: {

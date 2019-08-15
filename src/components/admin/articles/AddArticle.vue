@@ -20,7 +20,7 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" :disabled="$v.$error" @click="OnAddArticle">Изпрати</v-btn>
+            <v-btn color="primary" :disabled="$v.article.$error" @click="OnAddArticle">Изпрати</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
@@ -31,7 +31,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import ArticleInterface from '../../../core/models/ArticleInterface'
+import {ArticleInput} from '../../../core/models/ArticleInterface'
 import {required, minLength, maxLength} from 'vuelidate/lib/validators';
 import {articlesCollection} from '../../../main'
 
@@ -42,12 +42,12 @@ export default Vue.extend({
         title:'',
         subtitle: '',
         text: '',
-        images: [''],
-        innerTitles: [''],
-        imageTexts: [''],
-        quotes: [''],
-        topics: ['']
-    } as ArticleInterface
+        images: '',
+        innerTitles: '',
+        imageTexts: '',
+        quotes: '',
+        topics: ''
+    } as ArticleInput
   }},
   validations: {
     article : {
@@ -64,8 +64,15 @@ export default Vue.extend({
   methods: {
     OnAddArticle (): void {
       articlesCollection.add({
-        ...this.article,
-        date: new Date()
+      title: this.article.title,
+      subtitle: this.article.subtitle,
+      text: this.article.text,
+      images: this.article.images.split(';').map(item => item.trim()),
+      innerTitles: this.article.innerTitles.split(';').map(item => item.trim()),
+      imageTexts: this.article.imageTexts.split(';').map(item => item.trim()),
+      topics: this.article.topics.split(';').map(item => item.trim()),
+      quotes: this.article.quotes.split(';').map(item => item.trim()),
+      date: new Date()
       })
       .then(function(docRef) {
         console.log(docRef);
@@ -79,12 +86,12 @@ export default Vue.extend({
         title:'',
         subtitle: '',
         text: '',
-        images: [''],
-        innerTitles: [''],
-        imageTexts: [''],
-        quotes: [''],
-        topics: ['']
-    } as ArticleInterface
+        images: '',
+        innerTitles: '',
+        imageTexts: '',
+        quotes: '',
+        topics: ''
+    } as ArticleInput
 
     }
   },
