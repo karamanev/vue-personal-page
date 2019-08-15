@@ -8,7 +8,7 @@
           </v-toolbar>
           <v-card-text>
             <v-form ref="form" lazy-validation>
-              <v-text-field name="email" label="Заглавие" type="text" v-model="$v.article.title.$model">Заглавие</v-text-field>
+              <v-text-field name="email" label="Заглавие" type="text" v-model="$v.article.title.$model"></v-text-field>
               <v-text-field name="email" label="Подзаглавие" type="text" v-model="$v.article.subtitle.$model"></v-text-field>
               <v-text-field name="email" label="Текст" type="text" v-model="$v.article.text.$model"></v-text-field>
               <v-text-field name="email" label="Изображения (разделени с ;)" type="text" v-model="$v.article.images.$model"></v-text-field>
@@ -51,9 +51,9 @@ export default Vue.extend({
   }},
   validations: {
     article : {
-      title: {required, minLength: minLength(3), maxLength: maxLength(20)},
-      subtitle: {required, minLength: minLength(3), maxLength: maxLength(20)},
-      text: {required, minLength: minLength(3), maxLength: maxLength(20)},
+      title: {required, minLength: minLength(3), maxLength: maxLength(2000)},
+      subtitle: {required, minLength: minLength(3), maxLength: maxLength(2000)},
+      text: {required, minLength: minLength(3), maxLength: maxLength(2000)},
       images: {required},
       innerTitles: {required},
       imageTexts: {required},

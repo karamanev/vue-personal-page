@@ -4,6 +4,7 @@ import Register from '../../components/admin/authentication/Register.vue'
 import Login from '../../components/admin/authentication/Login.vue'
 import AllArticles from '../../components/public/articles/AllArticles.vue'
 import AddArticle from '../../components/admin/articles/AddArticle.vue'
+import AddQuote from '../../components/admin/quotes/AddQuote.vue'
 
 export default [
   {
@@ -17,17 +18,9 @@ export default [
     component: Register
   },
   {
-    path: '*',
-    name: 'home',
-    component: Home
-  },
-  {
     path: '/articles/all',
     name: 'allArticles',
     component: AllArticles,
-    meta: {
-      requiresAuth: true
-    }
   },
   {
     path: '/articles/add',
@@ -41,5 +34,27 @@ export default [
     path: '/articles/:id',
     name: 'article',
     component: AllArticles
+  },
+  {
+    path: '/quotes/add',
+    name: 'addQuote',
+    component: AddQuote,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/quotes/:id',
+    name: 'quote',
+    component: AllArticles
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: Home
+  },
+  {
+  path: '*',
+    redirect: 'home'
   }
 ]

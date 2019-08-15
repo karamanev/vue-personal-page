@@ -44,8 +44,8 @@ export default {
     OnLoginClick (): void {
       AuthenticationService.login(this.user.email, this.user.password).then(
         (user: any) => {
-          localStorage.setItem('username', user.user.email) 
-          localStorage.setItem('token', user.user.refreshToken) 
+          localStorage.setItem('access_token', user.token)
+          this.$bus.$emit('logged', 'User logged')
           this.$router.push('/articles/add')
         },
         (err) => {

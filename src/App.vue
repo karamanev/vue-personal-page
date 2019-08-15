@@ -1,9 +1,15 @@
 <template>
-  <div id="app">
-    <page-header/>
-    <router-view />
-    <page-footer/>
-  </div>
+  <v-app id="app">
+    <page-header app/>
+
+    <v-content>
+      <v-container fluid>
+        <router-view/>
+      </v-container>
+    </v-content>
+
+    <page-footer app/>
+  </v-app>
 </template>
 
 <script lang="ts">
@@ -22,4 +28,8 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+#app {
+  font-family: 'Repo', Arial, sans-serif;
+  text-align: center;
+}
 </style>
