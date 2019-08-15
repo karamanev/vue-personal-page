@@ -5,7 +5,7 @@ export interface Article {
     images: [string];
     innerTitles: [string];
     quotes: [string];
-    topics: [string]
+    topics: [Topics]
     imageTexts?: [string];
 }
 
@@ -19,4 +19,11 @@ export interface ArticleInput {
     quotes: string;
     topics: string
     imageTexts: string;
+}
+
+
+export enum Topics { 
+    'Литература',
+    'Технологии',
+    'Наука'
 }

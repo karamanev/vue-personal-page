@@ -51,9 +51,9 @@ export default Vue.extend({
   }},
   validations: {
     article : {
-      title: {required, minLength: minLength(3), maxLength: maxLength(20)},
-      subtitle: {required, minLength: minLength(3), maxLength: maxLength(20)},
-      text: {required, minLength: minLength(3), maxLength: maxLength(20)},
+      title: {required, minLength: minLength(3), maxLength: maxLength(2000)},
+      subtitle: {required, minLength: minLength(3), maxLength: maxLength(2000)},
+      text: {required, minLength: minLength(3), maxLength: maxLength(2000)},
       images: {required},
       innerTitles: {required},
       imageTexts: {required},
