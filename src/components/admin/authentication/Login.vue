@@ -8,8 +8,8 @@
           </v-toolbar>
           <v-card-text>
             <v-form ref="form" lazy-validation>
-              <v-text-field name="email" label="Имейл" type="email" v-model="$v.email.$model"></v-text-field>
-              <v-text-field name="password" label="Парола" id="password" type="password" v-model="$v.password.$model"></v-text-field>
+              <v-text-field name="email" label="Имейл" type="email" v-model="$v.user.email.$model"></v-text-field>
+              <v-text-field name="password" label="Парола" id="password" type="password" v-model="$v.user.password.$model"></v-text-field>
             </v-form>
           </v-card-text>
           <v-card-actions>
@@ -22,28 +22,31 @@
   </v-container>
 </template>
 
-<script>
-import {required, minLength, maxLength, email} from 'vuelidate/lib/validators';
-import AuthenticationService from './AuthenticationService.ts'
+<script lang="ts">
+import {required, minLength, maxLength, email} from 'vuelidate/lib/validators'
+import AuthenticationService from './AuthenticationService'
+import {User} from '../../../core/models/UserInterface'
 
 export default {
   data() {
-      return {
-        password: '',
-        email: '',
-      }
+    return { user: {
+      password: '',
+      email: ''} as User
+    }
   },
   validations: {
+    user:{
       email: {required, minLength: minLength(3), maxLength: maxLength(20), email},
       password: {required}
+    }
   },
-    methods: {
-    OnLoginClick () {
-      AuthenticationService.login(this.email, this.password).then(
-        (user) => {
+  methods: {
+    OnLoginClick (): void {
+      AuthenticationService.login(this.user.email, this.user.password).then(
+        (user: any) => {
           localStorage.setItem('username', user.user.email) 
           localStorage.setItem('token', user.user.refreshToken) 
-          this.$router.push('/admin')
+          this.$router.push('/articles/add')
         },
         (err) => {
           alert('Oops. ' + err.message)

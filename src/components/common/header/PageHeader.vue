@@ -1,20 +1,19 @@
 <template>
   <div>
     <v-app-bar
-      color="deep-purple accent-4"
       dark
     >
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Page title</v-toolbar-title>
+      <v-toolbar-title>Георги Караманев</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
       <v-toolbar-items>
-        <v-btn :to="'/articles'">Всички статии</v-btn>
+        <v-btn :to="'/articles/add'">Добави</v-btn>
+        <v-btn :to="'/articles/all'">Всички статии</v-btn>
         <v-btn :to="'/register'">Регистрация</v-btn>
         <v-btn :to="'/login'">Вход</v-btn>
-        <v-btn :to="'/admin'">Админ</v-btn>
         <v-btn @click="logout">Изход</v-btn>
       </v-toolbar-items>
 

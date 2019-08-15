@@ -9,6 +9,7 @@ import vuetify from './core/plugins/vuetify'
 import Vuex from 'vuex'
 
 Vue.config.productionTip = false
+Vue.config.devtools = true;
 Vue.use(firestorePlugin)
 Vue.use(Vuelidate)
 Vue.use(Vuex)

@@ -1,15 +1,15 @@
 <template>
   <div v-if="articles">
     <article v-for="(article, index) in articles" :key="index">
-      <h1>{{ article.title }}</h1>
+      <h1 color="light-primary">{{ article.title }}</h1>
       <h2>{{ article.content }}</h2>
     </article>
   </div>
 </template>
 
-<script>
+<script lang="ts">
 
-import {articlesCollection} from '../../../main.ts'
+import {articlesCollection} from '../../../main'
 
 export default {
   data () {
@@ -25,6 +25,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss">
+h1{
+  background-color: var(--v-primary-base) !important;
+}
 </style>

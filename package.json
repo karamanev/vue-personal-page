@@ -60,10 +60,9 @@
     },
     "extends": [
       "@vue/typescript",
-      "plugin:vue/essential",
+      "plugin:vue/recommended",
       "eslint:recommended"
     ],
-    "rules": {},
     "parserOptions": {
       "parser": "@typescript-eslint/parser"
     }
