@@ -8,56 +8,49 @@ import AddQuote from '../../components/admin/quotes/AddQuote.vue'
 
 export default [
   {
-    path: '/login', 
+    path: '/login',
+    name: 'login',
     component: Login
   },
-
   {
-    path: '/register', 
+    path: '/register',
+    name: 'register',
     component: Register
   },
-
   {
-    path: '/articles', 
-    component: AllArticles, 
-    children: [
-      { path: 'add', 
-        component: AddArticle,
-        meta: {
-          requiresAuth: true
-        }
-      },
-      { path: ':id', component: AddArticle },
-      { path: ':id/edit', 
-        component: AddArticle,
-        meta: {
-          requiresAuth: true
-        }
-      }
-    ],
+    path: '/articles/all',
+    name: 'allArticles',
+    component: AllArticles,
   },
-
   {
-    path: '/quotes', 
-    component: AllArticles, 
-    children: [
-      { path: 'add', 
-        component: AddQuote,
-        meta: {
-          requiresAuth: true
-        }
-      },
-      { path: ':id', component: AddQuote },
-      { path: ':id/edit', 
-        component: AddQuote,
-        meta: {
-          requiresAuth: true
-        }
-      }
-    ],
+    path: '/articles/add',
+    name: 'addArticle',
+    component: AddArticle,
+    meta: {
+      requiresAuth: true
+    }
   },
-
   {
-    path: '*', component: Home
-  }
+    path: '/articles/:id',
+    name: 'article',
+    component: AllArticles
+  },
+  {
+    path: '/quotes/add',
+    name: 'addQuote',
+    component: AddQuote,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/quotes/:id',
+    name: 'quote',
+    component: AllArticles
+  },
+    {
+    path: '*',
+    name: 'home',
+    component: Home
+  },
 ]

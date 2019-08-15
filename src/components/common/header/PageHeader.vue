@@ -3,17 +3,15 @@
     <v-app-bar
       dark
     >
-      <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
-      <v-toolbar-title id="logo" :to="'/'">Георги Караманев</v-toolbar-title>
+      <v-toolbar-title ><router-link id="logo" :to="{name:'home'}">Георги Караманев</router-link></v-toolbar-title>
 
       <v-spacer></v-spacer>
 
       <v-toolbar-items>
-        <v-btn :to="'/articles/add'">Добави</v-btn>
-        <v-btn :to="'/articles/all'">Всички статии</v-btn>
-        <v-btn :to="'/register'">Регистрация</v-btn>
-        <v-btn :to="'/login'">Вход</v-btn>
+        <v-btn :to="{name:'addArticle'}">Добави</v-btn>
+        <v-btn :to="{name:'allArticles'}">Всички статии</v-btn>
+        <v-btn :to="{name:'register'}">Регистрация</v-btn>
+        <v-btn :to="{name:'addArticle'}">Вход</v-btn>
         <v-btn @click="logout">Изход</v-btn>
       </v-toolbar-items>
 
@@ -66,10 +64,12 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 
 #logo {
   font-family: 'Caveat' !important;
+  text-decoration: none;
+  color: white;
 }
 
 </style>

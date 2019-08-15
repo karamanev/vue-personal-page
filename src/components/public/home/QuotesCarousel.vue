@@ -24,10 +24,19 @@ import Vue from 'vue';
 </template>
 
 <script lang="ts">
-export default {
-
-
-}
+  export default {
+    data () {
+      return {
+        colors: [
+          'primary',
+          'secondary',
+          'yellow darken-2',
+          'red',
+          'orange',
+        ],
+      }
+    },
+  }
 
 </script>
 

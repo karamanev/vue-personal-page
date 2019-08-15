@@ -4,18 +4,14 @@
       <v-flex xs12 sm8 md4>
         <v-card class="elevation-12">
           <v-toolbar dark >
-            <v-toolbar-title class="text-primary" color="primary">Добави публикация</v-toolbar-title>
+            <v-toolbar-title class="text-primary" color="primary">Добави цитат</v-toolbar-title>
           </v-toolbar>
           <v-card-text>
             <v-form ref="form" lazy-validation>
-              <v-text-field name="email" label="Заглавие" type="text" v-model="$v.article.title.$model">Заглавие</v-text-field>
-              <v-text-field name="email" label="Подзаглавие" type="text" v-model="$v.article.subtitle.$model"></v-text-field>
-              <v-text-field name="email" label="Текст" type="text" v-model="$v.article.text.$model"></v-text-field>
-              <v-text-field name="email" label="Изображения (разделени с ;)" type="text" v-model="$v.article.images.$model"></v-text-field>
-              <v-text-field name="email" label="Вътрешни заглавия (разделени с ;)" type="text" v-model="$v.article.innerTitles.$model"></v-text-field>
-              <v-text-field name="email" label="Текстове към снимки (разделени с ;)" type="text" v-model="$v.article.imageTexts.$model"></v-text-field>
-              <v-text-field name="email" label="Цитати (разделени с ;)" type="text" v-model="$v.article.quotes.$model"></v-text-field>
-              <v-text-field name="email" label="Рубрики (разделени с ;)" type="text" v-model="$v.article.topics.$model"></v-text-field>
+              <v-text-field name="email" label="Анонс" type="text" v-model="$v.quote.anouncement.$model"></v-text-field>
+              <v-text-field name="email" label="Текст" type="text" v-model="$v.quote.text.$model"></v-text-field>
+              <v-text-field name="email" label="Автор" type="text" v-model="$v.quote.author.$model"></v-text-field>
+              <v-text-field name="email" label="Снимка" type="text" v-model="$v.quote.image.$model"></v-text-field>
             </v-form>
           </v-card-text>
           <v-card-actions>
@@ -31,67 +27,48 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import {ArticleInput} from '../../../core/models/ArticleInterface'
+import {QuoteInput, Quote} from '../../../core/models/QuoteInterface'
 import {required, minLength, maxLength} from 'vuelidate/lib/validators';
-import {articlesCollection} from '../../../main'
+import {quotesCollection} from '../../../main'
 
 export default Vue.extend({
   data() {
     return {
-      article: {
-        title:'',
-        subtitle: '',
+      quote: {
+        anouncement: '',
         text: '',
-        images: '',
-        innerTitles: '',
-        imageTexts: '',
-        quotes: '',
-        topics: ''
-    } as ArticleInput
-  }},
+        author: '',
+        image: ''
+      } as QuoteInput
+    }
+  },
   validations: {
-    article : {
-      title: {required, minLength: minLength(3), maxLength: maxLength(2000)},
-      subtitle: {required, minLength: minLength(3), maxLength: maxLength(2000)},
+    quote : {
+      anouncement: {required, minLength: minLength(3), maxLength: maxLength(200)},
       text: {required, minLength: minLength(3), maxLength: maxLength(2000)},
-      images: {required},
-      innerTitles: {required},
-      imageTexts: {required},
-      topics: {required},
-      quotes: {required},
+      author: {required, minLength: minLength(3), maxLength: maxLength(2000)},
+      image: {required, minLength: minLength(3), maxLength: maxLength(2000)},
     }, 
   },
   methods: {
-    OnAddArticle (): void {
-      articlesCollection.add({
-      title: this.article.title,
-      subtitle: this.article.subtitle,
-      text: this.article.text,
-      images: this.article.images.split(';').map(item => item.trim()),
-      innerTitles: this.article.innerTitles.split(';').map(item => item.trim()),
-      imageTexts: this.article.imageTexts.split(';').map(item => item.trim()),
-      topics: this.article.topics.split(';').map(item => item.trim()),
-      quotes: this.article.quotes.split(';').map(item => item.trim()),
+    OnAddQuote (): void {
+      quotesCollection.add({
+      ...this.quote,
       date: new Date()
+      } as Quote) 
+        .then(function(docRef) {
+          console.log(docRef);
+          console.log("Document written with ID: ", docRef.id);
       })
-      .then(function(docRef) {
-        console.log(docRef);
-        
-        console.log("Document written with ID: ", docRef.id);
-      })
-      .catch(function(error) {
-        console.error("Error adding document: ", error);
+        .catch(function(error) {
+          console.error("Error adding document: ", error);
       });
-      this.article = {
-        title:'',
-        subtitle: '',
+      this.quote = {
+        anouncement: '',
         text: '',
-        images: '',
-        innerTitles: '',
-        imageTexts: '',
-        quotes: '',
-        topics: ''
-    } as ArticleInput
+        author: '',
+        image: ''
+    } as QuoteInput
 
     }
   },
