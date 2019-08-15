@@ -4,6 +4,7 @@ export default interface Article {
     text: string;
     images: [string];
     innerTitles: [string];
-    imageTexts?: [string];
     quotes: [string];
+    topics: [string]
+    imageTexts?: [string];
 }

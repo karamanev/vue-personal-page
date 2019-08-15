@@ -15,6 +15,7 @@
               <v-text-field name="email" label="Вътрешни заглавия (разделени с ;)" type="text" v-model="$v.article.innerTitles.$model"></v-text-field>
               <v-text-field name="email" label="Текстове към снимки (разделени с ;)" type="text" v-model="$v.article.imageTexts.$model"></v-text-field>
               <v-text-field name="email" label="Цитати (разделени с ;)" type="text" v-model="$v.article.quotes.$model"></v-text-field>
+              <v-text-field name="email" label="Рубрики (разделени с ;)" type="text" v-model="$v.article.topics.$model"></v-text-field>
             </v-form>
           </v-card-text>
           <v-card-actions>
@@ -44,7 +45,8 @@ export default Vue.extend({
         images: [''],
         innerTitles: [''],
         imageTexts: [''],
-        quotes: ['']
+        quotes: [''],
+        topics: ['']
     } as ArticleInterface
   }},
   validations: {
@@ -55,6 +57,7 @@ export default Vue.extend({
       images: {required},
       innerTitles: {required},
       imageTexts: {required},
+      topics: {required},
       quotes: {required},
     }, 
   },
@@ -79,7 +82,8 @@ export default Vue.extend({
         images: [''],
         innerTitles: [''],
         imageTexts: [''],
-        quotes: ['']
+        quotes: [''],
+        topics: ['']
     } as ArticleInterface
 
     }
