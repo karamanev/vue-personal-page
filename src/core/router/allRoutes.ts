@@ -48,9 +48,13 @@ export default [
     name: 'quote',
     component: AllArticles
   },
-    {
-    path: '*',
+  {
+    path: '/home',
     name: 'home',
     component: Home
   },
+  {
+  path: '*',
+    redirect: 'home'
+  }
 ]

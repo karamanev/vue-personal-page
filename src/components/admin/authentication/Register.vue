@@ -48,8 +48,8 @@ export default {
       if (this.$refs.form.validate()) {
       AuthenticationService.register(this.user.email, this.user.password).then(
         (user: any) => {
-          localStorage.setItem('username', user.email) 
-          localStorage.setItem('token', user.refreshToken) 
+          localStorage.setItem('access_token', user.token);
+          this.$bus.$emit('logged', 'User logged');
           this.$router.push('/articles/add')        },
         (err) => {
           alert('Oops. ' + err.message)
