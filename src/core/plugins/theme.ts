@@ -5,5 +5,5 @@ export default {
   error: '#FF5252',
   info: '#003B6D',
   success: '#4CAF50',
-  warning: '#FFC107',
+  warning: '#FFC107'
 }
