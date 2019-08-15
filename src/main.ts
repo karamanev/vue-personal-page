@@ -19,7 +19,8 @@ const db = firebase
   .initializeApp(firebaseConfig)
   .firestore()
 
-  export const articlesCollection = db.collection('articles');
+export const articlesCollection = db.collection('articles');
+export const quotesCollection = db.collection('quoutes');
 
 
 firebase.auth().onAuthStateChanged(() => {

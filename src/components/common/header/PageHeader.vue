@@ -5,7 +5,7 @@
     >
       <v-app-bar-nav-icon></v-app-bar-nav-icon>
 
-      <v-toolbar-title>Георги Караманев</v-toolbar-title>
+      <v-toolbar-title id="logo" :to="'/'">Георги Караманев</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
@@ -66,6 +66,10 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+
+#logo {
+  font-family: 'Caveat' !important;
+}
 
 </style>

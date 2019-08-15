@@ -7,6 +7,7 @@ export interface Article {
     quotes: [string];
     topics: [Topics]
     imageTexts?: [string];
+    date: Date
 }
 
 
