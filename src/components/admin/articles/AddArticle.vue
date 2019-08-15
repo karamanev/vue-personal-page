@@ -31,15 +31,15 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import {ArticleInput} from '../../../core/models/ArticleInterface'
-import {required, minLength, maxLength} from 'vuelidate/lib/validators';
-import {articlesCollection} from '../../../main'
+import { ArticleInput } from '../../../core/models/ArticleInterface'
+import { required, minLength, maxLength } from 'vuelidate/lib/validators';
+import { articlesCollection } from '../../../main'
 
 export default Vue.extend({
   data() {
     return {
       article: {
-        title:'',
+        title: '',
         subtitle: '',
         text: '',
         images: '',
@@ -47,54 +47,58 @@ export default Vue.extend({
         imageTexts: '',
         quotes: '',
         topics: ''
-    } as ArticleInput
-  }},
-  validations: {
-    article : {
-      title: {required, minLength: minLength(3), maxLength: maxLength(2000)},
-      subtitle: {required, minLength: minLength(3), maxLength: maxLength(2000)},
-      text: {required, minLength: minLength(3), maxLength: maxLength(2000)},
-      images: {required},
-      innerTitles: {required},
-      imageTexts: {required},
-      topics: {required},
-      quotes: {required},
-    }, 
-  },
-  methods: {
-    OnAddArticle (): void {
-      articlesCollection.add({
-      title: this.article.title,
-      subtitle: this.article.subtitle,
-      text: this.article.text,
-      images: this.article.images.split(';').map(item => item.trim()),
-      innerTitles: this.article.innerTitles.split(';').map(item => item.trim()),
-      imageTexts: this.article.imageTexts.split(';').map(item => item.trim()),
-      topics: this.article.topics.split(';').map(item => item.trim()),
-      quotes: this.article.quotes.split(';').map(item => item.trim()),
-      date: new Date()
-      })
-      .then(function(docRef) {
-        console.log(docRef);
-        
-        console.log("Document written with ID: ", docRef.id);
-      })
-      .catch(function(error) {
-        console.error("Error adding document: ", error);
-      });
-      this.article = {
-        title:'',
-        subtitle: '',
-        text: '',
-        images: '',
-        innerTitles: '',
-        imageTexts: '',
-        quotes: '',
-        topics: ''
-    } as ArticleInput
-
+      } as ArticleInput
     }
   },
+  validations: {
+    article: {
+      title: { required, minLength: minLength(3), maxLength: maxLength(2000) },
+      subtitle: {
+        required,
+        minLength: minLength(3),
+        maxLength: maxLength(2000)
+      },
+      text: { required, minLength: minLength(3), maxLength: maxLength(2000) },
+      images: { required },
+      innerTitles: { required },
+      imageTexts: { required },
+      topics: { required },
+      quotes: { required }
+    }
+  },
+  methods: {
+    OnAddArticle(): void {
+      articlesCollection.add({
+        title: this.article.title,
+        subtitle: this.article.subtitle,
+        text: this.article.text,
+        images: this.article.images.split(';').map(item => item.trim()),
+        innerTitles: this.article.innerTitles.split(';').map(item => item.trim()),
+        imageTexts: this.article.imageTexts.split(';').map(item => item.trim()),
+        topics: this.article.topics.split(';').map(item => item.trim()),
+        quotes: this.article.quotes.split(';').map(item => item.trim()),
+        date: new Date()
+      })
+        .then(function (docRef) {
+          console.log(docRef);
+
+          console.log("Document written with ID: ", docRef.id);
+        })
+        .catch(function (error) {
+          console.error("Error adding document: ", error);
+        });
+      this.article = {
+        title: '',
+        subtitle: '',
+        text: '',
+        images: '',
+        innerTitles: '',
+        imageTexts: '',
+        quotes: '',
+        topics: ''
+      } as ArticleInput
+    }
+  }
 })
 
 </script>

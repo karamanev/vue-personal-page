@@ -1,7 +1,7 @@
 <template>
   <div>
     <v-app-bar color="secondary">
-      <v-toolbar-title ><router-link id="logo" :to="{name:'home'}">Георги Караманев</router-link></v-toolbar-title>
+      <v-toolbar-title class="pl-2"><router-link id="logo" :to="{name:'home'}">Георги Караманев</router-link></v-toolbar-title>
 
       <v-spacer></v-spacer>
 
@@ -9,7 +9,7 @@
         <v-btn v-if="isLogged === true" text color="white" :to="{name:'addArticle'}">Добави</v-btn>
         <v-btn text color="white" :to="{name:'allArticles'}">Всички статии</v-btn>
         <v-btn v-if="isLogged === false" text color="white" :to="{name:'register'}">Регистрация</v-btn>
-        <v-btn v-if="isLogged === false" text color="white" :to="{name:'addArticle'}">Вход</v-btn>
+        <v-btn v-if="isLogged === false" text color="white" :to="{name:'login'}">Вход</v-btn>
         <v-btn v-if="isLogged === true" text color="white" @click="logout">Изход</v-btn>
       </v-toolbar-items>
 
@@ -43,33 +43,33 @@
 </template>
 
 
-
 <script>
 import AuthenticationService from '../../admin/authentication/AuthenticationService'
 
 export default {
-  data () {
+  data() {
     return {
       isLogged: this.checkIfIsLogged()
     }
   },
-  created () {
+  created() {
     this.$bus.$on('logged', () => {
       this.isLogged = this.checkIfIsLogged()
     })
   },
   methods: {
     logout() {
-        AuthenticationService.logout().then(() => {
-          localStorage.removeItem('access_token')
-          this.isLogged = this.checkIfIsLogged()
-          this.$router.push('/home');
-        },
-        (err) => {
-          alert('Oops. ' + err.message);
-        }
-    )},
-    checkIfIsLogged () {
+      AuthenticationService.logout().then(() => {
+        localStorage.removeItem('access_token')
+        this.isLogged = this.checkIfIsLogged()
+        this.$router.push('/home');
+      },
+      (err) => {
+        alert('Oops. ' + err.message);
+      }
+      )
+    },
+    checkIfIsLogged() {
       let token = localStorage.getItem('access_token')
       if (token) {
         return true

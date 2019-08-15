@@ -20,7 +20,7 @@ export default [
   {
     path: '/articles/all',
     name: 'allArticles',
-    component: AllArticles,
+    component: AllArticles
   },
   {
     path: '/articles/add',
@@ -54,7 +54,7 @@ export default [
     component: Home
   },
   {
-  path: '*',
+    path: '*',
     redirect: 'home'
   }
 ]

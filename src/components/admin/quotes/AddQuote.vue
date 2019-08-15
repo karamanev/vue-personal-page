@@ -27,9 +27,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import {QuoteInput, Quote} from '../../../core/models/QuoteInterface'
-import {required, minLength, maxLength} from 'vuelidate/lib/validators';
-import {quotesCollection} from '../../../main'
+import { QuoteInput, Quote } from '../../../core/models/QuoteInterface'
+import { required, minLength, maxLength } from 'vuelidate/lib/validators';
+import { quotesCollection } from '../../../main'
 
 export default Vue.extend({
   data() {
@@ -43,35 +43,42 @@ export default Vue.extend({
     }
   },
   validations: {
-    quote : {
-      anouncement: {required, minLength: minLength(3), maxLength: maxLength(200)},
-      text: {required, minLength: minLength(3), maxLength: maxLength(2000)},
-      author: {required, minLength: minLength(3), maxLength: maxLength(2000)},
-      image: {required, minLength: minLength(3), maxLength: maxLength(2000)},
-    }, 
+    quote: {
+      anouncement: {
+        required,
+        minLength: minLength(3),
+        maxLength: maxLength(200)
+      },
+      text: { required, minLength: minLength(3), maxLength: maxLength(2000) },
+      author: {
+        required,
+        minLength: minLength(3),
+        maxLength: maxLength(2000)
+      },
+      image: { required, minLength: minLength(3), maxLength: maxLength(2000) }
+    }
   },
   methods: {
-    OnAddQuote (): void {
+    OnAddQuote(): void {
       quotesCollection.add({
-      ...this.quote,
-      date: new Date()
-      } as Quote) 
-        .then(function(docRef) {
+        ...this.quote,
+        date: new Date()
+      } as Quote)
+        .then(function (docRef) {
           console.log(docRef);
           console.log("Document written with ID: ", docRef.id);
-      })
-        .catch(function(error) {
+        })
+        .catch(function (error) {
           console.error("Error adding document: ", error);
-      });
+        });
       this.quote = {
         anouncement: '',
         text: '',
         author: '',
         image: ''
-    } as QuoteInput
-
+      } as QuoteInput
     }
-  },
+  }
 })
 
 </script>

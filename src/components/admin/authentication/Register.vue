@@ -24,13 +24,18 @@
 
 
 <script lang="ts">
-import {required, minLength, maxLength, email} from 'vuelidate/lib/validators';
+import {
+  required,
+  minLength,
+  maxLength,
+  email
+} from 'vuelidate/lib/validators';
 import AuthenticationService from './AuthenticationService'
-import {User} from '../../../core/models/UserInterface'
+import { User } from '../../../core/models/UserInterface'
 
 export default {
   data() {
-    return { 
+    return {
       user: {
         password: '',
         email: ''
@@ -39,25 +44,31 @@ export default {
   },
   validations: {
     user: {
-      email: {required, minLength: minLength(3), maxLength: maxLength(20), email},
-      password: {required}
+      email: {
+        required,
+        minLength: minLength(3),
+        maxLength: maxLength(20),
+        email
+      },
+      password: { required }
     }
   },
   methods: {
-    OnRegisterClick (): void {
+    OnRegisterClick(): void {
       if (this.$refs.form.validate()) {
-      AuthenticationService.register(this.user.email, this.user.password).then(
-        (user: any) => {
-          localStorage.setItem('access_token', user.token);
-          this.$bus.$emit('logged', 'User logged');
-          this.$router.push('/articles/add')        },
-        (err) => {
-          alert('Oops. ' + err.message)
-        }
-      );
+        AuthenticationService.register(this.user.email, this.user.password).then(
+          (user: any) => {
+            localStorage.setItem('access_token', user.token);
+            this.$bus.$emit('logged', 'User logged');
+            this.$router.push('/articles/add')
+          },
+          (err) => {
+            alert('Oops. ' + err.message)
+          }
+        );
       }
     }
-  },
+  }
 
 }
 </script>
