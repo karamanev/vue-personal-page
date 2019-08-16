@@ -6,15 +6,16 @@
           v-bind="props"
         ></v-img>
       </template>
-      <v-toolbar-title class="pr-2"><router-link id="logo" :to="{name:'home'}">Георги Караманев</router-link></v-toolbar-title>
+      <v-toolbar-title class="pr-4"><router-link id="logo" color="$secondary" :to="{name:'home'}">Георги Караманев</router-link></v-toolbar-title>
 
       <v-spacer></v-spacer>
 
       <v-toolbar-items>
-        <v-btn v-if="isLogged === true" text color="white" :to="{name:'admin'}">Админ</v-btn>
-        <v-btn text color="white" :to="{name:'allArticles'}">Всички статии</v-btn>
+        <v-btn text color="white" :to="{name:'allArticles'}">Публикации</v-btn>
+        <v-btn text color="white" :to="{name:'allArticles'}">И додето</v-btn>
         <v-btn v-if="isLogged === false" text color="white" :to="{name:'register'}">Регистрация</v-btn>
         <v-btn v-if="isLogged === false" text color="white" :to="{name:'login'}">Вход</v-btn>
+        <v-btn v-if="isLogged === true" text color="white" :to="{name:'admin'}">Админ</v-btn>
         <v-btn v-if="isLogged === true" text color="white" @click="logout">Изход</v-btn>
       </v-toolbar-items>
 
@@ -113,7 +114,7 @@ export default {
 #logo {
   font-family: 'Caveat' !important;
   text-decoration: none;
-  color: white;
+  font-size: 44pt;
 }
 
 </style>

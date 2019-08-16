@@ -1,6 +1,7 @@
 <template>
   <v-row align="center" justify="center" class="mt-n12">
-    <v-img src="../../../assets/wall_main.jpg"></v-img>
+    <v-img min-height="250px"
+    src="../../../assets/wall_main.jpg"></v-img>
   </v-row>
 </template>
 
