@@ -21,7 +21,7 @@ const db = firebase
   .firestore()
 
 export const articlesCollection = db.collection('articles')
-export const quotesCollection = db.collection('quoutes')
+export const quotesCollection = db.collection('quotes')
 
 Vue.prototype.$bus = EventBus
 

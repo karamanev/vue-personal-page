@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>Добре дошли в административния панел!</h1>
-    <div class="col-12 d-flex flex-row justify-space-around"> 
+    <div class="col-12 d-flex flex-row justify-space-around">
       <v-btn :to="{name:'addArticle'}">Добави статия</v-btn>
       <v-btn :to="{name:'deleteArticle'}">Изтрий статия</v-btn>
       <v-btn :to="{name:'addQuote'}">Добави цитат</v-btn>

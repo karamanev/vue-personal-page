@@ -43,7 +43,7 @@ export default Vue.extend({
         .then(() => {
           console.log("Document deleted");
         })
-        .catch( (error) => {
+        .catch((error) => {
           console.error("Error adding document: ", error);
         });
       this.$router.push('/home')

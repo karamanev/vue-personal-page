@@ -2,23 +2,30 @@
   <v-carousel>
     <single-quote
       v-for="quote in quotes"
-      v-bind:key="quote.id"
-      v-bind:quote="quote"
+      :key="quote.id"
+      :quote="quote"
     ></single-quote>
   </v-carousel>
 </template>
 
 <script lang="ts">
+import { quotesCollection } from '@/main'
+import SingleQuote from './SingleQuote.vue'
+
+
 export default {
+  components: {
+    SingleQuote
+  },
+
   data() {
     return {
-      colors: [
-        'primary',
-        'secondary',
-        'yellow darken-2',
-        'red',
-        'orange'
-      ]
+      quotes: []
+    }
+  },
+  firestore() {
+    return {
+      quotes: quotesCollection.orderBy('date')
     }
   }
 }
