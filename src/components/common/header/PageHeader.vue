@@ -6,19 +6,18 @@
           v-bind="props"
         ></v-img>
       </template>
-      <v-toolbar-title class="pr-4"><router-link id="logo" color="$secondary" :to="{name:'home'}">Георги Караманев</router-link></v-toolbar-title>
+      <v-toolbar-title class="pr-4"><router-link id="logo" class="text-capitalize forth--text" text :to="{name:'home'}">Георги Караманев</router-link></v-toolbar-title>
 
       <v-spacer></v-spacer>
 
       <v-toolbar-items>
-        <v-btn text color="white" :to="{name:'allArticles'}">Публикации</v-btn>
-        <v-btn text color="white" :to="{name:'allArticles'}">И додето</v-btn>
-        <v-btn v-if="isLogged === false" text color="white" :to="{name:'register'}">Регистрация</v-btn>
-        <v-btn v-if="isLogged === false" text color="white" :to="{name:'login'}">Вход</v-btn>
-        <v-btn v-if="isLogged === true" text color="white" :to="{name:'admin'}">Админ</v-btn>
-        <v-btn v-if="isLogged === true" text color="white" @click="logout">Изход</v-btn>
+        <v-btn class="text-capitalize third--text" text :to="{name:'allArticles'}">Публикации</v-btn>
+        <v-btn class="text-capitalize third--text" text :to="{name:'allArticles'}">И додето</v-btn>
+        <v-btn v-if="isLogged === false" class="text-capitalize third--text" text :to="{name:'register'}">Регистрация</v-btn>
+        <v-btn v-if="isLogged === false" class="text-capitalize third--text" text :to="{name:'login'}">Вход</v-btn>
+        <v-btn v-if="isLogged === true" class="text-capitalize third--text" text :to="{name:'admin'}">Админ</v-btn>
+        <v-btn v-if="isLogged === true" class="text-capitalize third--text" text @click="logout">Изход</v-btn>
       </v-toolbar-items>
-
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
