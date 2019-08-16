@@ -1,17 +1,19 @@
 <template>
     <div>
-        Home Page
+      <welcome/>
       <quotes-carousel/>
     </div>
 </template>
 
 <script lang="ts">
+import Vue from 'vue'
+import QuotesCarousel from './quotes/QuotesCarousel.vue'
+import Welcome from './Welcome.vue'
 
-import QuotesCarousel from './QuotesCarousel.vue'
-import Vue from 'vue';
 export default Vue.extend({
   components: {
-    QuotesCarousel
+    QuotesCarousel,
+    Welcome
   }
 
 })

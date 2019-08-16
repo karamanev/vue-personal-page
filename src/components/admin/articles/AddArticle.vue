@@ -8,14 +8,14 @@
           </v-toolbar>
           <v-card-text>
             <v-form ref="form" lazy-validation>
-              <v-text-field name="email" label="Заглавие" type="text" v-model="$v.article.title.$model"></v-text-field>
-              <v-text-field name="email" label="Подзаглавие" type="text" v-model="$v.article.subtitle.$model"></v-text-field>
-              <v-text-field name="email" label="Текст" type="text" v-model="$v.article.text.$model"></v-text-field>
-              <v-text-field name="email" label="Изображения (разделени с ;)" type="text" v-model="$v.article.images.$model"></v-text-field>
-              <v-text-field name="email" label="Вътрешни заглавия (разделени с ;)" type="text" v-model="$v.article.innerTitles.$model"></v-text-field>
-              <v-text-field name="email" label="Текстове към снимки (разделени с ;)" type="text" v-model="$v.article.imageTexts.$model"></v-text-field>
-              <v-text-field name="email" label="Цитати (разделени с ;)" type="text" v-model="$v.article.quotes.$model"></v-text-field>
-              <v-text-field name="email" label="Рубрики (разделени с ;)" type="text" v-model="$v.article.topics.$model"></v-text-field>
+              <v-text-field name="title" label="Заглавие" type="text" v-model="$v.article.title.$model"></v-text-field>
+              <v-text-field name="subtitle" label="Подзаглавие" type="text" v-model="$v.article.subtitle.$model"></v-text-field>
+              <v-text-field name="text" label="Текст" type="text" v-model="$v.article.text.$model"></v-text-field>
+              <v-text-field name="images" label="Изображения (разделени с ;)" type="text" v-model="$v.article.images.$model"></v-text-field>
+              <v-text-field name="innerTitles" label="Вътрешни заглавия (разделени с ;)" type="text" v-model="$v.article.innerTitles.$model"></v-text-field>
+              <v-text-field name="imageTexts" label="Текстове към снимки (разделени с ;)" type="text" v-model="$v.article.imageTexts.$model"></v-text-field>
+              <v-text-field name="quotes" label="Цитати (разделени с ;)" type="text" v-model="$v.article.quotes.$model"></v-text-field>
+              <v-text-field name="topics" label="Рубрики (разделени с ;)" type="text" v-model="$v.article.topics.$model"></v-text-field>
             </v-form>
           </v-card-text>
           <v-card-actions>

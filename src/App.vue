@@ -1,13 +1,11 @@
 <template>
   <v-app id="app">
     <page-header app/>
-
-    <v-content>
+    <v-content class="mt-12">
       <v-container fluid>
         <router-view/>
       </v-container>
     </v-content>
-
     <page-footer app/>
   </v-app>
 </template>

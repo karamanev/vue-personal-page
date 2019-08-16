@@ -1,11 +1,5 @@
-import Vue from 'vue';
-
 <template>
-  <v-carousel>
-    <v-carousel-item
-      v-for="(color, i) in colors"
-      :key="color"
-    >
+    <v-carousel-item>
       <v-sheet
         :color="color"
         height="100%"
@@ -20,22 +14,18 @@ import Vue from 'vue';
         </v-layout>
       </v-sheet>
     </v-carousel-item>
-  </v-carousel>
+
+
 </template>
+
 
 <script lang="ts">
 export default {
   data() {
     return {
-      colors: [
-        'primary',
-        'secondary',
-        'yellow darken-2',
-        'red',
-        'orange'
-      ]
     }
-  }
+  },
+  props: []
 }
 
 </script>

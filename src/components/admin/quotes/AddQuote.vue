@@ -8,15 +8,15 @@
           </v-toolbar>
           <v-card-text>
             <v-form ref="form" lazy-validation>
-              <v-text-field name="email" label="Анонс" type="text" v-model="$v.quote.anouncement.$model"></v-text-field>
-              <v-text-field name="email" label="Текст" type="text" v-model="$v.quote.text.$model"></v-text-field>
-              <v-text-field name="email" label="Автор" type="text" v-model="$v.quote.author.$model"></v-text-field>
-              <v-text-field name="email" label="Снимка" type="text" v-model="$v.quote.image.$model"></v-text-field>
+              <v-text-field name="anouncement" label="Анонс" type="text" v-model="$v.quote.anouncement.$model"></v-text-field>
+              <v-text-field name="text" label="Текст" type="text" v-model="$v.quote.text.$model"></v-text-field>
+              <v-text-field name="author" label="Автор" type="text" v-model="$v.quote.author.$model"></v-text-field>
+              <v-text-field name="image" label="Снимка" type="text" v-model="$v.quote.image.$model"></v-text-field>
             </v-form>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" :disabled="$v.article.$error" @click="OnAddArticle">Изпрати</v-btn>
+            <v-btn color="primary" :disabled="$v.quote.$error" @click="OnAddQuote">Изпрати</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
