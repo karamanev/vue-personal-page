@@ -49,8 +49,8 @@
 
 import { articlesCollection } from '../../../../main'
 import Vue from 'vue';
-import BiggerNews from './BiggerNews.vue'
-import SmallNews from './SmallNews.vue'
+import BiggerNews from '../../../common/articles/BiggerNews.vue'
+import SmallNews from '../../../common/articles/SmallNews.vue'
 
 export default Vue.extend({
   components: {
@@ -70,6 +70,6 @@ export default Vue.extend({
 })
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 
 </style>

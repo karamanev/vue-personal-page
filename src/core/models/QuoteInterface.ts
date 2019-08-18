@@ -3,7 +3,8 @@ export interface Quote {
   text: string;
   author: string;
   image: string;
-  date: Date
+  date: Date;
+  id: string;
 }
 
 export interface QuoteInput {

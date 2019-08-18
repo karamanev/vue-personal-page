@@ -1,11 +1,17 @@
 <template>
-  <v-carousel-item>
-    <div class="display-3">Slide {{ quote.id }}</div>
-    <div class="display-3"> {{ quote.text }}</div>
-    <div class="display-3"> {{ quote.date | date }}</div>
-    <div class="display-3"> {{ quote.author }}</div>
-    <img v-bind:src="getImageUrl(quote.image)">
-</v-carousel-item>
+  <v-carousel-item justify-center>
+          <v-avatar size="120px">
+         <span class="big-quote first--text">„</span>
+      <img
+        :src="getImageUrl(quote.image)"
+        alt="John"
+      >
+   </v-avatar>
+		<p class="mt-2">{{ quote.anouncement }}</p>
+		<p class="mt-2">{{ quote.author }}</p>
+
+    <v-btn outlined class="text-capitalize text-underline mr-6 second--text" text :to="{ name:'singleQuote', params: { id: quote.id }}">Нататък</v-btn>
+  </v-carousel-item>
 </template>
 
 <script lang="ts">
@@ -34,6 +40,12 @@ export default Vue.extend({
 
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
+
+.big-quote{
+  font-size: 100pt;
+
+  font-family: 'Caveat';
+}
 
 </style>

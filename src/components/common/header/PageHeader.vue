@@ -111,11 +111,13 @@ export default {
   font-family: 'Caveat';
   text-decoration: none;
   font-size: 40pt;
+  font-weight: 400;
 }
 
 .menu {
   font-weight: 300 !important;
-  font-size: 18pt;
+  font-size: 17pt;
+  letter-spacing: 0;
 }
 
 </style>

@@ -4,22 +4,22 @@ import Vue from "vue"
 Vue.filter("date", (value) => {
   var a = new Date(value.seconds * 1000);
   var months = [
-    'ян',
-    'фев',
-    'мар',
-    'апр',
+    'януари',
+    'февруари',
+    'март',
+    'април',
     'май',
     'юни',
     'юли',
-    'авг',
-    'сеп',
-    'окт',
-    'ное',
-    'дек'
+    'август',
+    'септември',
+    'октомври',
+    'ноември',
+    'декември'
   ];
   var year = a.getFullYear();
   var month = months[a.getMonth()];
   var date = a.getDate();
-  var time = date + ' ' + month + ' ' + year;
+  var time = date + ' ' + month + ' ' + year + ' г.';
   return time;
 })

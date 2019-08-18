@@ -33,7 +33,7 @@ export default [
   },
   {
     path: '/quotes/:id',
-    name: 'quote',
+    name: 'singleQuote',
     component: SingleArticle
   },
   {
