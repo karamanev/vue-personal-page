@@ -7,8 +7,9 @@ Vue.use(Vuetify)
 export default new Vuetify({
   theme: {
     themes: {
-      light: theme 
-    },
+      light: theme,
+      dark: theme
+    }
   },
   icons: {
     iconfont: 'mdi'

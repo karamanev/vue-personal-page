@@ -1,31 +1,28 @@
 <template>
   <div>
-    <v-app-bar fixed color="secondary"  src="../../../assets/bar.jpg">
+    <v-app-bar fixed color="secondary" class="justify-center" src="../../../assets/bar.jpg">
       <template v-slot:img="{ props }">
         <v-img
           v-bind="props"
         ></v-img>
       </template>
-      <v-toolbar-title class="pr-4"><router-link id="logo" class="text-capitalize forth--text" text :to="{name:'home'}">Георги Караманев</router-link></v-toolbar-title>
+      <v-toolbar-title class="pr-4">
+        <router-link id="logo" class="text-capitalize forth--text" text :to="{name:'home'}">Георги Караманев</router-link>
+      </v-toolbar-title>
 
-      <v-spacer></v-spacer>
-
-      <v-toolbar-items>
-        <v-btn class="text-capitalize third--text" text :to="{name:'allArticles'}">Публикации</v-btn>
-        <v-btn class="text-capitalize third--text" text :to="{name:'allArticles'}">И додето</v-btn>
-        <v-btn v-if="isLogged === false" class="text-capitalize third--text" text :to="{name:'register'}">Регистрация</v-btn>
-        <v-btn v-if="isLogged === false" class="text-capitalize third--text" text :to="{name:'login'}">Вход</v-btn>
-        <v-btn v-if="isLogged === true" class="text-capitalize third--text" text :to="{name:'admin'}">Админ</v-btn>
-        <v-btn v-if="isLogged === true" class="text-capitalize third--text" text @click="logout">Изход</v-btn>
+      <v-toolbar-items class="justify-center">
+        <v-btn class="menu third--text text-capitalize" text :to="{name:'allArticles'}">Публикации</v-btn>
+        <v-btn class="menu third--text text-capitalize" text :to="{name:'register'}">И додето</v-btn>
+        <v-btn v-if="isLogged === false" class="menu third--text text-capitalize" text :to="{name:'register'}">Регистрация</v-btn>
+        <v-btn v-if="isLogged === false" class="menu third--text text-capitalize" text :to="{name:'login'}">Вход</v-btn>
+        <v-btn v-if="isLogged === true" class="menu third--text text-capitalize" text :to="{name:'admin'}">Админ</v-btn>
+        <v-btn v-if="isLogged === true" class="menu third--text text-capitalize" text @click="logout">Изход</v-btn>
       </v-toolbar-items>
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
 
-      <v-menu
-        left
-        bottom
-      >
+      <v-menu left bottom>
         <template v-slot:activator="{ on }">
           <v-btn icon v-on="on">
             <v-icon>mdi-dots-vertical</v-icon>
@@ -111,9 +108,14 @@ export default {
 <style scoped lang="scss">
 
 #logo {
-  font-family: 'Caveat' !important;
+  font-family: 'Caveat';
   text-decoration: none;
-  font-size: 44pt;
+  font-size: 40pt;
+}
+
+.menu {
+  font-weight: 300 !important;
+  font-size: 18pt;
 }
 
 </style>

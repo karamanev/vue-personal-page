@@ -8,6 +8,7 @@ import router from './core/router/router'
 import vuetify from './core/plugins/vuetify'
 import Vuex from 'vuex'
 import EventBus from './core/eventBus/eventBus'
+import './core/filters/filters'
 
 Vue.config.productionTip = false
 Vue.config.devtools = true

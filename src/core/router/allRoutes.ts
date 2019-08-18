@@ -2,7 +2,8 @@
 import Home from '../../components/public/home/Home.vue'
 import Register from '../../components/admin/authentication/Register.vue'
 import Login from '../../components/admin/authentication/Login.vue'
-import AllArticles from '../../components/public/articles/AllArticles.vue'
+import AllArticles from '../../components/public/articles/AllArticlesPage/AllArticles.vue'
+import SingleArticle from '../../components/public/articles/SingleArticlePage/SingleArticle.vue'
 import AddArticle from '../../components/admin/articles/AddArticle.vue'
 import DeleteArticle from '../../components/admin/articles/DeleteArticle.vue'
 import AddQuote from '../../components/admin/quotes/AddQuote.vue'
@@ -27,13 +28,13 @@ export default [
   },
   {
     path: '/articles/:id',
-    name: 'article',
-    component: AllArticles
+    name: 'singleArticle',
+    component: SingleArticle
   },
   {
     path: '/quotes/:id',
     name: 'quote',
-    component: AllArticles
+    component: SingleArticle
   },
   {
     path: '/home',

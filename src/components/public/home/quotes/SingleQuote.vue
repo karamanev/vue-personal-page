@@ -29,33 +29,6 @@ export default Vue.extend({
       type: Object as () => Quote,
       default: () => ({})
     }
-  },
-  filters: {
-    date: function (value) {
-      var a = new Date(value.seconds * 1000);
-      var months = [
-        'Ян',
-        'Фев',
-        'Мар',
-        'Апр',
-        'Май',
-        'Юни',
-        'Юли',
-        'Авг',
-        'Сеп',
-        'Окт',
-        'Ное',
-        'Дек'
-      ];
-      var year = a.getFullYear();
-      var month = months[a.getMonth()];
-      var date = a.getDate();
-      var hour = a.getHours();
-      var min = a.getMinutes();
-      var sec = a.getSeconds();
-      var time = date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec;
-      return time;
-    }
   }
 })
 

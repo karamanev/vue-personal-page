@@ -26,8 +26,27 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
+
+$first: #003B6D;
+$second: #6699CC;
+$third: #EBEDF3;
+$forth: #BDBDBD;
+$fifth: #676767;
+
 #app {
   font-family: 'Repo', Arial, sans-serif;
   text-align: center;
 }
+.topic {
+  font-family: 'Caveat' !important;
+  text-align: left;
+  color: $first;
+  font-size: 24pt;
+}
+.info {
+  font-size: 15pt;
+  font-weight: bold;
+  display: inline-block;
+}
+
 </style>

@@ -60,12 +60,13 @@
 
 <script lang="ts">
 
-import { articlesCollection } from '../../../main'
+import { articlesCollection } from '../../../../main'
+import { Article } from '../../../../core/models/ArticleInterface'
 
 export default {
   data() {
     return {
-      articles: [],
+      articles: [] as Article[],
       cards: [
         {
           title: 'Pre-fab homes',
