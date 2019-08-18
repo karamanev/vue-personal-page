@@ -23,25 +23,37 @@
 </template>
 
 <script lang="ts">
-import {required, minLength, maxLength, email} from 'vuelidate/lib/validators'
+import {
+  required,
+  minLength,
+  maxLength,
+  email
+} from 'vuelidate/lib/validators'
 import AuthenticationService from './AuthenticationService'
-import {User} from '../../../core/models/UserInterface'
+import { User } from '../../../core/models/UserInterface'
 
 export default {
   data() {
-    return { user: {
-      password: '',
-      email: ''} as User
+    return {
+      user: {
+        password: '',
+        email: ''
+      } as User
     }
   },
   validations: {
-    user:{
-      email: {required, minLength: minLength(3), maxLength: maxLength(20), email},
-      password: {required}
+    user: {
+      email: {
+        required,
+        minLength: minLength(3),
+        maxLength: maxLength(20),
+        email
+      },
+      password: { required }
     }
   },
   methods: {
-    OnLoginClick (): void {
+    OnLoginClick(): void {
       AuthenticationService.login(this.user.email, this.user.password).then(
         (user: any) => {
           localStorage.setItem('access_token', user.token)
@@ -53,10 +65,10 @@ export default {
         }
       );
     }
-  },
+  }
 }
 </script>
 
-<style>
+<style scoped lang="scss">
 
 </style>

@@ -23,8 +23,13 @@ export interface ArticleInput {
 }
 
 
-export enum Topics { 
+export enum Topics {
     'Литература',
     'Технологии',
-    'Наука'
+    'Наука',
+    'Интервю',
+    'Личво',
+    'Фотография',
+    'Пътеки',
+    'От архива'
 }

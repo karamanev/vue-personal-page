@@ -1,26 +1,28 @@
 <template>
   <div>
-    <v-app-bar color="secondary">
-      <v-toolbar-title ><router-link id="logo" :to="{name:'home'}">Георги Караманев</router-link></v-toolbar-title>
+    <v-app-bar fixed color="secondary" class="justify-center" src="../../../assets/bar.jpg">
+      <template v-slot:img="{ props }">
+        <v-img
+          v-bind="props"
+        ></v-img>
+      </template>
+      <v-toolbar-title class="pr-4">
+        <router-link id="logo" class="text-capitalize forth--text" text :to="{name:'home'}">Георги Караманев</router-link>
+      </v-toolbar-title>
 
-      <v-spacer></v-spacer>
-
-      <v-toolbar-items>
-        <v-btn v-if="isLogged === true" text color="white" :to="{name:'addArticle'}">Добави</v-btn>
-        <v-btn text color="white" :to="{name:'allArticles'}">Всички статии</v-btn>
-        <v-btn v-if="isLogged === false" text color="white" :to="{name:'register'}">Регистрация</v-btn>
-        <v-btn v-if="isLogged === false" text color="white" :to="{name:'addArticle'}">Вход</v-btn>
-        <v-btn v-if="isLogged === true" text color="white" @click="logout">Изход</v-btn>
+      <v-toolbar-items class="justify-center">
+        <v-btn class="menu third--text text-capitalize" text :to="{name:'allArticles'}">Публикации</v-btn>
+        <v-btn class="menu third--text text-capitalize" text :to="{name:'register'}">И додето</v-btn>
+        <v-btn v-if="isLogged === false" class="menu third--text text-capitalize" text :to="{name:'register'}">Регистрация</v-btn>
+        <v-btn v-if="isLogged === false" class="menu third--text text-capitalize" text :to="{name:'login'}">Вход</v-btn>
+        <v-btn v-if="isLogged === true" class="menu third--text text-capitalize" text :to="{name:'admin'}">Админ</v-btn>
+        <v-btn v-if="isLogged === true" class="menu third--text text-capitalize" text @click="logout">Изход</v-btn>
       </v-toolbar-items>
-
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
 
-      <v-menu
-        left
-        bottom
-      >
+      <v-menu left bottom>
         <template v-slot:activator="{ on }">
           <v-btn icon v-on="on">
             <v-icon>mdi-dots-vertical</v-icon>
@@ -42,34 +44,56 @@
   </div>
 </template>
 
+<!--
+  <v-toolbar clipped-left>
+    <v-toolbar-side-icon  @click.stop="drawer = !drawer" class="hidden-md-and-up"></v-toolbar-side-icon>
+    <v-toolbar-title>Title</v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-toolbar-items class="hidden-sm-and-down">
+      <v-btn flat>Link One</v-btn>
+      <v-btn flat>Link Two</v-btn>
+      <v-btn flat>Link Three</v-btn>
+    </v-toolbar-items>
+  </v-toolbar>
+    <v-navigation-drawer
+      v-model="drawer"
+      temporary
+      absolute
+      width = "200"
+      id = "drawer"
+    >
+    </v-navigation-drawer>
 
+     drawer: false
+-->
 
 <script>
 import AuthenticationService from '../../admin/authentication/AuthenticationService'
 
 export default {
-  data () {
+  data() {
     return {
       isLogged: this.checkIfIsLogged()
     }
   },
-  created () {
+  created() {
     this.$bus.$on('logged', () => {
       this.isLogged = this.checkIfIsLogged()
     })
   },
   methods: {
     logout() {
-        AuthenticationService.logout().then(() => {
-          localStorage.removeItem('access_token')
-          this.isLogged = this.checkIfIsLogged()
-          this.$router.push('/home');
-        },
-        (err) => {
-          alert('Oops. ' + err.message);
-        }
-    )},
-    checkIfIsLogged () {
+      AuthenticationService.logout().then(() => {
+        localStorage.removeItem('access_token')
+        this.isLogged = this.checkIfIsLogged()
+        this.$router.push('/home');
+      },
+      (err) => {
+        alert('Oops. ' + err.message);
+      }
+      )
+    },
+    checkIfIsLogged() {
       let token = localStorage.getItem('access_token')
       if (token) {
         return true
@@ -84,9 +108,16 @@ export default {
 <style scoped lang="scss">
 
 #logo {
-  font-family: 'Caveat' !important;
+  font-family: 'Caveat';
   text-decoration: none;
-  color: white;
+  font-size: 40pt;
+  font-weight: 400;
+}
+
+.menu {
+  font-weight: 300 !important;
+  font-size: 17pt;
+  letter-spacing: 0;
 }
 
 </style>

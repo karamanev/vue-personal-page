@@ -1,29 +1,30 @@
-import Vue from 'vue';
-import {firestorePlugin} from 'vuefire';
-import firebase from 'firebase';
-import firebaseConfig from './core/config/firebaseConfig';
-import App from './App.vue';
-import Vuelidate from 'vuelidate';
-import router from './core/router/router';
-import vuetify from './core/plugins/vuetify';
-import Vuex from 'vuex';
+import Vue from 'vue'
+import { firestorePlugin } from 'vuefire'
+import firebase from 'firebase'
+import firebaseConfig from './core/config/firebaseConfig'
+import App from './App.vue'
+import Vuelidate from 'vuelidate'
+import router from './core/router/router'
+import vuetify from './core/plugins/vuetify'
+import Vuex from 'vuex'
 import EventBus from './core/eventBus/eventBus'
+import './core/filters/filters'
 
-Vue.config.productionTip = false;
-Vue.config.devtools = true;
-Vue.use(firestorePlugin);
-Vue.use(Vuelidate);
-Vue.use(Vuex);
+Vue.config.productionTip = false
+Vue.config.devtools = true
+Vue.use(firestorePlugin)
+Vue.use(Vuelidate)
+Vue.use(Vuex)
 
-let app: any = '';
+let app;
 const db = firebase
   .initializeApp(firebaseConfig)
-  .firestore();
+  .firestore()
 
-export const articlesCollection = db.collection('articles');
-export const quotesCollection = db.collection('quoutes');
+export const articlesCollection = db.collection('articles')
+export const quotesCollection = db.collection('quotes')
 
-Vue.prototype.$bus = EventBus;
+Vue.prototype.$bus = EventBus
 
 firebase.auth().onAuthStateChanged(() => {
   if (!app) {
@@ -33,4 +34,4 @@ firebase.auth().onAuthStateChanged(() => {
       render: h => h(App)
     }).$mount('#app')
   }
-});
+})

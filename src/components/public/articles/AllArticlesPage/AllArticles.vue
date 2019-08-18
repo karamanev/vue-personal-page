@@ -46,6 +46,48 @@
     </v-container>
 </template>
 
+<!--<template>
+  <div class="text-center">
+    <v-chip
+      class="ma-2"
+    >
+      Default
+    </v-chip>
+
+    <v-chip
+      class="ma-2"
+      color="primary"
+    >
+      Primary
+    </v-chip>
+
+    <v-chip
+      class="ma-2"
+      color="secondary"
+    >
+      Secondary
+    </v-chip>
+
+    <v-chip
+      class="ma-2"
+      color="red"
+      text-color="white"
+    >
+      Red Chip
+    </v-chip>
+
+    <v-chip
+      class="ma-2"
+      color="green"
+      text-color="white"
+    >
+      Green Chip
+    </v-chip>
+  </div>
+</template>
+
+
+-->
 
 <!-- <template>
   <div v-if="articles">
@@ -60,30 +102,51 @@
 
 <script lang="ts">
 
-import {articlesCollection} from '../../../main'
+import { articlesCollection } from '../../../../main'
+import { Article } from '../../../../core/models/ArticleInterface'
 
 export default {
-  data () {
+  data() {
     return {
-      articles: [],
+      articles: [] as Article[],
       cards: [
-        { title: 'Pre-fab homes', src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg', flex: 12 },
-        { title: 'Favorite road trips', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
-        { title: 'Best airlines', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 },
-        { title: 'Favorite road tripaaas', src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg', flex: 6 },
-        { title: 'Best airlinsaes', src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg', flex: 6 },
-      ],
+        {
+          title: 'Pre-fab homes',
+          src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg',
+          flex: 12
+        },
+        {
+          title: 'Favorite road trips',
+          src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg',
+          flex: 6
+        },
+        {
+          title: 'Best airlines',
+          src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg',
+          flex: 6
+        },
+        {
+          title: 'Favorite road tripaaas',
+          src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg',
+          flex: 6
+        },
+        {
+          title: 'Best airlinsaes',
+          src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg',
+          flex: 6
+        }
+      ]
     }
   },
   firestore() {
     return {
       articles: articlesCollection.orderBy('date')
     }
-  }  
+  }
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 h1{
   background-color: var(--v-primary-base) !important;
 }
