@@ -11,7 +11,7 @@
 <script lang="ts">
 import Vue from 'vue'
 import QuotesCarousel from './quotes/QuotesCarousel.vue'
-import Welcome from './welcome/Welcome.vue'
+import Welcome from './static/Welcome.vue'
 import ArticlesHomepage from './articles/ArticlesHomepage.vue'
 import About from './static/About.vue';
 import Dodeto from './static/Dodeto.vue';

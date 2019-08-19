@@ -1,35 +1,25 @@
 <template>
   <v-carousel-item justify-center background="blue" color="blue">
-      <v-sheet
-        height="100%"
-        tile
-        id="sheet"
-      >
-        <v-layout
-      pt-6
-      mx-12
-      row
-      align-stretch
-    >
-    <v-flex md4>
-    <span class="big-quote first--text mr-12">„</span>
-    <v-avatar left size="120px">
-      <img
-        :src="getImageUrl(quote.image)"
-        alt="Снимка"
-      >
-    </v-avatar>
-    </v-flex>
-    <v-flex md4>
-		<p class="mt-2">{{ quote.anouncement }}</p>
-    </v-flex>
-    <v-flex md4>
-		<p class="mt-2">{{ quote.author }}</p>
-    </v-flex>
-        </v-layout>
-
-    <v-btn outlined class="text-capitalize text-underline mr-6" text :to="{ name:'singleQuote', params: { id: quote.id }}">Нататък</v-btn>
-      </v-sheet>
+    <v-sheet height="100%" id="sheet">
+      <v-layout pt-6 mx-12 row align-end>
+        <v-flex md4 height="100%">
+          <span class="big-quote first--text mr-12">„</span>
+          <v-avatar class="a" left size="120px">
+            <img
+              :src="getImageUrl(quote.image)"
+              alt="Снимка"
+            >
+          </v-avatar>
+        </v-flex>
+        <v-flex md4>
+          <p class="mt-2">{{ quote.anouncement }}</p>
+        </v-flex>
+        <v-flex md4>
+          <p class="mt-2">{{ quote.author }}</p>
+        </v-flex>
+      </v-layout>
+      <v-btn outlined class="text-capitalize text-underline mr-6" text :to="{ name:'singleQuote', params: { id: quote.id }}">Нататък</v-btn>
+    </v-sheet>
   </v-carousel-item>
 </template>
 
@@ -68,6 +58,11 @@ export default Vue.extend({
 }
 
 #sheet{
-  background-color: 102, 153, 204, 0.2;
+  background-color:  rgba(102, 153, 204, 0.6);
+}
+
+.a{
+  height: 100%;
+  vertical-align: middle;
 }
 </style>

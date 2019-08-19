@@ -11,12 +11,12 @@
       </v-toolbar-title>
 
       <v-toolbar-items class="justify-center">
-        <v-btn class="menu third--text text-capitalize" text :to="{name:'allArticles'}">Публикации</v-btn>
-        <v-btn class="menu third--text text-capitalize" text :to="{name:'register'}">И додето</v-btn>
-        <v-btn v-if="isLogged === false" class="menu third--text text-capitalize" text :to="{name:'register'}">Регистрация</v-btn>
-        <v-btn v-if="isLogged === false" class="menu third--text text-capitalize" text :to="{name:'login'}">Вход</v-btn>
-        <v-btn v-if="isLogged === true" class="menu third--text text-capitalize" text :to="{name:'admin'}">Админ</v-btn>
-        <v-btn v-if="isLogged === true" class="menu third--text text-capitalize" text @click="logout">Изход</v-btn>
+        <v-btn class="menu-item third--text text-capitalize" text :to="{name:'allArticles'}">Публикации</v-btn>
+        <v-btn class="menu-item third--text text-capitalize" text :to="{name:'register'}">И додето</v-btn>
+        <v-btn v-if="isLogged === false" class="menu-item third--text text-capitalize" text :to="{name:'register'}">Регистрация</v-btn>
+        <v-btn v-if="isLogged === false" class="menu-item third--text text-capitalize" text :to="{name:'login'}">Вход</v-btn>
+        <v-btn v-if="isLogged === true" class="menu-item third--text text-capitalize" text :to="{name:'admin'}">Админ</v-btn>
+        <v-btn v-if="isLogged === true" class="menu-item third--text text-capitalize" text @click="logout">Изход</v-btn>
       </v-toolbar-items>
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
@@ -114,7 +114,7 @@ export default {
   font-weight: 400;
 }
 
-.menu {
+.menu-item {
   font-weight: 300 !important;
   font-size: 17pt;
   letter-spacing: 0;
