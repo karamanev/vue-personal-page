@@ -56,8 +56,13 @@ export default {
       let maxLength = 450;
       this.text.trim();
       var trimmedString = this.text.substr(0, maxLength);
-      trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, (trimmedString.lastIndexOf(".") + 1)))
+      trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, (lastIndexOfRegex(/[.!?]/g, trimmedString) + 1)))
       return trimmedString;
+
+      function lastIndexOfRegex(regex, text) {
+        var match = text.match(regex);
+        return match ? text.lastIndexOf(match[match.length - 1]) : -1;
+      }
     }
   }
 }
