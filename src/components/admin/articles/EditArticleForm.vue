@@ -4,7 +4,7 @@
       <v-flex xs12 sm8 md4>
         <v-card class="elevation-12">
           <v-toolbar dark >
-            <v-toolbar-title class="text-primary" color="primary">Добави публикация</v-toolbar-title>
+            <v-toolbar-title class="text-primary" color="primary">Редактирай публикация</v-toolbar-title>
           </v-toolbar>
           <v-card-text>
             <v-form ref="form" lazy-validation>
@@ -14,13 +14,13 @@
               <v-text-field name="images" label="Изображения (разделени със запетая)" type="text" v-model="$v.article.images.$model"></v-text-field>
               <v-text-field name="innerTitles" label="Вътрешни заглавия (разделени със запетая)" type="text" v-model="$v.article.innerTitles.$model"></v-text-field>
               <v-text-field name="imageTexts" label="Текстове към снимки (разделени със запетая)" type="text" v-model="$v.article.imageTexts.$model"></v-text-field>
-              <v-text-field name="quotes" label="Цитати (разделени с ;)" type="text" v-model="$v.article.quotes.$model"></v-text-field>
-              <v-text-field name="topics" label="Рубрики (разделени с ;)" type="text" v-model="$v.article.topics.$model"></v-text-field>
+              <v-text-field name="quotes" label="Цитати (разделени със запетая)" type="text" v-model="$v.article.quotes.$model"></v-text-field>
+              <v-text-field name="topics" label="Рубрики (разделени със запетая)" type="text" v-model="$v.article.topics.$model"></v-text-field>
             </v-form>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" :disabled="$v.article.$error" @click="OnAddArticle">Изпрати</v-btn>
+            <v-btn color="primary" :disabled="$v.article.$error" @click="OnEditArticle">Изпрати</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
@@ -67,14 +67,14 @@ export default Vue.extend({
     }
   },
   methods: {
-    OnAddArticle(): void {
-      articlesCollection.add({
+    OnEditArticle(): void {
+      articlesCollection.doc(this.$route.params.id).update({
         title: this.article.title,
         subtitle: this.article.subtitle,
         text: this.article.text,
         images: this.article.images.split(',').map(item => item.trim()),
-        innerTitles: this.article.innerTitles.split(',').map(item => item.trim()),
-        imageTexts: this.article.imageTexts.split(',').map(item => item.trim()),
+        innerTitles: this.article.innerTitles.split(';').map(item => item.trim()),
+        imageTexts: this.article.imageTexts.split(';').map(item => item.trim()),
         topics: this.article.topics.split(',').map(item => item.trim()),
         quotes: this.article.quotes.split(',').map(item => item.trim()),
         date: new Date()
@@ -87,7 +87,11 @@ export default Vue.extend({
         .catch(function (error) {
           console.error("Error adding document: ", error);
         });
-      this.$router.push('/articles/all')
+      this.$router.push('/articles/all')}
+  },
+  firestore() {
+    return {
+      article: articlesCollection.doc(this.$route.params.id)
     }
   }
 })

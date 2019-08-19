@@ -6,8 +6,12 @@ import AllArticles from '../../components/public/articles/AllArticlesPage/AllArt
 import SingleArticle from '../../components/public/articles/SingleArticlePage/SingleArticle.vue'
 import AddArticle from '../../components/admin/articles/AddArticle.vue'
 import DeleteArticle from '../../components/admin/articles/DeleteArticle.vue'
+import EditArticle from '../../components/admin/articles/EditArticle.vue'
+import EditArticleForm from '../../components/admin/articles/EditArticleForm.vue'
 import AddQuote from '../../components/admin/quotes/AddQuote.vue'
 import DeleteQuote from '../../components/admin/quotes/DeleteQuote.vue'
+import EditQuote from '../../components/admin/quotes/EditQuote.vue'
+import EditQuoteForm from '../../components/admin/quotes/EditQuoteForm.vue'
 import Admin from '../../components/admin/Admin.vue'
 
 export default [
@@ -66,9 +70,17 @@ export default [
         }
       },
       {
-        path: '/articles/edit/:id',
+        path: '/articles/edit/',
         name: 'editArticle',
-        component: DeleteArticle,
+        component: EditArticle,
+        meta: {
+          requiresAuth: true
+        }
+      },
+      {
+        path: '/articles/edit/:id',
+        name: 'editArticleForm',
+        component: EditArticleForm,
         meta: {
           requiresAuth: true
         }
@@ -90,13 +102,21 @@ export default [
         }
       },
       {
-        path: '/quotes/edit/:id',
+        path: '/quotes/edit/',
         name: 'editQuote',
-        component: DeleteArticle,
+        component: EditQuote,
         meta: {
           requiresAuth: true
         }
-      }
+      },
+      {
+        path: '/quotes/edit/:id',
+        name: 'editQuoteForm',
+        component: EditQuoteForm,
+        meta: {
+          requiresAuth: true
+        }
+      },
     ]
   },
   {

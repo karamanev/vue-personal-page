@@ -1,5 +1,5 @@
 <template>
-  <v-carousel>
+  <v-carousel light>
     <single-quote
       v-for="quote in quotes"
       :key="quote.id"
