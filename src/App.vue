@@ -52,6 +52,17 @@ $fifth: #676767;
     font-size: 24pt;
     color: $second;
     text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: normal;
+    text-overflow: ellipsis;
+}
+
+.overflow-hidden{
+    overflow: hidden;
+    white-space: nowrap;
+    line-height: normal;
+    text-overflow: ellipsis;
 }
 
 .topic {

@@ -1,9 +1,8 @@
 <template>
-  <v-card flat height="550px" class="ma-2">
+  <v-card flat height="70%" class="ma-2">
     <v-img
       :src="image"
       class="third--text"
-      height="200px"
       gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
     >
     </v-img>
@@ -13,7 +12,7 @@
         <span class="date">{{date | date}}</span>
         <span class="topics">{{normalizedTopics}}</span>
       </p>
-      <p class="regular-text pa-2">{{normalizedText}}</p>
+      <p class="regular-text article-text pa-2">{{normalizedText}}</p>
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
@@ -57,8 +56,13 @@ export default {
       let maxLength = 450;
       this.text.trim();
       var trimmedString = this.text.substr(0, maxLength);
-      trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, (trimmedString.lastIndexOf(".") + 1)))
+      trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, (lastIndexOfRegex(/[.!?]/g, trimmedString) + 1)))
       return trimmedString;
+
+      function lastIndexOfRegex(regex, text) {
+        var match = text.match(regex);
+        return match ? text.lastIndexOf(match[match.length - 1]) : -1;
+      }
     }
   }
 }

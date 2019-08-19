@@ -4,7 +4,7 @@
       <v-flex xs12 sm8 md4>
         <v-card class="elevation-12">
           <v-toolbar dark >
-            <v-toolbar-title class="text-primary" color="primary">Добави цитат</v-toolbar-title>
+            <v-toolbar-title class="text-primary" color="primary">Редактирай цитат</v-toolbar-title>
           </v-toolbar>
           <v-card-text>
             <v-form ref="form" lazy-validation>
@@ -16,7 +16,7 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" :disabled="$v.quote.$error" @click="OnAddQuote">Изпрати</v-btn>
+            <v-btn color="primary" :disabled="$v.quote.$error" @click="OnEditQuote">Изпрати</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
@@ -59,21 +59,27 @@ export default Vue.extend({
     }
   },
   methods: {
-    OnAddQuote(): void {
-      quotesCollection.add({
+    OnEditQuote(): void {
+      quotesCollection.doc(this.$route.params.id).update({
         ...this.quote,
         date: new Date()
       } as Quote)
         .then(function (docRef) {
           console.log(docRef);
-          console.log("Document written with ID: ", docRef.id);
+          console.log("Document succesfully updated");
         })
         .catch(function (error) {
           console.error("Error adding document: ", error);
         });
       this.$router.push('/home')
     }
+  },
+  firestore() {
+    return {
+      quote: quotesCollection.doc(this.$route.params.id)
+    }
   }
+
 })
 
 </script>

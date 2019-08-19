@@ -1,7 +1,7 @@
 <template>
   <div>
     <welcome/>
-    <news-homepage/>
+    <articles-homepage/>
     <about/>
     <dodeto/>
     <quotes-carousel/>
@@ -11,8 +11,8 @@
 <script lang="ts">
 import Vue from 'vue'
 import QuotesCarousel from './quotes/QuotesCarousel.vue'
-import Welcome from './welcome/Welcome.vue'
-import NewsHomepage from './news/NewsHomepage.vue'
+import Welcome from './static/Welcome.vue'
+import ArticlesHomepage from './articles/ArticlesHomepage.vue'
 import About from './static/About.vue';
 import Dodeto from './static/Dodeto.vue';
 
@@ -20,7 +20,7 @@ export default Vue.extend({
   components: {
     QuotesCarousel,
     Welcome,
-    NewsHomepage,
+    ArticlesHomepage,
     About,
     Dodeto
   }

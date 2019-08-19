@@ -1,16 +1,25 @@
 <template>
-  <v-carousel-item justify-center>
-          <v-avatar size="120px">
-         <span class="big-quote first--text">„</span>
-      <img
-        :src="getImageUrl(quote.image)"
-        alt="John"
-      >
-   </v-avatar>
-		<p class="mt-2">{{ quote.anouncement }}</p>
-		<p class="mt-2">{{ quote.author }}</p>
-
-    <v-btn outlined class="text-capitalize text-underline mr-6 second--text" text :to="{ name:'singleQuote', params: { id: quote.id }}">Нататък</v-btn>
+  <v-carousel-item justify-center background="blue" color="blue">
+    <v-sheet height="100%" id="sheet">
+      <v-layout pt-6 mx-12 row align-end>
+        <v-flex md4 height="100%">
+          <span class="big-quote first--text mr-12">„</span>
+          <v-avatar class="a" left size="120px">
+            <img
+              :src="getImageUrl(quote.image)"
+              alt="Снимка"
+            >
+          </v-avatar>
+        </v-flex>
+        <v-flex md4>
+          <p class="mt-2">{{ quote.anouncement }}</p>
+        </v-flex>
+        <v-flex md4>
+          <p class="mt-2">{{ quote.author }}</p>
+        </v-flex>
+      </v-layout>
+      <v-btn outlined class="text-capitalize text-underline mr-6" text :to="{ name:'singleQuote', params: { id: quote.id }}">Нататък</v-btn>
+    </v-sheet>
   </v-carousel-item>
 </template>
 
@@ -43,9 +52,17 @@ export default Vue.extend({
 <style scoped lang="scss">
 
 .big-quote{
-  font-size: 100pt;
-
+  font-size: 150pt;
   font-family: 'Caveat';
+  vertical-align: top;
 }
 
+#sheet{
+  background-color:  rgba(102, 153, 204, 0.6);
+}
+
+.a{
+  height: 100%;
+  vertical-align: middle;
+}
 </style>

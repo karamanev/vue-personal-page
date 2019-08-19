@@ -1,5 +1,5 @@
 <template>
-  <v-card flat height="270" class="ma-2">
+  <v-card flat height="32%" class="ma-2">
     <v-card-text>
       <p class="inner-heading">{{title}}</p>
       <p class="date-topics mb-12">
@@ -47,13 +47,21 @@ export default {
       let maxLength = 140;
       this.text.trim();
       var trimmedString = this.text.substr(0, maxLength);
-      trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, (trimmedString.lastIndexOf(".") + 1)))
+      trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, (lastIndexOfRegex(/[.!?]/g, trimmedString) + 1)))
       return trimmedString;
+
+      function lastIndexOfRegex(regex, text) {
+        var match = text.match(regex);
+        return match ? text.lastIndexOf(match[match.length - 1]) : -1;
+      }
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
+.regular-text {
+  height: 300pt !important;
+}
 
 </style>
