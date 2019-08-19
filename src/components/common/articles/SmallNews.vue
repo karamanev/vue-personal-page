@@ -1,5 +1,5 @@
 <template>
-  <v-card flat height="270" class="ma-2">
+  <v-card flat height="32%" class="ma-2">
     <v-card-text>
       <p class="inner-heading">{{title}}</p>
       <p class="date-topics mb-12">
@@ -55,5 +55,8 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.regular-text {
+  height: 300pt !important;
+}
 
 </style>

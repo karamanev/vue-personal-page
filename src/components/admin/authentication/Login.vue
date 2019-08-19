@@ -58,7 +58,7 @@ export default {
         (user: any) => {
           localStorage.setItem('access_token', user.token)
           this.$bus.$emit('logged', 'User logged')
-          this.$router.push('/articles/add')
+          this.$router.push('/admin')
         },
         (err) => {
           alert('Oops. ' + err.message)

@@ -1,7 +1,12 @@
 <template>
-<div>{{article.title}}
-</div>
+<div>
+<div>{{article.title}}</div>
 
+<div>{{article.text}}</div>
+<div>{{article.subtitle}}</div>
+<div>{{article.topics}}</div>
+
+</div>
 </template>
 
 <!--						<v-flex xs6 class="mr-5">
@@ -37,6 +42,9 @@ export default {
     return {
       article: articlesCollection.doc(this.$route.params.id)
     }
+  },
+  updated() {
+    console.log(this.article);
   }
 }
 </script>

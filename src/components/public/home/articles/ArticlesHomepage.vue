@@ -5,7 +5,7 @@
       pt-6
       mx-12
       row
-      align-center
+      align-stretch
       justify-center
       v-if="articles.length === 3"
     >
@@ -64,7 +64,7 @@ export default Vue.extend({
   },
   firestore() {
     return {
-      articles: articlesCollection.orderBy('date').limit(3)
+      articles: articlesCollection.orderBy('date', 'desc').limit(3)
     }
   }
 })

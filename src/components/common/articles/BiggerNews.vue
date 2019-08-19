@@ -1,9 +1,8 @@
 <template>
-  <v-card flat height="550px" class="ma-2">
+  <v-card flat height="70%" class="ma-2">
     <v-img
       :src="image"
       class="third--text"
-      height="200px"
       gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
     >
     </v-img>
@@ -13,7 +12,7 @@
         <span class="date">{{date | date}}</span>
         <span class="topics">{{normalizedTopics}}</span>
       </p>
-      <p class="regular-text pa-2">{{normalizedText}}</p>
+      <p class="regular-text article-text pa-2">{{normalizedText}}</p>
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>

@@ -72,22 +72,22 @@ export default Vue.extend({
         title: this.article.title,
         subtitle: this.article.subtitle,
         text: this.article.text,
-        images: this.article.images.split(',').map(item => item.trim()),
-        innerTitles: this.article.innerTitles.split(';').map(item => item.trim()),
-        imageTexts: this.article.imageTexts.split(';').map(item => item.trim()),
-        topics: this.article.topics.split(',').map(item => item.trim()),
-        quotes: this.article.quotes.split(',').map(item => item.trim()),
+        images: (this.article.images + '').split(',').map(item => item.trim()),
+        innerTitles: (this.article.innerTitles + '').split(',').map(item => item.trim()),
+        imageTexts: (this.article.imageTexts + '').split(',').map(item => item.trim()),
+        topics: (this.article.topics + '').split(',').map(item => item.trim()),
+        quotes: (this.article.quotes + '').split(',').map(item => item.trim()),
+        id: this.$route.params.id,
         date: new Date()
       })
-        .then(function (docRef) {
-          console.log(docRef);
-
-          console.log("Document written with ID: ", docRef.id);
+        .then(function () {
+          console.log("Document succesfully updated");
         })
         .catch(function (error) {
           console.error("Error adding document: ", error);
         });
-      this.$router.push('/articles/all')}
+      this.$router.push('/home')
+    }
   },
   firestore() {
     return {

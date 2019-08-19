@@ -68,7 +68,7 @@ export default Vue.extend({
   },
   methods: {
     OnAddArticle(): void {
-      articlesCollection.add({
+        articlesCollection.add({
         title: this.article.title,
         subtitle: this.article.subtitle,
         text: this.article.text,
@@ -87,7 +87,7 @@ export default Vue.extend({
         .catch(function (error) {
           console.error("Error adding document: ", error);
         });
-      this.$router.push('/articles/all')
+      this.$router.push('/home')
     }
   }
 })
