@@ -3,7 +3,7 @@
   	<v-layout row>
    	  <v-flex xs8 class="align-left">
         <v-btn class="footer-item text-capitalize" text :to="{name:'register'}">Начало</v-btn>
-        <v-btn class="footer-item text-capitalize" text :to="{name:'AllArticles'}">Публикации</v-btn>
+        <v-btn class="footer-item text-capitalize" text :to="{name:'allArticles'}">Публикации</v-btn>
         <v-btn class="footer-item text-capitalize" text :to="{name:'register'}">И додето</v-btn>
         <v-btn class="footer-item text-capitalize" text :to="{name:'register'}">За мен</v-btn>
       </v-flex>

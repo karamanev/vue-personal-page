@@ -1,28 +1,47 @@
 <template>
-  <v-card flat height="70%" class="ma-2">
+    <v-layout wrap>
+  <v-row align="center" justify="center" class="mt-n12">
+    <v-img
+      min-height="250px"
+      max-height="720px"
+      src="../../../../assets/01.jpg"
+      align="left"
+      justify="left"
+      id="welcome"
+      >
+    <h1 class="big-heading">{{article.title}}</h1>
+    </v-img>
+  </v-row>
     <v-img
       :src="image"
       class="third--text"
       gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
     >
     </v-img>
-    <v-card-text>
-      <p class="inner-heading">{{title}}</p>
+    <div>
       <p class="date-topics mb-12">
-        <span class="date">{{date | date}}</span>
+        <span class="date">{{article.date | date}}</span>
         <span class="topics">{{normalizedTopics}}</span>
       </p>
       <p class="regular-text article-text pa-2">{{normalizedText}}</p>
-    </v-card-text>
-    <v-card-actions>
+    </div>
+    <div>
       <v-spacer></v-spacer>
       <v-btn outlined class="text-capitalize text-underline mr-6" text :to="{ name:'singleArticle', params: {id}}">Нататък</v-btn>
-    </v-card-actions>
-  </v-card>
+    </div>
+  </v-layout>
 </template>
 
+
+<!-- 
+      <h1 class="forth--text font-weight-thin">Окрилени<br>от бъдещето</h1>
+      <h2 class="third--text font-weight-thin">(Историята зад тази снимка)</h2>
+
+
+-->
+
 <script lang="ts">
-import { Article } from '../../../core/models/ArticleInterface';
+import { Article } from '../../../../core/models/ArticleInterface';
 
 export default {
   data() {
@@ -36,12 +55,12 @@ export default {
   },
   computed: {
     normalizedTopics: function () {
-      return this.topics.join(', ');
+      return this.article.topics.join(', ');
     },
     normalizedText: function () {
       let maxLength = 450;
-      this.text.trim();
-      var trimmedString = this.text.substr(0, maxLength);
+      this.article.text.trim();
+      var trimmedString = this.article.text.substr(0, maxLength);
       trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, (lastIndexOfRegex(/[.!?]/g, trimmedString) + 1)))
       return trimmedString;
 
@@ -49,11 +68,19 @@ export default {
         var match = text.match(regex);
         return match ? text.lastIndexOf(match[match.length - 1]) : -1;
       }
+    },
+    id: function () {
+      return this.article.id;
+    },
+    image: function () {
+      return this.article.images[0];
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-
+#welcome {
+  opacity: 0.4;
+}
 </style>
