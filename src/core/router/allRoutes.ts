@@ -12,7 +12,8 @@ import AddQuote from '../../components/admin/quotes/AddQuote.vue'
 import DeleteQuote from '../../components/admin/quotes/DeleteQuote.vue'
 import EditQuote from '../../components/admin/quotes/EditQuote.vue'
 import EditQuoteForm from '../../components/admin/quotes/EditQuoteForm.vue'
-import Admin from '../../components/admin/Admin.vue'
+import Admin from '../../components/admin/main/Admin.vue'
+import AdminMenu from '../../components/admin/main/AdminMenu.vue'
 
 export default [
   {
@@ -62,25 +63,9 @@ export default [
         }
       },
       {
-        path: '/articles/delete',
-        name: 'deleteArticle',
-        component: DeleteArticle,
-        meta: {
-          requiresAuth: true
-        }
-      },
-      {
-        path: '/articles/edit/',
+        path: '/articles/edit/:id',
         name: 'editArticle',
         component: EditArticle,
-        meta: {
-          requiresAuth: true
-        }
-      },
-      {
-        path: '/articles/edit/:id',
-        name: 'editArticleForm',
-        component: EditArticleForm,
         meta: {
           requiresAuth: true
         }
@@ -94,15 +79,7 @@ export default [
         }
       },
       {
-        path: '/quotes/delete',
-        name: 'deleteQuote',
-        component: DeleteQuote,
-        meta: {
-          requiresAuth: true
-        }
-      },
-      {
-        path: '/quotes/edit/',
+        path: '/quotes/edit/:id',
         name: 'editQuote',
         component: EditQuote,
         meta: {
@@ -110,13 +87,13 @@ export default [
         }
       },
       {
-        path: '/quotes/edit/:id',
-        name: 'editQuoteForm',
-        component: EditQuoteForm,
+        path: '',
+        name: 'adminMenu',
+        component: AdminMenu,
         meta: {
           requiresAuth: true
         }
-      }
+      },
     ]
   },
   {

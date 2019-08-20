@@ -1,7 +1,7 @@
 <template>
   <v-card flat class="ma-2">
     <v-img
-      :src="article.image"
+      :src="image"
       class="third--text"
       gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
     >

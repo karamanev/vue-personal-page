@@ -81,11 +81,11 @@ export default Vue.extend({
       })
         .then(function (docRef) {
           console.log("Document written with ID: ", docRef.id);
-          this.$router.push('/home');
         })
         .catch(function (error) {
           console.error("Error adding document: ", error);
         });
+      this.$router.push('/admin');
     }
   }
 })

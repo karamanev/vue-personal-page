@@ -46,8 +46,6 @@ export default {
     },
     secondaryArticles: function () {
       var changed = this.articles.slice(1);
-      console.log(changed);
-      
       return changed;
     }
   }

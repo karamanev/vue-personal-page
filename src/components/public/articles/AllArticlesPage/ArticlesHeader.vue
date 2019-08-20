@@ -1,18 +1,22 @@
 <template>
-    <v-layout wrap>
-  <v-row align="center" justify="center" class="mt-n12">
-    <v-img
+<div>
+    <v-row align="center" justify="center" class="mt-n12">
+      <v-img
       min-height="250px"
       max-height="720px"
       src="../../../../assets/01.jpg"
       align="left"
       justify="left"
       id="welcome"
-      >
-    <h1 class="big-heading">{{article.title}}</h1>
+    >
     </v-img>
+    </v-row>
+  <v-row align="center" justify="center" class="mt-n12">
+
+    <h1 class="big-heading">{{article.title}}</h1>
   </v-row>
-    <v-img
+  <v-layout wrap>
+     <v-img
       :src="image"
       class="third--text"
       gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
@@ -29,12 +33,11 @@
       <v-spacer></v-spacer>
       <v-btn outlined class="text-capitalize text-underline mr-6" text :to="{ name:'singleArticle', params: {id}}">Нататък</v-btn>
     </div>
-  </v-layout>
+    </v-layout>
+  </div>
 </template>
 
-
-<!-- 
-      <h1 class="forth--text font-weight-thin">Окрилени<br>от бъдещето</h1>
+<!--      <h1 class="forth--text font-weight-thin">Окрилени<br>от бъдещето</h1>
       <h2 class="third--text font-weight-thin">(Историята зад тази снимка)</h2>
 
 
@@ -82,5 +85,12 @@ export default {
 <style scoped lang="scss">
 #welcome {
   opacity: 0.4;
+}
+
+h1 {
+  padding-left: 5%;
+  padding-top: 18%;
+  font-size: 55pt;
+  line-height: 55pt;
 }
 </style>

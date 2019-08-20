@@ -71,7 +71,7 @@ export default Vue.extend({
         .catch(function (error) {
           console.error("Error adding document: ", error);
         });
-      this.$router.push('/home')
+      this.$router.push('/admin')
     }
   }
 })

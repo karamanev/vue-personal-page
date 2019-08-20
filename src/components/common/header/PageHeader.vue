@@ -15,7 +15,7 @@
         <v-btn class="menu-item third--text text-capitalize" text :to="{name:'register'}">И додето</v-btn>
         <v-btn v-if="isLogged === false" class="menu-item third--text text-capitalize" text :to="{name:'register'}">Регистрация</v-btn>
         <v-btn v-if="isLogged === false" class="menu-item third--text text-capitalize" text :to="{name:'login'}">Вход</v-btn>
-        <v-btn v-if="isLogged === true" class="menu-item third--text text-capitalize" text :to="{name:'admin'}">Админ</v-btn>
+        <v-btn v-if="isLogged === true" class="menu-item third--text text-capitalize" text :to="{name:'adminMenu'}">Админ</v-btn>
         <v-btn v-if="isLogged === true" class="menu-item third--text text-capitalize" text @click="logout">Изход</v-btn>
       </v-toolbar-items>
       <v-btn icon>

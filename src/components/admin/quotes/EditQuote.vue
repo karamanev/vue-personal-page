@@ -8,12 +8,15 @@
           </v-toolbar>
           <v-card-text>
             <v-form ref="form" lazy-validation>
-              <v-text-field name="id" label="ID" type="text" v-model="$v.id.$model"></v-text-field>
+              <v-text-field name="anouncement" label="Анонс" type="text" v-model="$v.quote.anouncement.$model"></v-text-field>
+              <v-text-field name="text" label="Текст" type="text" v-model="$v.quote.text.$model"></v-text-field>
+              <v-text-field name="author" label="Автор" type="text" v-model="$v.quote.author.$model"></v-text-field>
+              <v-text-field name="image" label="Снимка" type="text" v-model="$v.quote.image.$model"></v-text-field>
             </v-form>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" :disabled="$v.id.$error" @click="OnEditQuote">Изпрати</v-btn>
+            <v-btn color="primary" :disabled="$v.quote.$error" @click="OnEditQuote">Изпрати</v-btn>
           </v-card-actions>
         </v-card>
       </v-flex>
@@ -24,22 +27,59 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { required } from 'vuelidate/lib/validators'
+import { QuoteInput, Quote } from '../../../core/models/QuoteInterface'
+import { required, minLength, maxLength } from 'vuelidate/lib/validators';
+import { quotesCollection } from '../../../main'
 
 export default Vue.extend({
   data() {
     return {
-      id: ''
+      quote: {
+        anouncement: '',
+        text: '',
+        author: '',
+        image: ''
+      } as QuoteInput
     }
   },
   validations: {
-    id: { required }
+    quote: {
+      anouncement: {
+        required,
+        minLength: minLength(3),
+        maxLength: maxLength(200)
+      },
+      text: { required, minLength: minLength(3), maxLength: maxLength(2000) },
+      author: {
+        required,
+        minLength: minLength(3),
+        maxLength: maxLength(2000)
+      },
+      image: { required, minLength: minLength(3), maxLength: maxLength(2000) }
+    }
   },
   methods: {
     OnEditQuote(): void {
-      this.$router.push({ name: 'editQuoteForm', params: { id: this.id } })
+      quotesCollection.doc(this.$route.params.id).update({
+        ...this.quote,
+        date: new Date()
+      } as Quote)
+        .then(function (docRef) {
+          console.log(docRef);
+          console.log("Document succesfully updated");
+        })
+        .catch(function (error) {
+          console.error("Error adding document: ", error);
+        });
+      this.$router.push('/admin')
+    }
+  },
+  firestore() {
+    return {
+      quote: quotesCollection.doc(this.$route.params.id)
     }
   }
+
 })
 
 </script>
