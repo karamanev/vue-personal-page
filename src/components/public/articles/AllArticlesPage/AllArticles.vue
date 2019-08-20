@@ -1,4 +1,15 @@
 <template>
+  <div>
+    <articles-welcome/>
+    <v-container v-if="articles.length > 0">
+      <header-news :article="articles[0]"/>
+      <v-container v-for="(article, index) in articles" :key="index">
+        <v-container v-if="index !== 0">
+          <big-news :article="article"/>
+        </v-container>
+      </v-container>
+    </v-container>
+
     <v-container
       fluid
       grid-list-md
@@ -44,6 +55,7 @@
         </v-flex>
       </v-layout>
     </v-container>
+  </div>
 </template>
 
 <!--<template>
@@ -104,8 +116,16 @@
 
 import { articlesCollection } from '../../../../main'
 import { Article } from '../../../../core/models/ArticleInterface'
+import ArticlesWelcome from './welcome/ArticlesWelcome.vue'
+import BigNews from '../../../common/articles/BigNews.vue'
+import HeaderNews from '../../../common/articles/HeaderNews.vue'
 
 export default {
+  components: {
+    ArticlesWelcome,
+    BigNews,
+    HeaderNews
+  },
   data() {
     return {
       articles: [] as Article[],

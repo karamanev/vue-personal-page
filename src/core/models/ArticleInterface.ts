@@ -8,6 +8,7 @@ export interface Article {
     topics: [Topics]
     imageTexts?: [string];
     date: Date
+    id?: String;
 }
 
 

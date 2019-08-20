@@ -1,13 +1,18 @@
 <template>
-
-  <v-card flat height="32%" class="ma-2">
+  <v-card flat height="70%" class="ma-2">
+    <v-img
+      :src="image"
+      class="third--text"
+      gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+    >
+    </v-img>
     <v-card-text>
       <p class="inner-heading">{{article.title}}</p>
       <p class="date-topics mb-12">
         <span class="date">{{article.date | date}}</span>
         <span class="topics">{{normalizedTopics}}</span>
       </p>
-      <p class="regular-text pa-2">{{normalizedText}}</p>
+      <p class="regular-text article-text pa-2">{{normalizedText}}</p>
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
@@ -34,7 +39,7 @@ export default {
       return this.article.topics.join(', ');
     },
     normalizedText: function () {
-      let maxLength = 140;
+      let maxLength = 450;
       this.article.text.trim();
       var trimmedString = this.article.text.substr(0, maxLength);
       trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, (lastIndexOfRegex(/[.!?]/g, trimmedString) + 1)))
@@ -47,14 +52,14 @@ export default {
     },
     id: function () {
       return this.article.id;
+    },
+    image: function () {
+      return this.article.images[0];
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-.regular-text {
-  height: 300pt !important;
-}
 
 </style>

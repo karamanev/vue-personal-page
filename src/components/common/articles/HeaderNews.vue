@@ -22,6 +22,7 @@
 </template>
 
 <script lang="ts">
+import { Article } from '../../../core/models/ArticleInterface';
 
 export default {
   data() {
@@ -29,23 +30,8 @@ export default {
     }
   },
   props: {
-    image: {
-      type: String
-    },
-    title: {
-      type: String
-    },
-    text: {
-      type: String
-    },
-    id: {
-      type: String
-    },
-    date: {
-      type: Object
-    },
-    topics: {
-      type: Array
+    article: {
+      type: Object as () => Article
     }
   },
   computed: {
