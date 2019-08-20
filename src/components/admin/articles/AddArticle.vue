@@ -68,7 +68,7 @@ export default Vue.extend({
   },
   methods: {
     OnAddArticle(): void {
-        articlesCollection.add({
+      articlesCollection.add({
         title: this.article.title,
         subtitle: this.article.subtitle,
         text: this.article.text,
@@ -80,14 +80,12 @@ export default Vue.extend({
         date: new Date()
       })
         .then(function (docRef) {
-          console.log(docRef);
-
           console.log("Document written with ID: ", docRef.id);
+          this.$router.push('/home');
         })
         .catch(function (error) {
           console.error("Error adding document: ", error);
         });
-      this.$router.push('/home')
     }
   }
 })
