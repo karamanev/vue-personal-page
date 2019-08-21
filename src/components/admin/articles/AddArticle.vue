@@ -8,7 +8,7 @@
           </v-toolbar>
           <v-card-text>
             <v-form ref="form" lazy-validation>
-              <v-text-field name="title" label="Заглавие" type="text" v-model="$v.article.title.$model"></v-text-field>
+              <v-text-field name="title" label="Заглавие" type="text" v-model="$v.article.title.$model" class="higher"></v-text-field>
               <v-text-field name="subtitle" label="Подзаглавие" type="text" v-model="$v.article.subtitle.$model"></v-text-field>
               <v-text-field name="text" label="Текст" type="text" v-model="$v.article.text.$model"></v-text-field>
               <v-text-field name="images" label="Изображения (разделени със запетая)" type="text" v-model="$v.article.images.$model"></v-text-field>
@@ -52,13 +52,13 @@ export default Vue.extend({
   },
   validations: {
     article: {
-      title: { required, minLength: minLength(3), maxLength: maxLength(2000) },
+      title: { required, minLength: minLength(3), maxLength: maxLength(200) },
       subtitle: {
         required,
         minLength: minLength(3),
         maxLength: maxLength(2000)
       },
-      text: { required, minLength: minLength(3), maxLength: maxLength(2000) },
+      text: { required, minLength: minLength(3), maxLength: maxLength(20000) },
       images: { required },
       innerTitles: { required },
       imageTexts: { required },
@@ -93,5 +93,9 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
+
+.higher {
+  height: 80px;
+}
 
 </style>

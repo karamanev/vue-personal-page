@@ -14,8 +14,10 @@
       </v-flex>
 
       <v-flex md5 mx-6>
-        <small-news :article="articles[1]"/>
-        <small-news :article="articles[2]"/>
+        <div align-stretch>
+          <small-news :article="articles[1]"/>
+          <small-news :article="articles[2]"/>
+        </div>
       </v-flex>
     </v-layout>
   </div>

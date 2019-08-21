@@ -1,21 +1,21 @@
 <template>
-  <v-container
-    fluid
-    grid-list-md
-    pa-2
-  >
-    <v-layout wrap>
-      <articles-header :title="mainTitle"/>
-
-      <v-container v-if="mainArticle.title">
-        <top-article :article="mainArticle"/>
-      </v-container>
-      <topics-chips @onFilter="filterArticles($event)" />
-      <v-container v-if="articles.length > 0">
-        <v-container v-for="(article, index) in articles" :key="index">
-          <big-news :article="article"/>
-        </v-container>
-      </v-container>
+  <v-container fluid>
+    <articles-header :title="mainTitle"/>
+    <v-container v-if="mainArticle.title">
+      <top-article :article="mainArticle"/>
+    </v-container>
+    <h1 class="topic">Рубрики</h1>
+    <topics-chips @onFilter="filterArticles($event)" />
+    <v-layout
+      pt-6
+      mx-12
+      row
+      align-stretch
+      justify-center
+    >
+      <v-flex md5 mx-6 v-for="(article, index) in articles" :key="index">
+        <big-news :article="article"/>
+      </v-flex>
     </v-layout>
   </v-container>
 </template>

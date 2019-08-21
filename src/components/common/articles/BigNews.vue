@@ -4,6 +4,7 @@
       :src="image"
       class="third--text"
       gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+      height="300px"
     >
     </v-img>
     <v-card-text>
@@ -39,7 +40,7 @@ export default {
       return this.article.topics.join(', ');
     },
     normalizedText: function () {
-      let maxLength = 450;
+      let maxLength = 300;
       this.article.text.trim();
       var trimmedString = this.article.text.substr(0, maxLength);
       trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, (lastIndexOfRegex(/[.!?]/g, trimmedString) + 1)))

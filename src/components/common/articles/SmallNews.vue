@@ -53,8 +53,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.regular-text {
-  height: 300pt !important;
-}
 
 </style>
