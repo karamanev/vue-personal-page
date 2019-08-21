@@ -5,8 +5,8 @@
       max-height="720px"
       src="../../../../assets/wall_main.jpg"
       align="left"
-      justify="left">
-
+      justify="left"
+    >
       <h1 class="forth--text font-weight-thin">Окрилени<br>от бъдещето</h1>
       <h2 class="third--text font-weight-thin">(Историята зад тази снимка)</h2>
     </v-img>

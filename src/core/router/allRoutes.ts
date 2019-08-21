@@ -10,6 +10,7 @@ import AddQuote from '../../components/admin/quotes/AddQuote.vue'
 import EditQuote from '../../components/admin/quotes/EditQuote.vue'
 import Admin from '../../components/admin/main/Admin.vue'
 import AdminMenu from '../../components/admin/main/AdminMenu.vue'
+import Dodeto from '../../components/public/static/Dodeto.vue'
 
 export default [
   {
@@ -41,6 +42,11 @@ export default [
     path: '/home',
     name: 'home',
     component: Home
+  },
+  {
+    path: '/dodeto',
+    name: 'dodeto',
+    component: Dodeto
   },
   {
     path: '/admin',

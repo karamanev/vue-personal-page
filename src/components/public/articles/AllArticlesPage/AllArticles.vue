@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <div>
     <articles-header :title="mainTitle"/>
     <v-container v-if="mainArticle.title">
       <top-article :article="mainArticle"/>
@@ -17,7 +17,7 @@
         <big-news :article="article"/>
       </v-flex>
     </v-layout>
-  </v-container>
+  </div>
 </template>
 
 <script lang="ts">

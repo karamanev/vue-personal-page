@@ -1,8 +1,7 @@
 <template>
   <div>
-    <h1 class="topic">За мен</h1>
+    <h1 class="topic py-6">За мен</h1>
     <v-layout
-      pt-6
       mx-12
       row
       align-stretch

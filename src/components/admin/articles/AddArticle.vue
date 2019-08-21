@@ -14,8 +14,8 @@
               <v-textarea name="images" label="Изображения (разделени със запетая)" type="text" v-model="$v.article.images.$model"></v-textarea>
               <v-textarea name="innerTitles" label="Вътрешни заглавия (разделени със запетая)" type="text" v-model="$v.article.innerTitles.$model"></v-textarea>
               <v-textarea name="imageTexts" label="Текстове към снимки (разделени със запетая)" type="text" v-model="$v.article.imageTexts.$model"></v-textarea>
-              <v-textarea name="quotes" label="Цитати (разделени с ;)" type="text" v-model="$v.article.quotes.$model"></v-textarea>
-              <v-text-field name="topics" label="Рубрики (разделени с ;)" type="text" v-model="$v.article.topics.$model"></v-text-field>
+              <v-textarea name="quotes" label="Цитати (разделени със запетая)" type="text" v-model="$v.article.quotes.$model"></v-textarea>
+              <v-text-field name="topics" label="Рубрики (разделени със запетая)" type="text" v-model="$v.article.topics.$model"></v-text-field>
             </v-form>
           </v-card-text>
           <v-card-actions>

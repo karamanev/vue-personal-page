@@ -1,23 +1,20 @@
 <template>
-  <div>
-    <v-app-bar fixed color="secondary" class="justify-center" src="../../../assets/bar.jpg">
+    <v-app-bar row fixed color="secondary" justify-space-around src="../../../assets/bar.jpg">
       <template v-slot:img="{ props }">
-        <v-img
-          v-bind="props"
-        ></v-img>
+        <v-img v-bind="props"></v-img>
       </template>
       <v-toolbar-title class="pr-4">
         <router-link id="logo" class="text-capitalize forth--text" text :to="{name:'home'}">Георги Караманев</router-link>
       </v-toolbar-title>
 
-      <v-toolbar-items class="justify-center">
-        <v-btn class="menu-item third--text text-capitalize" text :to="{name:'allArticles'}">Публикации</v-btn>
-        <v-btn class="menu-item third--text text-capitalize" text :to="{name:'register'}">И додето</v-btn>
-        <v-btn v-if="isLogged === false" class="menu-item third--text text-capitalize" text :to="{name:'register'}">Регистрация</v-btn>
-        <v-btn v-if="isLogged === false" class="menu-item third--text text-capitalize" text :to="{name:'login'}">Вход</v-btn>
-        <v-btn v-if="isLogged === true" class="menu-item third--text text-capitalize" text :to="{name:'adminMenu'}">Админ</v-btn>
-        <v-btn v-if="isLogged === true" class="menu-item third--text text-capitalize" text @click="logout">Изход</v-btn>
-      </v-toolbar-items>
+       	<v-layout row align-center justify-space-around>
+          <v-btn class="menu-item third--text text-capitalize" text :to="{name:'allArticles'}">Публикации</v-btn>
+          <v-btn class="menu-item third--text text-capitalize" text :to="{name:'dodeto'}">И додето</v-btn>
+          <v-btn v-if="isLogged === false" class="menu-item third--text text-capitalize" text :to="{name:'register'}">Регистрация</v-btn>
+          <v-btn v-if="isLogged === false" class="menu-item third--text text-capitalize" text :to="{name:'login'}">Вход</v-btn>
+          <v-btn v-if="isLogged === true" class="menu-item third--text text-capitalize" text :to="{name:'adminMenu'}">Админ</v-btn>
+          <v-btn v-if="isLogged === true" class="menu-item third--text text-capitalize" text @click="logout">Изход</v-btn>
+       	</v-layout>
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
@@ -41,7 +38,6 @@
         </v-list>
       </v-menu>
     </v-app-bar>
-  </div>
 </template>
 
 <!--
@@ -116,7 +112,7 @@ export default {
 
 .menu-item {
   font-weight: 300 !important;
-  font-size: 17pt;
+  font-size: 16pt;
   letter-spacing: 0;
 }
 

@@ -1,8 +1,7 @@
 <template>
-  <div class="pt-12">
-    <h1 class="topic">Най-нови публикации</h1>
+  <div>
+    <h1 class="topic py-6">Най-нови публикации</h1>
     <v-layout
-      pt-6
       mx-12
       row
       align-stretch
