@@ -27,6 +27,62 @@ export default Vue.extend({
 
 <style lang="scss">
 
+@font-face {
+    font-family: 'Repo';
+    src: url('~@/assets/fonts/Repo/Repo-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Repo';
+    src: url('~@/assets/fonts/Repo/Repo-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Repo';
+    src: url('~@/assets/fonts/Repo/Repo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Repo';
+    src: url('~@/assets/fonts/Repo/Repo-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Repo';
+    src: url('~@/assets/fonts/Repo/Repo-DemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Repo';
+    src: url('~@/assets/fonts/Repo/Repo-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Repo';
+    src: url('~@/assets/fonts/Repo/Repo-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Repo';
+    src: url('~@/assets/fonts/Repo/Repo-ExtraBlack.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+}
+
 $first: #003B6D;
 $second: #6699CC;
 $third: #EBEDF3;
@@ -34,7 +90,7 @@ $forth: #BDBDBD;
 $fifth: #676767;
 
 #app {
-  font-family: 'Repo', Arial, sans-serif;
+  font-family: 'Repo', 'Cormorant Infant', Arial, serif;
   text-align: center;
 }
 
