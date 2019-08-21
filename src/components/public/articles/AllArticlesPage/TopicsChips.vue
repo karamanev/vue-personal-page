@@ -1,10 +1,11 @@
 <template>
   <div class="text-center">
     <v-chip
-      class="ma-2"
-      color="secondary"
-      text-color="first"
+      class="ma-2 text-uppercase"
+      color="second"
+      text-color="white"
       v-for="(topic, index) in topics" :key="index"
+      @click="filter(topic)"
     >
       {{topic}}
     </v-chip>
@@ -17,15 +18,22 @@ import { Topics } from '../../../../core/models/ArticleInterface'
 export default {
   data() {
     return {
-      topics: Topics
+      topics: [
+        'Литература',
+        'Технологии',
+        'Наука',
+        'Интервю',
+        'Лично',
+        'Фотография',
+        'Пътеки',
+        'От архива'
+      ]
     }
   },
-  updated: () => {
-    console.log(this.topics);
+  methods: {
+    filter(topic) {
+      this.$emit('onFilter', topic);
+    }
   }
 }
 </script>
-
-<style scoped lang="scss">
-
-</style>
