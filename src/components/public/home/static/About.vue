@@ -11,7 +11,7 @@
         <div id="about" class="second--text text-center ma-10">
           <p>Радвам се, че се срещаме!</p>
           <p>Аз съм Георги Караманев, журналист и писател. Работя като програмист и ме вълнуват темите за словото в днешния ден, за това как технологиите променят живота ни...</p>
-          <router-link class= "first--text" :to="{name:'home'}">Още за романа</router-link>
+          <router-link class= "first--text" :to="{name:'home'}">Още за мен</router-link>
         </div>
 
       </v-flex>
