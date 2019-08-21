@@ -5,13 +5,9 @@ import Login from '../../components/admin/authentication/Login.vue'
 import AllArticles from '../../components/public/articles/AllArticlesPage/AllArticles.vue'
 import SingleArticle from '../../components/public/articles/SingleArticlePage/SingleArticle.vue'
 import AddArticle from '../../components/admin/articles/AddArticle.vue'
-import DeleteArticle from '../../components/admin/articles/DeleteArticle.vue'
 import EditArticle from '../../components/admin/articles/EditArticle.vue'
-import EditArticleForm from '../../components/admin/articles/EditArticleForm.vue'
 import AddQuote from '../../components/admin/quotes/AddQuote.vue'
-import DeleteQuote from '../../components/admin/quotes/DeleteQuote.vue'
 import EditQuote from '../../components/admin/quotes/EditQuote.vue'
-import EditQuoteForm from '../../components/admin/quotes/EditQuoteForm.vue'
 import Admin from '../../components/admin/main/Admin.vue'
 import AdminMenu from '../../components/admin/main/AdminMenu.vue'
 
@@ -48,7 +44,6 @@ export default [
   },
   {
     path: '/admin',
-    name: 'admin',
     component: Admin,
     meta: {
       requiresAuth: true
@@ -93,7 +88,7 @@ export default [
         meta: {
           requiresAuth: true
         }
-      },
+      }
     ]
   },
   {

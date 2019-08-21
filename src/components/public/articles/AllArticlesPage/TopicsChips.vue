@@ -8,34 +8,6 @@
     >
       {{topic}}
     </v-chip>
-
-
-    <v-chip class="ma-2">
-      Default
-    </v-chip>
-
-    <v-chip
-      class="ma-2"
-      color="primary"
-    >
-      Primary
-    </v-chip>
-
-    <v-chip
-      class="ma-2"
-      color="secondary"
-    >
-      Secondary
-    </v-chip>
-
-    <v-chip
-      class="ma-2"
-      color="red"
-      text-color="white"
-    >
-      Red Chip
-    </v-chip>
-
   </div>
 </template>
 
@@ -48,7 +20,7 @@ export default {
       topics: Topics
     }
   },
-  mounted: () => {
+  updated: () => {
     console.log(this.topics);
   }
 }
