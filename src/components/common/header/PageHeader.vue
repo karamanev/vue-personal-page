@@ -106,13 +106,13 @@ export default {
 #logo {
   font-family: 'Caveat';
   text-decoration: none;
-  font-size: 40pt;
+  font-size: 30pt;
   font-weight: 400;
 }
 
 .menu-item {
   font-weight: 300 !important;
-  font-size: 16pt;
+  font-size: 14pt;
   letter-spacing: 0;
 }
 

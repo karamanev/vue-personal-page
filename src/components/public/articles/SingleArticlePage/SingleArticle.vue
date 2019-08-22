@@ -1,15 +1,8 @@
 <template>
-<div>
-
-<single-news :article="article">
-
-</single-news>
-
-</div>
+  <div>
+    <single-news :article="article" />
+  </div>
 </template>
-
-
-
 
 <script lang="ts">
 
@@ -18,10 +11,10 @@ import { articlesCollection } from '../../../../main';
 import SingleNews from '../../../common/articles/SingleNews.vue'
 
 export default {
-   components:{
-		SingleNews
-	},
-   data() {
+  components: {
+    SingleNews
+  },
+  data() {
     return {
       article: {} as Article
     }

@@ -1,6 +1,12 @@
 <template>
   <div>
-    <articles-header :title="mainTitle"/>
+    <articles-header v-if="mainArticle.date">
+      <h1 slot="title" class="first--text font-weight-thin main-title" id="big-heading">{{ mainTitle }}</h1>
+      <p slot="date-topics" class="date-topics mb-12">
+        <span class="date">{{mainArticle.date | date}}</span>
+        <span class="topics">{{normalizedTopics}}</span>
+      </p>
+    </articles-header>
     <v-container v-if="mainArticle.title">
       <top-article :article="mainArticle"/>
     </v-container>
@@ -45,7 +51,8 @@ export default {
   },
   methods: {
     filterArticles(event) {
-      this.$bind('articles', articlesCollection.where('topics', 'array-contains', event))
+      this.$bind('articles', articlesCollection.orderBy('date', 'desc').where('topics', 'array-contains', event))
+      this.articles = this.articles.reverse();
     }
   },
   mounted() {
@@ -61,11 +68,19 @@ export default {
         return this.mainArticle.title
       }
       return ''
+    },
+    normalizedTopics: function () {
+      return this.mainArticle.topics.join(', ');
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-
+.main-title {
+  padding-left: 5%;
+  padding-top: 18%;
+  font-size: 55pt;
+  line-height: 55pt;
+}
 </style>

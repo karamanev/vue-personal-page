@@ -9,7 +9,8 @@
       id="welcome"
     >
   </v-img>
-    <h1 class="first--text font-weight-thin" id="big-heading">{{title}}</h1>
+    <slot name="title"></slot>
+    <slot name="date-topics"></slot>
   </v-row>
 </template>
 
@@ -34,16 +35,12 @@ export default {
   opacity: 0.4;
 }
 
-h1 {
-  padding-left: 5%;
-  padding-top: 18%;
-  font-size: 55pt;
-  line-height: 55pt;
-}
-
 #big-heading {
   font-family: 'Caveat' !important;
   position: absolute;
 }
 
+.date-topics {
+  top: -20px;
+}
 </style>
