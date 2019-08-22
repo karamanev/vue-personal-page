@@ -53,12 +53,8 @@ export default Vue.extend({
   validations: {
     article: {
       title: { required, minLength: minLength(3), maxLength: maxLength(200) },
-      subtitle: {
-        required,
-        minLength: minLength(3),
-        maxLength: maxLength(2000)
-      },
-      text: { required, minLength: minLength(3), maxLength: maxLength(20000) },
+      subtitle: { required, minLength: minLength(3), maxLength: maxLength(2000)},
+      text: { required, minLength: minLength(3), maxLength: maxLength(20000)},
       images: { required },
       innerTitles: { required },
       imageTexts: { required },
@@ -68,6 +64,8 @@ export default Vue.extend({
   },
   methods: {
     OnAddArticle(): void {
+
+      console.log(this.article.text)
       articlesCollection.add({
         title: this.article.title,
         subtitle: this.article.subtitle,

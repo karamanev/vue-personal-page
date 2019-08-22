@@ -45,8 +45,8 @@ export default {
     user: {
       email: {
         required,
-        minLength: minLength(3),
-        maxLength: maxLength(20),
+        minLength: minLength(8),
+        maxLength: maxLength(40),
         email
       },
       password: { required }
