@@ -1,153 +1,71 @@
 <template>
-    <v-container
-      fluid
-      grid-list-md
-      pa-2
-    >
-      <v-layout
-        wrap
-      >
-        <v-flex
-          v-for="card in cards"
-          :key="card.title"
-          v-bind="{ [`xs${card.flex}`]: true }"
-        >
-          <v-card>
-            <v-img
-              :src="card.src"
-              class="white--text"
-              height="200px"
-              gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
-            >
-              <v-card-title
-                class="fill-height align-end"
-                v-text="card.title"
-              ></v-card-title>
-            </v-img>
-
-            <v-card-actions>
-              <v-spacer></v-spacer>
-
-              <v-btn icon>
-                <v-icon>favorite</v-icon>
-              </v-btn>
-
-              <v-btn icon>
-                <v-icon>bookmark</v-icon>
-              </v-btn>
-
-              <v-btn icon>
-                <v-icon>share</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
-        </v-flex>
-      </v-layout>
+  <div>
+    <articles-header :title="mainTitle"/>
+    <v-container v-if="mainArticle.title">
+      <top-article :article="mainArticle"/>
     </v-container>
-</template>
-
-<!--<template>
-  <div class="text-center">
-    <v-chip
-      class="ma-2"
+    <h1 class="topic">Рубрики</h1>
+    <topics-chips @onFilter="filterArticles($event)" />
+    <v-layout
+      pt-6
+      mx-12
+      row
+      align-stretch
+      justify-center
     >
-      Default
-    </v-chip>
-
-    <v-chip
-      class="ma-2"
-      color="primary"
-    >
-      Primary
-    </v-chip>
-
-    <v-chip
-      class="ma-2"
-      color="secondary"
-    >
-      Secondary
-    </v-chip>
-
-    <v-chip
-      class="ma-2"
-      color="red"
-      text-color="white"
-    >
-      Red Chip
-    </v-chip>
-
-    <v-chip
-      class="ma-2"
-      color="green"
-      text-color="white"
-    >
-      Green Chip
-    </v-chip>
+      <v-flex md5 mx-6 v-for="(article, index) in articles" :key="index">
+        <big-news :article="article"/>
+      </v-flex>
+    </v-layout>
   </div>
 </template>
-
-
--->
-
-<!-- <template>
-  <div v-if="articles">
-    <article v-for="(article, index) in articles" :key="index">
-      <h1 color="light-primary">{{ article.title }}</h1>
-      <h2>{{ article.content }}</h2>
-    </article>
-  </div>
-</template>
-
--->
 
 <script lang="ts">
 
 import { articlesCollection } from '../../../../main'
 import { Article } from '../../../../core/models/ArticleInterface'
+import TopicsChips from './TopicsChips.vue'
+import BigNews from '../../../common/articles/BigNews.vue'
+import ArticlesHeader from './ArticlesHeader.vue'
+import TopArticle from './TopArticle.vue'
+
 
 export default {
+  components: {
+    ArticlesHeader,
+    BigNews,
+    TopicsChips,
+    TopArticle
+  },
   data() {
     return {
       articles: [] as Article[],
-      cards: [
-        {
-          title: 'Pre-fab homes',
-          src: 'https://cdn.vuetifyjs.com/images/cards/house.jpg',
-          flex: 12
-        },
-        {
-          title: 'Favorite road trips',
-          src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg',
-          flex: 6
-        },
-        {
-          title: 'Best airlines',
-          src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg',
-          flex: 6
-        },
-        {
-          title: 'Favorite road tripaaas',
-          src: 'https://cdn.vuetifyjs.com/images/cards/road.jpg',
-          flex: 6
-        },
-        {
-          title: 'Best airlinsaes',
-          src: 'https://cdn.vuetifyjs.com/images/cards/plane.jpg',
-          flex: 6
-        }
-      ]
+      mainArticle: {} as Article
     }
   },
-  firestore() {
-    return {
-      articles: articlesCollection.orderBy('date')
+  methods: {
+    filterArticles(event) {
+      this.$bind('articles', articlesCollection.where('topics', 'array-contains', event))
+    }
+  },
+  mounted() {
+    articlesCollection.orderBy('date', 'desc').get().then((querySnapshot) => {
+      const documents = querySnapshot.docs.map(doc => doc.data())
+      this.mainArticle = documents[0]
+      this.articles = documents.splice(1)
+    })
+  },
+  computed: {
+    mainTitle() {
+      if (this.mainArticle) {
+        return this.mainArticle.title
+      }
+      return ''
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
-h1{
-  background-color: var(--v-primary-base) !important;
-}
+
 </style>

@@ -1,27 +1,27 @@
 <template>
-  <v-card flat height="70%" class="ma-2">
-    <v-img
+  <v-layout wrap>
+     <v-img
       :src="image"
       class="third--text"
       gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
     >
     </v-img>
-    <v-card-text>
-      <p class="inner-heading">{{title}}</p>
+    <div>
       <p class="date-topics mb-12">
-        <span class="date">{{date | date}}</span>
+        <span class="date">{{article.date | date}}</span>
         <span class="topics">{{normalizedTopics}}</span>
       </p>
       <p class="regular-text article-text pa-2">{{normalizedText}}</p>
-    </v-card-text>
-    <v-card-actions>
+    </div>
+    <div>
       <v-spacer></v-spacer>
       <v-btn outlined class="text-capitalize text-underline mr-6" text :to="{ name:'singleArticle', params: {id}}">Нататък</v-btn>
-    </v-card-actions>
-  </v-card>
+    </div>
+    </v-layout>
 </template>
 
 <script lang="ts">
+import { Article } from '../../../../core/models/ArticleInterface';
 
 export default {
   data() {
@@ -29,33 +29,18 @@ export default {
     }
   },
   props: {
-    image: {
-      type: String
-    },
-    title: {
-      type: String
-    },
-    text: {
-      type: String
-    },
-    id: {
-      type: String
-    },
-    date: {
-      type: Object
-    },
-    topics: {
-      type: Array
+    article: {
+      type: Object as () => Article
     }
   },
   computed: {
     normalizedTopics: function () {
-      return this.topics.join(', ');
+      return this.article.topics.join(', ');
     },
     normalizedText: function () {
       let maxLength = 450;
-      this.text.trim();
-      var trimmedString = this.text.substr(0, maxLength);
+      this.article.text.trim();
+      var trimmedString = this.article.text.substr(0, maxLength);
       trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, (lastIndexOfRegex(/[.!?]/g, trimmedString) + 1)))
       return trimmedString;
 
@@ -63,6 +48,12 @@ export default {
         var match = text.match(regex);
         return match ? text.lastIndexOf(match[match.length - 1]) : -1;
       }
+    },
+    id: function () {
+      return this.article.id;
+    },
+    image: function () {
+      return this.article.images[0];
     }
   }
 }

@@ -8,14 +8,14 @@
           </v-toolbar>
           <v-card-text>
             <v-form ref="form" lazy-validation>
-              <v-text-field name="title" label="Заглавие" type="text" v-model="$v.article.title.$model"></v-text-field>
+              <v-text-field name="title" label="Заглавие" type="text" v-model="$v.article.title.$model" class="higher"></v-text-field>
               <v-text-field name="subtitle" label="Подзаглавие" type="text" v-model="$v.article.subtitle.$model"></v-text-field>
-              <v-text-field name="text" label="Текст" type="text" v-model="$v.article.text.$model"></v-text-field>
-              <v-text-field name="images" label="Изображения (разделени със запетая)" type="text" v-model="$v.article.images.$model"></v-text-field>
-              <v-text-field name="innerTitles" label="Вътрешни заглавия (разделени със запетая)" type="text" v-model="$v.article.innerTitles.$model"></v-text-field>
-              <v-text-field name="imageTexts" label="Текстове към снимки (разделени със запетая)" type="text" v-model="$v.article.imageTexts.$model"></v-text-field>
-              <v-text-field name="quotes" label="Цитати (разделени с ;)" type="text" v-model="$v.article.quotes.$model"></v-text-field>
-              <v-text-field name="topics" label="Рубрики (разделени с ;)" type="text" v-model="$v.article.topics.$model"></v-text-field>
+              <v-textarea name="text" label="Текст" type="text" v-model="$v.article.text.$model"></v-textarea>
+              <v-textarea name="images" label="Изображения (разделени със запетая)" type="text" v-model="$v.article.images.$model"></v-textarea>
+              <v-textarea name="innerTitles" label="Вътрешни заглавия (разделени със запетая)" type="text" v-model="$v.article.innerTitles.$model"></v-textarea>
+              <v-textarea name="imageTexts" label="Текстове към снимки (разделени със запетая)" type="text" v-model="$v.article.imageTexts.$model"></v-textarea>
+              <v-textarea name="quotes" label="Цитати (разделени със запетая)" type="text" v-model="$v.article.quotes.$model"></v-textarea>
+              <v-text-field name="topics" label="Рубрики (разделени със запетая)" type="text" v-model="$v.article.topics.$model"></v-text-field>
             </v-form>
           </v-card-text>
           <v-card-actions>
@@ -52,13 +52,13 @@ export default Vue.extend({
   },
   validations: {
     article: {
-      title: { required, minLength: minLength(3), maxLength: maxLength(2000) },
+      title: { required, minLength: minLength(3), maxLength: maxLength(200) },
       subtitle: {
         required,
         minLength: minLength(3),
         maxLength: maxLength(2000)
       },
-      text: { required, minLength: minLength(3), maxLength: maxLength(2000) },
+      text: { required, minLength: minLength(3), maxLength: maxLength(20000) },
       images: { required },
       innerTitles: { required },
       imageTexts: { required },
@@ -68,7 +68,7 @@ export default Vue.extend({
   },
   methods: {
     OnAddArticle(): void {
-        articlesCollection.add({
+      articlesCollection.add({
         title: this.article.title,
         subtitle: this.article.subtitle,
         text: this.article.text,
@@ -80,14 +80,12 @@ export default Vue.extend({
         date: new Date()
       })
         .then(function (docRef) {
-          console.log(docRef);
-
           console.log("Document written with ID: ", docRef.id);
         })
         .catch(function (error) {
           console.error("Error adding document: ", error);
         });
-      this.$router.push('/home')
+      this.$router.push('/admin');
     }
   }
 })
@@ -95,5 +93,9 @@ export default Vue.extend({
 </script>
 
 <style scoped lang="scss">
+
+.higher {
+  height: 80px;
+}
 
 </style>

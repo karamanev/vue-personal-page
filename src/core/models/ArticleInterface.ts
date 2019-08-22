@@ -8,6 +8,7 @@ export interface Article {
     topics: [Topics]
     imageTexts?: [string];
     date: Date
+    id?: String;
 }
 
 
@@ -28,7 +29,7 @@ export enum Topics {
     'Технологии',
     'Наука',
     'Интервю',
-    'Личво',
+    'Лично',
     'Фотография',
     'Пътеки',
     'От архива'

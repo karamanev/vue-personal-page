@@ -8,8 +8,8 @@
           </v-toolbar>
           <v-card-text>
             <v-form ref="form" lazy-validation>
-              <v-text-field name="anouncement" label="Анонс" type="text" v-model="$v.quote.anouncement.$model"></v-text-field>
-              <v-text-field name="text" label="Текст" type="text" v-model="$v.quote.text.$model"></v-text-field>
+              <v-textarea name="anouncement" label="Анонс" type="text" v-model="$v.quote.anouncement.$model"></v-textarea>
+              <v-textarea name="text" label="Текст" type="text" v-model="$v.quote.text.$model"></v-textarea>
               <v-text-field name="author" label="Автор" type="text" v-model="$v.quote.author.$model"></v-text-field>
               <v-text-field name="image" label="Снимка" type="text" v-model="$v.quote.image.$model"></v-text-field>
             </v-form>
@@ -71,7 +71,7 @@ export default Vue.extend({
         .catch(function (error) {
           console.error("Error adding document: ", error);
         });
-      this.$router.push('/home')
+      this.$router.push('/admin')
     }
   }
 })

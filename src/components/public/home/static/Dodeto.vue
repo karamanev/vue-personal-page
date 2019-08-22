@@ -1,12 +1,7 @@
 <template>
   <div>
-    <h1 class="topic">И додето...</h1>
-    <v-layout
-      pt-6
-      mx-12
-      row
-      align-stretch
-    >
+    <h1 class="topic py-6">И додето...</h1>
+      <v-layout mx-12 row align-stretch>
       <v-flex md5>
         <div class="dodeto second--text ma-10">
           <p>Дебютният роман на Георги Караманев, издаден през 2016 г., е магическа, но и съвсем реална приказка, разговор за изкуството, приятелството, за важните мигове в живота...</p>
