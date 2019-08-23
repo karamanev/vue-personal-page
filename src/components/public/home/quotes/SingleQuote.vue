@@ -11,7 +11,7 @@
           </v-avatar>
         </v-flex>
         <v-flex md7>
-          <p class="mt-2 first--text">{{ quote.anouncement }}</p>
+          <p class="first--text mt-2 mr-4">{{ quote.anouncement }}</p>
         </v-flex>
       </v-layout>
         <p class="mt-2 mr-12 text-right">{{ quote.author }}</p>

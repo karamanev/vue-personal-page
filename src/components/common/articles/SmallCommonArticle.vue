@@ -34,7 +34,7 @@ export default {
       return this.article.topics.join(', ');
     },
     normalizedText: function () {
-      let maxLength = 140;
+      let maxLength = 400;
       this.article.text.trim();
       var trimmedString = this.article.text.substr(0, maxLength);
       trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, (lastIndexOfRegex(/[.!?]/g, trimmedString) + 1)))
@@ -53,5 +53,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.regular-text {
+  overflow-y: hidden;
+  text-overflow: ellipsis;
+  height: 122pt;
+  width: 100%;
+  margin: 0;
+  &::first-letter{
+    line-height: 2.2rem;
+  }
+}
 
 </style>

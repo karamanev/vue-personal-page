@@ -128,7 +128,6 @@ $fifth: #676767;
 
 .overflow-hidden {
   overflow: hidden;
-  white-space: nowrap;
   line-height: normal;
   text-overflow: ellipsis;
 }

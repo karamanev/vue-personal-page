@@ -1,12 +1,12 @@
 <template>
-  <v-layout wrap>
+  <v-layout wrap class="main">
     <v-layout
       mx-12
       row
       align-stretch
       justify-center
       >
-        <v-card-text>
+        <v-card-text class="a">
           <v-flex md8 class="regular-text with-initial pa-2 mb-6">{{normalizedText}}</v-flex>
         </v-card-text>
     </v-layout>
@@ -64,5 +64,16 @@ export default {
 <style scoped lang="scss">
 .regular-text {
   width: 80%;
+    height: calc(100% - 19px)
+
+}
+  .a {
+  align-items: center;
+  display: flex;
+}
+
+
+.main {
+  height: calc(100% - 19px)
 }
 </style>
