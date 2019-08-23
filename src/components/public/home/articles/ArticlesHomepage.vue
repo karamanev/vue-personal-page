@@ -13,7 +13,7 @@
       </v-flex>
 
       <v-flex md5 mx-6>
-        <div align-stretch>
+        <div align-center>
           <small-common-article :article="articles[1]"/>
           <small-common-article :article="articles[2]"/>
         </div>

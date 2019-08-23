@@ -114,16 +114,16 @@ $fifth: #676767;
   white-space: nowrap;
   line-height: normal;
   text-overflow: ellipsis;
+  font-size: 24pt;
 }
 
 .inner-heading {
-  font-size: 24pt;
   text-align: left;
 }
 
 .small-heading {
-  font-size: 18pt;
   text-align: center;
+  font-family: 'Caveat' !important;
 }
 
 .overflow-hidden {
@@ -150,7 +150,7 @@ $fifth: #676767;
 .date, .topics {
   font-size: 0.75rem;
   font-weight: 1000;
-  color: black;
+  color: $fifth;
 }
 
 .date{
@@ -159,6 +159,10 @@ $fifth: #676767;
 
 .topics {
   float: right;
+}
+
+.colored-button {
+  background-color: $first !important
 }
 
 </style>

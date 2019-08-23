@@ -1,8 +1,15 @@
 <template>
   <v-layout wrap>
-    <div>
-      <p class="regular-text with-initial article-text pa-2">{{normalizedText}}</p>
-    </div>
+    <v-layout
+      mx-12
+      row
+      align-stretch
+      justify-center
+      >
+        <v-card-text>
+          <v-flex md8 class="regular-text with-initial pa-2 mb-6">{{normalizedText}}</v-flex>
+        </v-card-text>
+    </v-layout>
     <v-img
       :src="image"
       class="third--text mb-6"
@@ -55,5 +62,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+.regular-text {
+  width: 80%;
+}
 </style>

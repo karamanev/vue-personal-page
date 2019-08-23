@@ -1,6 +1,6 @@
 <template>
 
-  <v-card flat height="32%" class="ma-2">
+  <v-card flat class="ma-2">
     <v-card-text>
       <p class="inner-heading">{{article.title}}</p>
       <p class="date-topics mb-12">

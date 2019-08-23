@@ -2,10 +2,10 @@
   <div>
     <articles-header v-if="mainArticle.date">
       <h1 slot="title" class="first--text font-weight-thin main-title" id="big-heading">{{ mainTitle }}</h1>
-      <p slot="date-topics" class="date-topics mb-12">
+      <div slot="date-topics flex mb-12 mx-6" class="date-topics mb-12">
         <span class="date">{{mainArticle.date | date}}</span>
         <span class="topics">{{normalizedTopics}}</span>
-      </p>
+      </div>
     </articles-header>
     <v-container v-if="mainArticle.title">
       <top-article :article="mainArticle"/>
@@ -19,6 +19,7 @@
       align-stretch
       justify-center
     >
+
       <v-flex md5 mx-6 v-for="(article, index) in articles" :key="index">
         <big-common-article :article="article"/>
       </v-flex>
@@ -51,21 +52,21 @@ export default {
   },
   methods: {
     filterArticles(event) {
-      this.$bind('articles', articlesCollection.orderBy('date', 'desc').where('topics', 'array-contains', event))
+      this.$bind('articles', articlesCollection.orderBy('date', 'desc').where('topics', 'array-contains', event));
       this.articles = this.articles.reverse();
     }
   },
   mounted() {
     articlesCollection.orderBy('date', 'desc').get().then((querySnapshot) => {
-      const documents = querySnapshot.docs.map(doc => doc.data())
-      this.mainArticle = documents[0]
-      this.articles = documents.splice(1)
+      const documents = querySnapshot.docs.map(doc => doc.data());
+      this.mainArticle = documents[0];
+      this.articles = documents.splice(1);
     })
   },
   computed: {
     mainTitle() {
       if (this.mainArticle) {
-        return this.mainArticle.title
+        return this.mainArticle.title;
       }
       return ''
     },
@@ -77,10 +78,12 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 .main-title {
   padding-left: 5%;
   padding-top: 18%;
   font-size: 55pt;
   line-height: 55pt;
 }
+
 </style>

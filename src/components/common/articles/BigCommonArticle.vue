@@ -13,7 +13,7 @@
         <span class="date">{{article.date | date}}</span>
         <span class="topics">{{normalizedTopics}}</span>
       </p>
-      <p class="regular-text with-initial article-text pa-2">{{normalizedText}}</p>
+      <p class="regular-text with-initial pa-2">{{normalizedText}}</p>
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
@@ -62,5 +62,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 
 </style>
