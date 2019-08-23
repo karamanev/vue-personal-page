@@ -59,7 +59,6 @@ export default {
     OnDelete(): void {
       this.dialog = false
       console.log(this.isArticle);
-      
       if (this.isArticle) {
         articlesCollection.doc(this.id)
           .delete()

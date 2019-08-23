@@ -1,24 +1,24 @@
 <template>
   <div>
-    <h2 class="">{{title}}</h2>
+    <h2>{{title}}</h2>
     <v-container v-if="isArticle === true" class="col-12 d-flex flex-row justify-space-around">
       <v-btn color="first" class="third--text" :to="{ name:'editArticle', params: {id}}">Редактирай</v-btn>
     </v-container>
     <v-container v-if="isArticle === false" class="col-12 d-flex flex-row justify-space-around">
       <v-btn color="first" class="third--text" :to="{ name:'editQuote', params: {id}}">Редактирай</v-btn>
     </v-container>
-    <delete-article-card :id="id" :isArticle="isArticle" />
+    <delete-card :id="id" :isArticle="isArticle" />
   </div>
 </template>
 
 
 <script lang="ts">
 import { articlesCollection, quotesCollection } from '../../../main'
-import DeleteArticleCard from '../articles/DeleteArticleCard.vue'
+import DeleteCard from '../articles/DeleteCard.vue'
 
 export default {
   components: {
-    DeleteArticleCard
+    DeleteCard
   },
   props: {
     title: {
