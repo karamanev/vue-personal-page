@@ -11,7 +11,7 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn outlined class="text-capitalize text-underline mr-6" text :to="{ name:'singleArticle', params: {id}}">Нататък</v-btn>
+      <v-btn class="outlined first-button mr-6" text :to="{ name:'singleArticle', params: {id}}">Нататък</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -53,15 +53,13 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 .regular-text {
   overflow-y: hidden;
   text-overflow: ellipsis;
   height: 122pt;
   width: 100%;
   margin: 0;
-  &::first-letter{
-    line-height: 2.2rem;
-  }
 }
 
 </style>

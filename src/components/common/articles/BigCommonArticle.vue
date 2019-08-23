@@ -17,7 +17,7 @@
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn outlined class="text-capitalize text-underline mr-6" text :to="{ name:'singleArticle', params: {id}}">Нататък</v-btn>
+      <v-btn class="outlined first-button mr-6" text :to="{ name:'singleArticle', params: {id}}">Нататък</v-btn>
     </v-card-actions>
   </v-card>
 </template>

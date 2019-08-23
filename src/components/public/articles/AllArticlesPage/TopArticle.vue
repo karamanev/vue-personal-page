@@ -1,25 +1,26 @@
 <template>
-  <v-layout wrap class="main">
-    <v-layout
+<div>
+  <v-layout
       mx-12
       row
       align-stretch
       justify-center
-      >
-        <v-card-text class="a">
-          <v-flex md8 class="regular-text with-initial pa-2 mb-6">{{normalizedText}}</v-flex>
-        </v-card-text>
-    </v-layout>
+  >
+    <v-flex md6>
+      <p  class="regular-text with-initial pa-2 mb-6">{{normalizedText}}</p>
+      <v-btn class="outlined first-button mb-12" text :to="{ name:'singleArticle', params: {id}}">Нататък</v-btn>
+    </v-flex>
+  </v-layout>
+    <div>
     <v-img
       :src="image"
       class="third--text mb-6"
-      gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+      height="250px"
     >
     </v-img>
-    <div>
-      <v-btn outlined class="text-capitalize text-underline mr-6" text :to="{ name:'singleArticle', params: {id}}">Нататък</v-btn>
     </div>
-  </v-layout>
+    </div>
+
 </template>
 
 <script lang="ts">
@@ -62,18 +63,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.regular-text {
-  width: 80%;
-    height: calc(100% - 19px)
 
-}
-  .a {
-  align-items: center;
-  display: flex;
-}
-
-
-.main {
-  height: calc(100% - 19px)
-}
 </style>

@@ -1,11 +1,12 @@
 <template>
   <div>
     <articles-header v-if="mainArticle.date">
-      <h1 slot="title" class="first--text font-weight-thin main-title" id="big-heading">{{ mainTitle }}</h1>
-      <div slot="date-topics flex mb-12 mx-6" class="date-topics mb-12">
-        <span class="date">{{mainArticle.date | date}}</span>
-        <span class="topics">{{normalizedTopics}}</span>
+      <h1 slot="title" class="first--text font-weight-thin main-title">{{ mainArticle.title }}</h1>
+      <div slot="date-topics" class="flex mb-12 mx-12 mt-n12 date-topics">
+        <span class="first--text date">{{ mainArticle.date | date }}</span>
+        <span class="first--text topics">{{ normalizedTopics }}</span>
       </div>
+      <div slot="subtitle" class="first--text main-subtitle">{{ mainArticle.subtitle }}</div>
     </articles-header>
     <v-container v-if="mainArticle.title">
       <top-article :article="mainArticle"/>
@@ -64,12 +65,6 @@ export default {
     })
   },
   computed: {
-    mainTitle() {
-      if (this.mainArticle) {
-        return this.mainArticle.title;
-      }
-      return ''
-    },
     normalizedTopics: function () {
       return this.mainArticle.topics.join(', ');
     }
@@ -78,12 +73,5 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
-.main-title {
-  padding-left: 5%;
-  padding-top: 18%;
-  font-size: 55pt;
-  line-height: 55pt;
-}
 
 </style>

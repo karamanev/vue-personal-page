@@ -10,6 +10,7 @@
     >
   </v-img>
     <slot name="title"></slot>
+    <slot name="subtitle"></slot>
     <slot name="date-topics"></slot>
   </v-row>
 </template>
@@ -31,16 +32,31 @@ export default {
 </script>
 
 <style scoped lang="scss">
-#welcome {
-  opacity: 0.4;
-}
 
-#big-heading {
+.main-title {
+  font-size: 55pt;
+  line-height: 55pt;
   font-family: 'Caveat' !important;
   position: absolute;
 }
 
-.date-topics {
-  top: -20px;
+.main-subtitle {
+  font-size: 25pt;
+  line-height: 55pt;
+  text-align: center;
+  position: absolute;
+  top:340pt;
+  width: 40%;
+  line-height: 1.3;
+  font-weight: 600 !important;
 }
+
+#welcome {
+  opacity: 0.4;
+}
+
+.date-topics {
+margin-top: -20px
+}
+
 </style>

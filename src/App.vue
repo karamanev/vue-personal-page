@@ -104,6 +104,7 @@ $fifth: #676767;
     font-size: 53pt;
     color: $second;
     font-family: 'Caveat';
+    line-height: 2.2rem;
   }
 }
 
@@ -160,7 +161,8 @@ $fifth: #676767;
   float: right;
 }
 
-.colored-button {
+.first-button {
+  color: $third !important;
   background-color: $first !important
 }
 

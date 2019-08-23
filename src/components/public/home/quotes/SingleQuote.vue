@@ -15,7 +15,7 @@
         </v-flex>
       </v-layout>
         <p class="mt-2 mr-12 text-right">{{ quote.author }}</p>
-      <v-btn outlined class="text-capitalize text-underline colored-button mr-6" text :to="{ name:'singleQuote', params: { id: quote.id }}">Нататък</v-btn>
+      <v-btn class="outlined first-button mr-6" text :to="{ name:'singleQuote', params: { id: quote.id }}">Нататък</v-btn>
     </v-sheet>
   </v-carousel-item>
 </template>
