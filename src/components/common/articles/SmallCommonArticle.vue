@@ -1,13 +1,13 @@
 <template>
 
-  <v-card flat height="32%" class="ma-2">
+  <v-card flat class="ma-2">
     <v-card-text>
       <p class="inner-heading">{{article.title}}</p>
       <p class="date-topics mb-12">
         <span class="date">{{article.date | date}}</span>
         <span class="topics">{{normalizedTopics}}</span>
       </p>
-      <p class="regular-text pa-2">{{normalizedText}}</p>
+      <p class="regular-text with-initial pa-2">{{normalizedText}}</p>
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>

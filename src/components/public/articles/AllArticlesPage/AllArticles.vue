@@ -1,6 +1,12 @@
 <template>
   <div>
-    <articles-header :title="mainTitle"/>
+    <articles-header v-if="mainArticle.date">
+      <h1 slot="title" class="first--text font-weight-thin main-title" id="big-heading">{{ mainTitle }}</h1>
+      <div slot="date-topics flex mb-12 mx-6" class="date-topics mb-12">
+        <span class="date">{{mainArticle.date | date}}</span>
+        <span class="topics">{{normalizedTopics}}</span>
+      </div>
+    </articles-header>
     <v-container v-if="mainArticle.title">
       <top-article :article="mainArticle"/>
     </v-container>
@@ -13,8 +19,9 @@
       align-stretch
       justify-center
     >
+
       <v-flex md5 mx-6 v-for="(article, index) in articles" :key="index">
-        <big-news :article="article"/>
+        <big-common-article :article="article"/>
       </v-flex>
     </v-layout>
   </div>
@@ -25,7 +32,7 @@
 import { articlesCollection } from '../../../../main'
 import { Article } from '../../../../core/models/ArticleInterface'
 import TopicsChips from './TopicsChips.vue'
-import BigNews from '../../../common/articles/BigNews.vue'
+import BigCommonArticle from '../../../common/articles/BigCommonArticle.vue'
 import ArticlesHeader from './ArticlesHeader.vue'
 import TopArticle from './TopArticle.vue'
 
@@ -33,7 +40,7 @@ import TopArticle from './TopArticle.vue'
 export default {
   components: {
     ArticlesHeader,
-    BigNews,
+    BigCommonArticle,
     TopicsChips,
     TopArticle
   },
@@ -45,27 +52,38 @@ export default {
   },
   methods: {
     filterArticles(event) {
-      this.$bind('articles', articlesCollection.where('topics', 'array-contains', event))
+      this.$bind('articles', articlesCollection.orderBy('date', 'desc').where('topics', 'array-contains', event));
+      this.articles = this.articles.reverse();
     }
   },
   mounted() {
     articlesCollection.orderBy('date', 'desc').get().then((querySnapshot) => {
-      const documents = querySnapshot.docs.map(doc => doc.data())
-      this.mainArticle = documents[0]
-      this.articles = documents.splice(1)
+      const documents = querySnapshot.docs.map(doc => doc.data());
+      this.mainArticle = documents[0];
+      this.articles = documents.splice(1);
     })
   },
   computed: {
     mainTitle() {
       if (this.mainArticle) {
-        return this.mainArticle.title
+        return this.mainArticle.title;
       }
       return ''
+    },
+    normalizedTopics: function () {
+      return this.mainArticle.topics.join(', ');
     }
   }
 }
 </script>
 
 <style scoped lang="scss">
+
+.main-title {
+  padding-left: 5%;
+  padding-top: 18%;
+  font-size: 55pt;
+  line-height: 55pt;
+}
 
 </style>

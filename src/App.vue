@@ -97,6 +97,9 @@ $fifth: #676767;
 .regular-text{
   color:black;
   text-align: left;
+}
+
+.with-initial {
   &::first-letter{
     font-size: 53pt;
     color: $second;
@@ -104,21 +107,30 @@ $fifth: #676767;
   }
 }
 
-.inner-heading{
-    font-size: 24pt;
-    color: $second;
-    text-align: left;
-    overflow: hidden;
-    white-space: nowrap;
-    line-height: normal;
-    text-overflow: ellipsis;
+.inner-heading, .small-heading {
+  font-size: 24pt;
+  color: $second;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: normal;
+  text-overflow: ellipsis;
+  font-size: 24pt;
 }
 
-.overflow-hidden{
-    overflow: hidden;
-    white-space: nowrap;
-    line-height: normal;
-    text-overflow: ellipsis;
+.inner-heading {
+  text-align: left;
+}
+
+.small-heading {
+  text-align: center;
+  font-family: 'Caveat' !important;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: normal;
+  text-overflow: ellipsis;
 }
 
 .topic {
@@ -138,15 +150,19 @@ $fifth: #676767;
 .date, .topics {
   font-size: 0.75rem;
   font-weight: 1000;
-  color: black;
+  color: $fifth;
 }
 
 .date{
-  float:left;
+  float: left;
 }
 
-.topics{
-  float:right;
+.topics {
+  float: right;
+}
+
+.colored-button {
+  background-color: $first !important
 }
 
 </style>

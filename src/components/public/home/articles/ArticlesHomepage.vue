@@ -9,13 +9,13 @@
       v-if="articles.length === 3"
     >
       <v-flex md5 mx-6>
-        <big-news :article="articles[0]"/>
+        <big-common-article :article="articles[0]"/>
       </v-flex>
 
       <v-flex md5 mx-6>
-        <div align-stretch>
-          <small-news :article="articles[1]"/>
-          <small-news :article="articles[2]"/>
+        <div align-center>
+          <small-common-article :article="articles[1]"/>
+          <small-common-article :article="articles[2]"/>
         </div>
       </v-flex>
     </v-layout>
@@ -26,13 +26,13 @@
 
 import { articlesCollection } from '../../../../main'
 import Vue from 'vue';
-import BigNews from '../../../common/articles/BigNews.vue'
-import SmallNews from '../../../common/articles/SmallNews.vue'
+import BigCommonArticle from '../../../common/articles/BigCommonArticle.vue'
+import SmallCommonArticle from '../../../common/articles/SmallCommonArticle.vue'
 
 export default Vue.extend({
   components: {
-    BigNews,
-    SmallNews
+    BigCommonArticle,
+    SmallCommonArticle
   },
   data() {
     return {

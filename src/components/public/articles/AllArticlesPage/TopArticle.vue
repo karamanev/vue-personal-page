@@ -1,23 +1,25 @@
 <template>
   <v-layout wrap>
-     <v-img
+    <v-layout
+      mx-12
+      row
+      align-stretch
+      justify-center
+      >
+        <v-card-text>
+          <v-flex md8 class="regular-text with-initial pa-2 mb-6">{{normalizedText}}</v-flex>
+        </v-card-text>
+    </v-layout>
+    <v-img
       :src="image"
-      class="third--text"
+      class="third--text mb-6"
       gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
     >
     </v-img>
     <div>
-      <p class="date-topics mb-12">
-        <span class="date">{{article.date | date}}</span>
-        <span class="topics">{{normalizedTopics}}</span>
-      </p>
-      <p class="regular-text article-text pa-2">{{normalizedText}}</p>
-    </div>
-    <div>
-      <v-spacer></v-spacer>
       <v-btn outlined class="text-capitalize text-underline mr-6" text :to="{ name:'singleArticle', params: {id}}">Нататък</v-btn>
     </div>
-    </v-layout>
+  </v-layout>
 </template>
 
 <script lang="ts">
@@ -60,5 +62,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
+.regular-text {
+  width: 80%;
+}
 </style>
