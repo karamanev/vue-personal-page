@@ -1,7 +1,7 @@
 <template>
   <v-layout wrap>
     <div>
-      <p class="regular-text article-text pa-2">{{normalizedText}}</p>
+      <p class="regular-text with-initial article-text pa-2">{{normalizedText}}</p>
     </div>
     <v-img
       :src="image"

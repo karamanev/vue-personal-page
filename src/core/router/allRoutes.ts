@@ -3,7 +3,7 @@ import Home from '../../components/public/home/Home.vue'
 import Register from '../../components/admin/authentication/Register.vue'
 import Login from '../../components/admin/authentication/Login.vue'
 import AllArticles from '../../components/public/articles/AllArticlesPage/AllArticles.vue'
-import SingleArticle from '../../components/public/articles/SingleArticlePage/SingleArticle.vue'
+import SingleArticlePage from '../../components/public/articles/SingleArticlePage/SingleArticlePage.vue'
 import AddArticle from '../../components/admin/articles/AddArticle.vue'
 import EditArticle from '../../components/admin/articles/EditArticle.vue'
 import AddQuote from '../../components/admin/quotes/AddQuote.vue'
@@ -11,6 +11,7 @@ import EditQuote from '../../components/admin/quotes/EditQuote.vue'
 import Admin from '../../components/admin/main/Admin.vue'
 import AdminMenu from '../../components/admin/main/AdminMenu.vue'
 import Dodeto from '../../components/public/static/Dodeto.vue'
+import SingleQuotePage from '../../components/public/quotes/SingleQuotePage.vue'
 
 export default [
   {
@@ -31,12 +32,12 @@ export default [
   {
     path: '/articles/:id',
     name: 'singleArticle',
-    component: SingleArticle
+    component: SingleArticlePage
   },
   {
     path: '/quotes/:id',
     name: 'singleQuote',
-    component: SingleArticle
+    component: SingleQuotePage
   },
   {
     path: '/home',

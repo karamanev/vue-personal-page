@@ -97,6 +97,9 @@ $fifth: #676767;
 .regular-text{
   color:black;
   text-align: left;
+}
+
+.with-initial {
   &::first-letter{
     font-size: 53pt;
     color: $second;
@@ -104,21 +107,30 @@ $fifth: #676767;
   }
 }
 
-.inner-heading{
-    font-size: 24pt;
-    color: $second;
-    text-align: left;
-    overflow: hidden;
-    white-space: nowrap;
-    line-height: normal;
-    text-overflow: ellipsis;
+.inner-heading, .small-heading {
+  font-size: 24pt;
+  color: $second;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: normal;
+  text-overflow: ellipsis;
 }
 
-.overflow-hidden{
-    overflow: hidden;
-    white-space: nowrap;
-    line-height: normal;
-    text-overflow: ellipsis;
+.inner-heading {
+  font-size: 24pt;
+  text-align: left;
+}
+
+.small-heading {
+  font-size: 18pt;
+  text-align: center;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: normal;
+  text-overflow: ellipsis;
 }
 
 .topic {
@@ -142,11 +154,11 @@ $fifth: #676767;
 }
 
 .date{
-  float:left;
+  float: left;
 }
 
-.topics{
-  float:right;
+.topics {
+  float: right;
 }
 
 </style>

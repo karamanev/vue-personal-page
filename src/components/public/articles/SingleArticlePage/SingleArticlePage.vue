@@ -1,6 +1,6 @@
 <template>
   <div>
-    <single-news :article="article" />
+    <single-common-item :article="article" />
   </div>
 </template>
 
@@ -8,11 +8,11 @@
 
 import { Article } from '../../../../core/models/ArticleInterface';
 import { articlesCollection } from '../../../../main';
-import SingleNews from '../../../common/articles/SingleNews.vue'
+import SingleCommonItem from '../../../common/articles/SingleCommonItem.vue'
 
 export default {
   components: {
-    SingleNews
+    SingleCommonItem
   },
   data() {
     return {
@@ -31,7 +31,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-h1{
-  background-color: var(--v-primary-base) !important;
-}
+
+
 </style>

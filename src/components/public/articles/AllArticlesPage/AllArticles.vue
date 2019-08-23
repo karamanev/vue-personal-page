@@ -20,7 +20,7 @@
       justify-center
     >
       <v-flex md5 mx-6 v-for="(article, index) in articles" :key="index">
-        <big-news :article="article"/>
+        <big-common-article :article="article"/>
       </v-flex>
     </v-layout>
   </div>
@@ -31,7 +31,7 @@
 import { articlesCollection } from '../../../../main'
 import { Article } from '../../../../core/models/ArticleInterface'
 import TopicsChips from './TopicsChips.vue'
-import BigNews from '../../../common/articles/BigNews.vue'
+import BigCommonArticle from '../../../common/articles/BigCommonArticle.vue'
 import ArticlesHeader from './ArticlesHeader.vue'
 import TopArticle from './TopArticle.vue'
 
@@ -39,7 +39,7 @@ import TopArticle from './TopArticle.vue'
 export default {
   components: {
     ArticlesHeader,
-    BigNews,
+    BigCommonArticle,
     TopicsChips,
     TopArticle
   },
