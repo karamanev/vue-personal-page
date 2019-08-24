@@ -4,7 +4,7 @@
       <v-flex md8>
         <v-card class="elevation-12">
           <v-toolbar dark >
-            <v-toolbar-title class="text-primary" color="primary">Редактирай публикация</v-toolbar-title>
+            <v-toolbar-title class="text-primary" color="second">Редактирай публикация</v-toolbar-title>
           </v-toolbar>
           <v-card-text>
             <v-form ref="form" lazy-validation>
@@ -20,8 +20,9 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" :disabled="$v.article.$error" @click="OnEditArticle">Изпрати</v-btn>
+            <v-btn color="second" :disabled="$v.article.$invalid" @click="OnEditArticle">Изпрати</v-btn>
           </v-card-actions>
+          <p class="red" v-if="$v.article.$error">Формата не е полълнена коректно!</p>
         </v-card>
       </v-flex>
     </v-layout>

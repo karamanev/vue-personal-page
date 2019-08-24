@@ -4,10 +4,10 @@
     <v-container v-if="!quote">
      <loader/>
     </v-container>
-    <v-container v-else>
+    <div v-else>
       <welcome-quotes :author="quote.author"/>
       <single-quote-item :quote="quote"/>
-    </v-container>
+    </div>
 
   </div>
 

@@ -3,7 +3,7 @@
     <v-layout align-center justify-center>
       <v-flex xs12 sm8 md4>
         <v-card class="elevation-12">
-          <v-toolbar dark color="primary">
+          <v-toolbar color="second">
             <v-toolbar-title>Влез в профила си</v-toolbar-title>
           </v-toolbar>
           <v-card-text>
@@ -14,8 +14,10 @@
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" :disabled="$v.$error" @click="OnLoginClick">Вход</v-btn>
+            <v-btn color="second" :disabled="$v.$invalid" @click="OnLoginClick">Вход</v-btn>
           </v-card-actions>
+          <p class="red" v-if="$v.$error && (user.password.length > 20 || user.password.length < 4)">Избраната парола трябва да бъде между 4 и 20 знака!</p>
+          <p class="red" v-if="$v.$error && user.password.length < 20 && user.password.length > 4">Въведеният имейл е невалиден!</p>
         </v-card>
       </v-flex>
     </v-layout>

@@ -1,36 +1,21 @@
 <template>
   <span>
-    <v-dialog
-      v-model="dialog"
-      width="500"
-    >
+    <v-dialog v-model="dialog" width="500">
       <template v-slot:activator="{ on }">
-        <v-btn color="first" class="third--text" v-on="on">
+        <v-btn color="red" class="third--text" v-on="on">
           Изтрий
         </v-btn>
       </template>
 
       <v-card>
-        <v-card-title
-          class="headline grey lighten-2"
-          primary-title
-        >
+        <v-card-title class="headline grey lighten-2" primary-title>
           Сигурен ли си?
         </v-card-title>
-
         <v-card-text>Данните няма да могат да бъдат възстановени!</v-card-text>
-
         <v-divider></v-divider>
-
         <v-card-actions>
           <div class="flex-grow-1"></div>
-          <v-btn
-            color="first"
-            text
-            @click="OnDelete"
-          >
-            Изтрий
-          </v-btn>
+          <v-btn color="second" text @click="OnDelete">Изтрий</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
