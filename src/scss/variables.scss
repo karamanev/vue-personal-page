@@ -1,0 +1,95 @@
+$first: #003B6D;
+$second: #6699CC;
+$third: #EBEDF3;
+$forth: #BDBDBD;
+$fifth: #676767;
+
+#app {
+  font-family: 'Repo', 'Cormorant Infant', Arial, serif;
+  text-align: center;
+}
+
+.regular-text{
+  color:black;
+  text-align: left;
+}
+
+.with-initial {
+  &::first-letter{
+    font-size: 53pt;
+    color: $second;
+    font-family: 'Caveat';
+    line-height: 2.2rem;
+  }
+}
+
+.inner-heading, .small-heading {
+  font-size: 24pt;
+  color: $second;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: normal;
+  text-overflow: ellipsis;
+  font-size: 24pt;
+}
+
+.main-title {
+  font-size: 85pt;
+  line-height: 55pt;
+  font-family: 'Caveat' !important;
+  color: $first;
+  font-weight: 100;
+}
+
+.main-subtitle {
+  font-size: 25pt;
+  line-height: 55pt;
+  text-align: center;
+  line-height: 1.3;
+  font-weight: 600 !important;
+  color: $fifth;
+}
+
+.small-heading {
+  text-align: center;
+  font-family: 'Caveat' !important;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+  line-height: normal;
+  text-overflow: ellipsis;
+}
+
+.topic {
+  font-family: 'Caveat' !important;
+  text-align: left;
+  color: $first;
+  font-size: 24pt;
+  font-weight: 500;
+}
+
+.info {
+  font-size: 15pt;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.date, .topics {
+  font-size: 0.75rem;
+  font-weight: 1000;
+  color: $fifth;
+}
+
+.date{
+  float: left;
+}
+
+.topics {
+  float: right;
+}
+
+.first-button {
+  color: $third !important;
+  background-color: $first !important
+}
