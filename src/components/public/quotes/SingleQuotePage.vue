@@ -1,5 +1,6 @@
 <template>
   <div>
+    <welcome-quotes/>
     <single-common-item :article="article" :isQuote="true" />
   </div>
 </template>
@@ -9,10 +10,12 @@
 import { Quote } from '../../../core/models/QuoteInterface';
 import { quotesCollection } from '../../../main';
 import SingleCommonItem from '../../common/articles/SingleCommonItem.vue'
+import WelcomeQuotes from './WelcomeQuotes.vue'
 
 export default {
   components: {
-    SingleCommonItem
+    SingleCommonItem,
+    WelcomeQuotes
   },
   data() {
     return {

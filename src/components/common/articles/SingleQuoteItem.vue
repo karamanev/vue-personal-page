@@ -1,10 +1,10 @@
 <template>
   <div v-if="article.images">
     <div class="grey--text text--darken-2">
-      <p class="inner-heading">{{article.title}}</p>
+      <p class="inner-heading">{{ article.title }}</p>
         <p class="date-topics mb-12">
-          <span class="date">{{article.date | date}}</span>
-          <span class="topics">{{normalizedTopics}}</span>
+          <span class="date">{{ article.date | date }}</span>
+          <span class="topics">{{ article.topics | topics }}</span>
         </p>
   		<v-img :src="mainImage" height="400px" class="mt-3"></v-img>
       <v-card-text width="40%">
@@ -58,9 +58,6 @@ export default {
     }
   },
   computed: {
-    normalizedTopics: function () {
-      return this.article.topics.join(', ');
-    },
     mainImage: function () {
       return this.article.images[0];
     },

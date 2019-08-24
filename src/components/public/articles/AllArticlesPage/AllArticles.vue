@@ -1,12 +1,12 @@
 <template>
   <div>
     <articles-header v-if="mainArticle.date">
-      <h1 slot="title" class="first--text font-weight-thin main-title">{{ mainArticle.title }}</h1>
+      <h1 slot="title" class="main-title">{{ mainArticle.title }}</h1>
       <div slot="date-topics" class="flex mb-12 mx-12 mt-n12 date-topics">
         <span class="first--text date">{{ mainArticle.date | date }}</span>
-        <span class="first--text topics">{{ normalizedTopics }}</span>
+        <span class="first--text topics">{{ mainArticle.topics | topics }}</span>
       </div>
-      <div slot="subtitle" class="first--text main-subtitle">{{ mainArticle.subtitle }}</div>
+      <div slot="subtitle" class="main-subtitle">{{ mainArticle.subtitle }}</div>
     </articles-header>
     <v-container v-if="mainArticle.title">
       <top-article :article="mainArticle"/>
@@ -63,15 +63,6 @@ export default {
       this.mainArticle = documents[0];
       this.articles = documents.splice(1);
     })
-  },
-  computed: {
-    normalizedTopics: function () {
-      return this.mainArticle.topics.join(', ');
-    }
   }
 }
 </script>
-
-<style scoped lang="scss">
-
-</style>

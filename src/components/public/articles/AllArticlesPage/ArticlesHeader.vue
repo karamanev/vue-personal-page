@@ -33,30 +33,22 @@ export default {
 
 <style scoped lang="scss">
 
-.main-title {
-  font-size: 55pt;
-  line-height: 55pt;
-  font-family: 'Caveat' !important;
-  position: absolute;
-}
-
-.main-subtitle {
-  font-size: 25pt;
-  line-height: 55pt;
-  text-align: center;
-  position: absolute;
-  top:340pt;
-  width: 40%;
-  line-height: 1.3;
-  font-weight: 600 !important;
-}
-
 #welcome {
   opacity: 0.4;
 }
 
 .date-topics {
-margin-top: -20px
+  margin-top: -20px;
+}
+
+.main-title {
+  position: absolute;
+}
+
+.main-subtitle {
+  position: absolute;
+  top:340pt;
+  width: 40%;
 }
 
 </style>

@@ -7,8 +7,8 @@
       justify-center
   >
     <v-flex md6>
-      <p  class="regular-text with-initial pa-2 mb-6">{{normalizedText}}</p>
-      <v-btn class="outlined first-button mb-12" text :to="{ name:'singleArticle', params: {id}}">Нататък</v-btn>
+      <p  class="regular-text with-initial pa-2 mb-6">{{ normalizedText }}</p>
+      <v-btn class="outlined first-button mb-12" text :to="{ name:'singleArticle', params: {id} }">Нататък</v-btn>
     </v-flex>
   </v-layout>
     <div>
@@ -37,9 +37,6 @@ export default {
     }
   },
   computed: {
-    normalizedTopics: function () {
-      return this.article.topics.join(', ');
-    },
     normalizedText: function () {
       let maxLength = 450;
       this.article.text.trim();

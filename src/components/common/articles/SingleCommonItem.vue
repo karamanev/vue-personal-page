@@ -1,19 +1,28 @@
 <template>
   <div v-if="article.images">
-    <div class="grey--text text--darken-2">
-      <p class="inner-heading">{{article.title}}</p>
-        <p class="date-topics mb-12">
-          <span class="date">{{article.date | date}}</span>
-          <span class="topics">{{normalizedTopics}}</span>
-        </p>
-  		<v-img :src="mainImage" height="400px" class="mt-3"></v-img>
-      <v-card-text width="40%">
-        <v-container v-for="(paragraph, index) in textFormated" :key="index">
-        	<p :class="getClass(paragraph, index)" class="regular-text md8 ">{{ paragraph }}</p>
-      		<v-img v-if="hasImage(index)" :src="getImage(index)" height="400px" class="mt-3"></v-img>
-        </v-container>
-      </v-card-text>
-	  </div>
+    <v-layout justify-center>
+      <v-flex md10 mb-6>
+        <h1 class="main-title my-12">{{article.title}}</h1>
+        <h2 class="main-subtitle">{{article.subtitle}}</h2>
+      </v-flex>
+    </v-layout>
+    <p class="date-topics mx-6 mb-6">
+      <span class="date">{{article.date | date}}</span>
+      <span class="topics">{{article.topics | topics}}</span>
+    </p>
+		<v-img :src="mainImage" height="400px" class="mt-3"></v-img>
+
+    <v-container v-for="(paragraph, index) in textFormated" :key="index">
+      <v-layout row mx-12 align-center justify-center>
+        <v-flex md6>
+        	<p :class="getClass(paragraph, index)" class="regular-text md8">{{ paragraph }}</p>
+        </v-flex>
+        <v-flex md12>
+    	  	<v-img v-if="hasImage(index)" :src="getImage(index)" height="400px" class="my-6"></v-img>
+        </v-flex>
+      </v-layout>
+    </v-container>
+
   </div>
 </template>
 
@@ -58,9 +67,6 @@ export default {
     }
   },
   computed: {
-    normalizedTopics: function () {
-      return this.article.topics.join(', ');
-    },
     mainImage: function () {
       return this.article.images[0];
     },

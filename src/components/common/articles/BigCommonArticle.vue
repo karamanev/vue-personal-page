@@ -8,16 +8,16 @@
     >
     </v-img>
     <v-card-text>
-      <p class="inner-heading">{{article.title}}</p>
+      <p class="inner-heading">{{ article.title }}</p>
       <p class="date-topics mb-12">
-        <span class="date">{{article.date | date}}</span>
-        <span class="topics">{{normalizedTopics}}</span>
+        <span class="date">{{ article.date | date }}</span>
+        <span class="topics">{{ article.topics | topics }}</span>
       </p>
-      <p class="regular-text with-initial pa-2">{{normalizedText}}</p>
+      <p class="regular-text with-initial pa-2">{{ normalizedText }}</p>
     </v-card-text>
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn class="outlined first-button mr-6" text :to="{ name:'singleArticle', params: {id}}">Нататък</v-btn>
+      <v-btn class="outlined first-button mr-6" text :to="{ name:'singleArticle', params: {id} }">Нататък</v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -36,9 +36,6 @@ export default {
     }
   },
   computed: {
-    normalizedTopics: function () {
-      return this.article.topics.join(', ');
-    },
     normalizedText: function () {
       let maxLength = 500;
       this.article.text.trim();
