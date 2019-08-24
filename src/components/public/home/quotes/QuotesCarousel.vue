@@ -28,7 +28,7 @@ export default {
   },
   firestore() {
     return {
-      quotes: quotesCollection.orderBy('date')
+      quotes: quotesCollection.orderBy('date', 'desc')
     }
   }
 }

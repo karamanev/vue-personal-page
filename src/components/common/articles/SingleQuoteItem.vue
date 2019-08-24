@@ -1,19 +1,24 @@
 <template>
-  <div v-if="article.images">
-    <div class="grey--text text--darken-2">
-      <p class="inner-heading">{{ article.title }}</p>
-        <p class="date-topics mb-12">
-          <span class="date">{{ article.date | date }}</span>
-          <span class="topics">{{ article.topics | topics }}</span>
-        </p>
-  		<v-img :src="mainImage" height="400px" class="mt-3"></v-img>
-      <v-card-text width="40%">
+  <div v-if="quote.text">
+    <v-layout justify-center align-center>
+      <v-flex md10 mb-6>
+        <h2 class="main-subtitle my-3">{{quote.anouncement}}</h2>
+        <p class="date my-6">{{quote.date | date}}</p>
+      </v-flex>
+    </v-layout>
+    <v-layout row align-start justify-center>
+      <v-flex md3 mr-12>
+        <v-avatar class="avatar" size="80%">
+          <img :src="getImageUrl(quote.image)" alt="Авторът на цитата">
+        </v-avatar>
+        <h3 class="quote-author first--text">{{quote.biography}}</h3>
+      </v-flex>
+      <v-flex md6>
         <v-container v-for="(paragraph, index) in textFormated" :key="index">
-        	<p :class="getClass(paragraph, index)" class="regular-text md8 ">{{ paragraph }}</p>
-      		<v-img v-if="hasImage(index)" :src="getImage(index)" height="400px" class="mt-3"></v-img>
+       	  <p class="regular-text md8" :class="index === 0 ? 'with-initial' : '' ">{{ paragraph }}</p>
         </v-container>
-      </v-card-text>
-	  </div>
+      </v-flex>
+    </v-layout>
   </div>
 </template>
 
@@ -27,42 +32,19 @@ export default {
     }
   },
   props: {
-    query: {
+    quote: {
       type: Object as () => Quote
-    },
-    isQuote: {
-      type: Boolean,
-      default: false
     }
   },
   methods: {
-    getClass(paragraph, index) {
-      if (index === 0) {
-        return 'with-initial'
-      }
-
-      if (paragraph.length <= 40) {
-        return 'small-heading'
-      }
-    },
-    hasImage(index) {
-      if (index !== 0 && index % 5 === 0) {
-        if (this.article.images.length > index / 5) {
-          return true;
-        }
-      }
-      return false;
-    },
-    getImage(index) {
-      return this.article.images[index / 5]
+    getImageUrl(url) {
+      var images = require.context('../../../assets/', false, /\.jpg$/)
+      return images('./' + url + ".jpg")
     }
   },
   computed: {
-    mainImage: function () {
-      return this.article.images[0];
-    },
     textFormated: function () {
-      return this.article.text.split(/\n\r|\n|\r|\s\s/g).filter(item => item !== '')
+      return this.quote.text.split(/\n\r|\n|\r|\s\s/g).filter(item => item !== '')
     }
   }
 }
@@ -70,5 +52,14 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
+.main-subtitle {
+  font-size: 20pt;
+}
+
+.date {
+  color: black;
+  float: none;
+}
 
 </style>
