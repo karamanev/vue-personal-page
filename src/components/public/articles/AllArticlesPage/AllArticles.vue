@@ -1,4 +1,5 @@
 <template>
+
   <div>
     <articles-header v-if="mainArticle.date">
       <h1 slot="title" class="main-title">{{ mainArticle.title }}</h1>
@@ -13,19 +14,21 @@
     </v-container>
     <h1 class="topic">Рубрики</h1>
     <topics-chips @onFilter="filterArticles($event)" />
-    <v-layout
-      pt-6
-      mx-12
-      row
-      align-stretch
-      justify-center
-    >
-
-      <v-flex md5 mx-6 v-for="(article, index) in articles" :key="index">
-        <big-common-article :article="article"/>
-      </v-flex>
-    </v-layout>
+    <v-container v-if="articles === undefined">
+      <loader/>
+    </v-container>
+    <v-container v-else-if="articles.length === 0">
+      <h2 class="my-12">Няма публикации в избраната от вас категория.</h2>
+    </v-container>
+    <v-container v-else>
+      <v-layout pt-6 mx-12 row align-stretch justify-center>
+        <v-flex md5 mx-6 v-for="(article, index) in articles" :key="index">
+          <big-common-article :article="article"/>
+        </v-flex>
+      </v-layout>
+    </v-container>
   </div>
+
 </template>
 
 <script lang="ts">

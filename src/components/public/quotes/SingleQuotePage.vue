@@ -1,8 +1,14 @@
 <template>
 
   <div>
-    <welcome-quotes :author="quote.author"/>
-    <single-quote-item :quote="quote"/>
+    <v-container v-if="!quote">
+     <loader/>
+    </v-container>
+    <v-container v-else>
+      <welcome-quotes :author="quote.author"/>
+      <single-quote-item :quote="quote"/>
+    </v-container>
+
   </div>
 
 </template>

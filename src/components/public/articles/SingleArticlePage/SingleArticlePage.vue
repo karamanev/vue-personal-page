@@ -1,6 +1,11 @@
 <template>
   <div>
-    <single-article-item :article="article" />
+    <v-container v-if="!article">
+      <loader/>
+    </v-container>
+    <v-container v-else>
+      <single-article-item :article="article"/>
+    </v-container>
   </div>
 </template>
 
@@ -26,8 +31,3 @@ export default {
   }
 }
 </script>
-
-<style scoped lang="scss">
-
-
-</style>

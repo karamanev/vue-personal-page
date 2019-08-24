@@ -47,7 +47,7 @@ export default {
 
 .main-subtitle {
   position: absolute;
-  top: 15%;
+  top: 340pt;
   width: 40%;
 }
 
