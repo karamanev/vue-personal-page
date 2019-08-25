@@ -1,31 +1,39 @@
 <template>
+
   <div>
-    <single-common-item :article="article" :isQuote="true" />
+    <v-container v-if="!quote">
+     <loader/>
+    </v-container>
+    <div v-else>
+      <welcome-quotes :author="quote.author"/>
+      <single-quote-item :quote="quote"/>
+    </div>
+
   </div>
+
 </template>
 
 <script lang="ts">
 
 import { Quote } from '../../../core/models/QuoteInterface';
 import { quotesCollection } from '../../../main';
-import SingleCommonItem from '../../common/articles/SingleCommonItem.vue'
+import SingleQuoteItem from './SingleQuoteItem.vue'
+import WelcomeQuotes from './WelcomeQuotes.vue'
 
 export default {
   components: {
-    SingleCommonItem
+    SingleQuoteItem,
+    WelcomeQuotes
   },
   data() {
     return {
-      article: {} as Quote
+      quote: {} as Quote
     }
   },
   firestore() {
     return {
-      article: quotesCollection.doc(this.$route.params.id)
+      quote: quotesCollection.doc(this.$route.params.id)
     }
-  },
-  updated() {
-    console.log(this.article);
   }
 }
 </script>

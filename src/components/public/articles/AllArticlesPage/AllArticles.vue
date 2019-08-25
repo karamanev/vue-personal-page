@@ -1,30 +1,34 @@
 <template>
+
   <div>
     <articles-header v-if="mainArticle.date">
-      <h1 slot="title" class="first--text font-weight-thin main-title" id="big-heading">{{ mainTitle }}</h1>
-      <div slot="date-topics flex mb-12 mx-6" class="date-topics mb-12">
-        <span class="date">{{mainArticle.date | date}}</span>
-        <span class="topics">{{normalizedTopics}}</span>
+      <h1 slot="title" class="main-title">{{ mainArticle.title }}</h1>
+      <div slot="date-topics" class="flex mb-12 mx-12 mt-n12 date-topics">
+        <span class="first--text date">{{ mainArticle.date | date }}</span>
+        <span class="first--text topics">{{ mainArticle.topics | topics }}</span>
       </div>
+      <div slot="subtitle" class="main-subtitle">{{ mainArticle.subtitle }}</div>
     </articles-header>
     <v-container v-if="mainArticle.title">
       <top-article :article="mainArticle"/>
     </v-container>
     <h1 class="topic">Рубрики</h1>
     <topics-chips @onFilter="filterArticles($event)" />
-    <v-layout
-      pt-6
-      mx-12
-      row
-      align-stretch
-      justify-center
-    >
-
-      <v-flex md5 mx-6 v-for="(article, index) in articles" :key="index">
-        <big-common-article :article="article"/>
-      </v-flex>
-    </v-layout>
+    <v-container v-if="articles === undefined">
+      <loader/>
+    </v-container>
+    <v-container v-else-if="articles.length === 0">
+      <h2 class="my-12">Няма публикации в избраната от вас категория.</h2>
+    </v-container>
+    <v-container v-else>
+      <v-layout pt-6 mx-12 row align-stretch justify-center>
+        <v-flex md5 mx-6 v-for="(article, index) in articles" :key="index">
+          <big-common-article :article="article"/>
+        </v-flex>
+      </v-layout>
+    </v-container>
   </div>
+
 </template>
 
 <script lang="ts">
@@ -62,28 +66,6 @@ export default {
       this.mainArticle = documents[0];
       this.articles = documents.splice(1);
     })
-  },
-  computed: {
-    mainTitle() {
-      if (this.mainArticle) {
-        return this.mainArticle.title;
-      }
-      return ''
-    },
-    normalizedTopics: function () {
-      return this.mainArticle.topics.join(', ');
-    }
   }
 }
 </script>
-
-<style scoped lang="scss">
-
-.main-title {
-  padding-left: 5%;
-  padding-top: 18%;
-  font-size: 55pt;
-  line-height: 55pt;
-}
-
-</style>

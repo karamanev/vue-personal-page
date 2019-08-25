@@ -1,13 +1,14 @@
 <template>
   <div>
     <h1 class="topic">Срещи</h1>
-    <v-carousel>
-      <single-quote
-        v-for="quote in quotes"
-        :key="quote.id"
-        :quote="quote"
-      ></single-quote>
-    </v-carousel>
+    <v-container v-if="quotes === undefined || quotes.length < 1">
+      <loader/>
+    </v-container>
+    <div v-else>
+      <v-carousel>
+        <single-quote v-for="quote in quotes" :key="quote.id" :quote="quote"></single-quote>
+      </v-carousel>
+    </div>
   </div>
 </template>
 
@@ -28,7 +29,7 @@ export default {
   },
   firestore() {
     return {
-      quotes: quotesCollection.orderBy('date')
+      quotes: quotesCollection.orderBy('date', 'desc')
     }
   }
 }

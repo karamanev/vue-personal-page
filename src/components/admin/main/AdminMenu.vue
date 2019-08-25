@@ -3,13 +3,13 @@
     <h1>Публикации</h1>
     <div class="row my-12">
       <v-container v-for="(article, index) in articles" :key="index">
-        <admin-item :title="article.title" :id="article.id" :article="true"/>
+        <admin-item :title="article.title" :id="article.id" :isArticle="true"/>
       </v-container>
     </div>
     <h1>Цитати</h1>
     <div class="row my-12">
       <v-container v-for="(quote, index) in quotes" :key="index">
-        <admin-item :title="quote.author" :id="quote.id" :article="false"/>
+        <admin-item :title="quote.author" :id="quote.id" :isArticle="false"/>
       </v-container>
    </div>
   </v-container>

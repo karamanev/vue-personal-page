@@ -1,22 +1,25 @@
 <template>
   <div>
-    <h2 class="">{{title}}</h2>
-    <v-container v-if="article === true" class="col-12 d-flex flex-row justify-space-around">
+    <h2>{{title}}</h2>
+    <v-container v-if="isArticle === true" class="col-12 d-flex flex-row justify-space-around">
       <v-btn color="first" class="third--text" :to="{ name:'editArticle', params: {id}}">Редактирай</v-btn>
-      <v-btn color="first" class="third--text" @click="OnDeleteArticle">Изтрий</v-btn>
     </v-container>
-    <v-container v-if="article === false" class="col-12 d-flex flex-row justify-space-around">
+    <v-container v-if="isArticle === false" class="col-12 d-flex flex-row justify-space-around">
       <v-btn color="first" class="third--text" :to="{ name:'editQuote', params: {id}}">Редактирай</v-btn>
-      <v-btn color="first" class="third--text" @click="OnDeleteQuote">Изтрий</v-btn>
     </v-container>
+    <delete-card :id="id" :isArticle="isArticle" />
   </div>
 </template>
 
 
 <script lang="ts">
 import { articlesCollection, quotesCollection } from '../../../main'
+import DeleteCard from './DeleteCard.vue'
 
 export default {
+  components: {
+    DeleteCard
+  },
   props: {
     title: {
       type: String
@@ -24,32 +27,8 @@ export default {
     id: {
       type: String
     },
-    article: {
+    isArticle: {
       type: Boolean
-    }
-  },
-  methods: {
-    OnDeleteArticle(): void {
-      articlesCollection.doc(this.id)
-        .delete()
-        .then(() => {
-          console.log("Document deleted");
-        })
-        .catch((error) => {
-          console.error("Error adding document: ", error);
-        });
-      this.$router.push('/admin')
-    },
-    OnDeleteQuote(): void {
-      quotesCollection.doc(this.id)
-        .delete()
-        .then(() => {
-          console.log("Document deleted");
-        })
-        .catch((error) => {
-          console.error("Error adding document: ", error);
-        });
-      this.$router.push('/admin')
     }
   }
 }

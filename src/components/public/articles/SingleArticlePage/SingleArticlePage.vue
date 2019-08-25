@@ -1,6 +1,11 @@
 <template>
   <div>
-    <single-common-item :article="article" />
+    <v-container v-if="!article">
+      <loader/>
+    </v-container>
+    <v-container v-else>
+      <single-article-item :article="article"/>
+    </v-container>
   </div>
 </template>
 
@@ -8,11 +13,11 @@
 
 import { Article } from '../../../../core/models/ArticleInterface';
 import { articlesCollection } from '../../../../main';
-import SingleCommonItem from '../../../common/articles/SingleCommonItem.vue'
+import SingleArticleItem from './SingleArticleItem.vue'
 
 export default {
   components: {
-    SingleCommonItem
+    SingleArticleItem
   },
   data() {
     return {
@@ -23,14 +28,6 @@ export default {
     return {
       article: articlesCollection.doc(this.$route.params.id)
     }
-  },
-  updated() {
-    console.log(this.article);
   }
 }
 </script>
-
-<style scoped lang="scss">
-
-
-</style>

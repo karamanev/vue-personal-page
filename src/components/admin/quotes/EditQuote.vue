@@ -1,10 +1,10 @@
 <template>
   <v-container fill-height>
     <v-layout align-center justify-center>
-      <v-flex xs12 sm8 md4>
+      <v-flex md8>
         <v-card class="elevation-12">
           <v-toolbar dark >
-            <v-toolbar-title class="text-primary" color="primary">Редактирай цитат</v-toolbar-title>
+            <v-toolbar-title class="text-primary" color="second">Редактирай цитат</v-toolbar-title>
           </v-toolbar>
           <v-card-text>
             <v-form ref="form" lazy-validation>
@@ -12,12 +12,14 @@
               <v-textarea name="text" label="Текст" type="text" v-model="$v.quote.text.$model"></v-textarea>
               <v-text-field name="author" label="Автор" type="text" v-model="$v.quote.author.$model"></v-text-field>
               <v-text-field name="image" label="Снимка" type="text" v-model="$v.quote.image.$model"></v-text-field>
+              <v-text-field name="biography" label="Биография" type="text" v-model="$v.quote.biography.$model"></v-text-field>
             </v-form>
           </v-card-text>
           <v-card-actions>
             <v-spacer></v-spacer>
-            <v-btn color="primary" :disabled="$v.quote.$error" @click="OnEditQuote">Изпрати</v-btn>
+            <v-btn color="second" :disabled="$v.quote.$invalid" @click="OnEditQuote">Изпрати</v-btn>
           </v-card-actions>
+          <p class="red" v-if="$v.quote.$error">Формата не е полълнена коректно!</p>
         </v-card>
       </v-flex>
     </v-layout>
@@ -38,7 +40,8 @@ export default Vue.extend({
         anouncement: '',
         text: '',
         author: '',
-        image: ''
+        image: '',
+        biography: ''
       } as QuoteInput
     }
   },
@@ -55,7 +58,12 @@ export default Vue.extend({
         minLength: minLength(3),
         maxLength: maxLength(2000)
       },
-      image: { required, minLength: minLength(3), maxLength: maxLength(2000) }
+      image: { required, minLength: minLength(3), maxLength: maxLength(2000) },
+      biography: {
+        required,
+        minLength: minLength(3),
+        maxLength: maxLength(2000)
+      }
     }
   },
   methods: {

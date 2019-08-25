@@ -5,6 +5,7 @@ export interface Quote {
   image: string;
   date: Date;
   id: string;
+  biography: string;
 }
 
 export interface QuoteInput {
@@ -12,4 +13,5 @@ export interface QuoteInput {
   text: string;
   author: string;
   image: string;
+  biography: string;
 }
