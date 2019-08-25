@@ -1,4 +1,5 @@
 <template>
+
   <div class="text-center">
     <v-progress-circular
       :size="70"
@@ -7,6 +8,7 @@
     >
     </v-progress-circular>
   </div>
+
 </template>
 
 <script>

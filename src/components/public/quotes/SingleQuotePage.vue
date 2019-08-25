@@ -17,7 +17,7 @@
 
 import { Quote } from '../../../core/models/QuoteInterface';
 import { quotesCollection } from '../../../main';
-import SingleQuoteItem from '../../common/articles/SingleQuoteItem.vue'
+import SingleQuoteItem from './SingleQuoteItem.vue'
 import WelcomeQuotes from './WelcomeQuotes.vue'
 
 export default {

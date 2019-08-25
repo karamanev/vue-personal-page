@@ -17,10 +17,11 @@
             <v-btn color="second" :disabled="$v.$invalid" @click="OnRegisterClick">Изпрати</v-btn>
           </v-card-actions>
           <p class="red" v-if="$v.$error && (user.password.length > 20 || user.password.length < 4)">Избраната парола трябва да бъде между 4 и 20 знака!</p>
-          <p class="red" v-if="$v.$error && user.password.length < 20 && user.password.length > 4">Въведеният имейл е невалиден!</p>
+          <p class="red" v-if="$v.$error && user.password.length <= 20 && user.password.length >= 4">Въведеният имейл е невалиден!</p>
         </v-card>
       </v-flex>
     </v-layout>
+    <v-snackbar vertical absolute :color="snackbar.color" v-model="snackbar.show" :timeout="snackbar.timeout">{{ snackbar.text }}</v-snackbar>
   </v-container>
 </template>
 
@@ -41,7 +42,13 @@ export default {
       user: {
         password: '',
         email: ''
-      } as User
+      } as User,
+      snackbar: {
+        color: 'red',
+        show: false,
+        timeout: 3000,
+        text: ''
+      }
     }
   },
   validations: {
@@ -59,18 +66,21 @@ export default {
   },
   methods: {
     OnRegisterClick(): void {
-      if (this.$refs.form.validate()) {
-        AuthenticationService.register(this.user.email, this.user.password).then(
-          (user: any) => {
-            localStorage.setItem('access_token', user.token);
-            this.$bus.$emit('logged', 'User logged');
-            this.$router.push('/admin')
-          },
-          (err) => {
-            alert('Oops. ' + err.message)
-          }
-        );
-      }
+      this.snackbar.text = 'Благодарим ви, че се регистрирахте успешно!';
+      this.snackbar.color = 'green';
+      this.snackbar.show = true;
+      AuthenticationService.register(this.user.email, this.user.password).then(
+        (user: any) => {
+          localStorage.setItem('access_token', user.token);
+          this.$bus.$emit('logged', 'User logged');
+          setTimeout(this.$router.push('/admin'), 3000);
+        },
+        (err) => {
+          this.snackbar.text = `Опитайте отново! Възникна следната грешка: ${err.message}`;
+          this.snackbar.color = 'red';
+          this.snackbar.show = true;
+        }
+      );
     }
   }
 

@@ -14,7 +14,7 @@
 
 <script lang="ts">
 import { articlesCollection, quotesCollection } from '../../../main'
-import DeleteCard from '../articles/DeleteCard.vue'
+import DeleteCard from './DeleteCard.vue'
 
 export default {
   components: {

@@ -4,11 +4,11 @@
     <v-container v-if="quotes === undefined || quotes.length < 1">
       <loader/>
     </v-container>
-    <v-container v-else>
+    <div v-else>
       <v-carousel>
         <single-quote v-for="quote in quotes" :key="quote.id" :quote="quote"></single-quote>
       </v-carousel>
-    </v-container>
+    </div>
   </div>
 </template>
 

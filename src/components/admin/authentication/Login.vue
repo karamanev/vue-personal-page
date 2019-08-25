@@ -17,10 +17,11 @@
             <v-btn color="second" :disabled="$v.$invalid" @click="OnLoginClick">Вход</v-btn>
           </v-card-actions>
           <p class="red" v-if="$v.$error && (user.password.length > 20 || user.password.length < 4)">Избраната парола трябва да бъде между 4 и 20 знака!</p>
-          <p class="red" v-if="$v.$error && user.password.length < 20 && user.password.length > 4">Въведеният имейл е невалиден!</p>
+          <p class="red" v-if="$v.$error && user.password.length <= 20 && user.password.length >= 4">Въведеният имейл е невалиден!</p>
         </v-card>
       </v-flex>
     </v-layout>
+    <v-snackbar vertical absolute :color="snackbar.color" v-model="snackbar.show" :timeout="snackbar.timeout">{{ snackbar.text }}</v-snackbar>
   </v-container>
 </template>
 
@@ -40,7 +41,13 @@ export default {
       user: {
         password: '',
         email: ''
-      } as User
+      } as User,
+      snackbar: {
+        color: 'red',
+        show: false,
+        timeout: 3000,
+        text: ''
+      }
     }
   },
   validations: {
@@ -56,14 +63,18 @@ export default {
   },
   methods: {
     OnLoginClick(): void {
+      this.snackbar.text = 'Влязохте успешно в профила си!';
+      this.snackbar.color = 'green';
+      this.snackbar.show = true;
       AuthenticationService.login(this.user.email, this.user.password).then(
         (user: any) => {
           localStorage.setItem('access_token', user.token)
           this.$bus.$emit('logged', 'User logged')
-          this.$router.push('/admin')
+          setTimeout(this.$router.push('/admin'), 2300);
         },
         (err) => {
-          alert('Oops. ' + err.message)
+          this.snackbar.text = `Опитайте отново! Възникна следната грешка: ${err.message}`;
+          this.snackbar.color = 'red';
         }
       );
     }

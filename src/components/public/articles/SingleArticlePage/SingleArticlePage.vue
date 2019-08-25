@@ -13,7 +13,7 @@
 
 import { Article } from '../../../../core/models/ArticleInterface';
 import { articlesCollection } from '../../../../main';
-import SingleArticleItem from '../../../common/articles/SingleArticleItem.vue'
+import SingleArticleItem from './SingleArticleItem.vue'
 
 export default {
   components: {
