@@ -22,10 +22,10 @@
 
 <script lang="ts">
 
-import { articlesCollection } from '../../../../main'
+import { articlesCollection } from '@/main'
 import Vue from 'vue';
-import BigCommonArticle from '../../../common/articles/BigCommonArticle.vue'
-import SmallCommonArticle from '../../../common/articles/SmallCommonArticle.vue'
+import BigCommonArticle from '@/common/articles/BigCommonArticle.vue'
+import SmallCommonArticle from '@/common/articles/SmallCommonArticle.vue'
 
 export default Vue.extend({
   components: {

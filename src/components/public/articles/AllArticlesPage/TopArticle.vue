@@ -24,7 +24,7 @@
 </template>
 
 <script lang="ts">
-import { Article } from '../../../../core/models/ArticleInterface';
+import { Article } from '@/core/models/ArticleInterface';
 
 export default {
   data() {

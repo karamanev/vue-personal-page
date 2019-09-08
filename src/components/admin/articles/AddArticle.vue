@@ -32,9 +32,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { ArticleInput } from '../../../core/models/ArticleInterface'
+import { ArticleInput } from '@/core/models/ArticleInterface'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators';
-import { articlesCollection } from '../../../main'
+import { articlesCollection } from '@/main'
 
 export default Vue.extend({
   data() {

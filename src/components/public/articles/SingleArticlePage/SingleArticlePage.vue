@@ -11,8 +11,8 @@
 
 <script lang="ts">
 
-import { Article } from '../../../../core/models/ArticleInterface';
-import { articlesCollection } from '../../../../main';
+import { Article } from '@/core/models/ArticleInterface';
+import { articlesCollection } from '@/main';
 import SingleArticleItem from './SingleArticleItem.vue'
 
 export default {

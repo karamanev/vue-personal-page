@@ -13,7 +13,7 @@
 </template>
 
 <script lang="ts">
-import { Topics } from '../../../../core/models/ArticleInterface'
+import { Topics } from '@/core/models/ArticleInterface'
 
 export default {
   data() {

@@ -3,7 +3,7 @@
     <v-img
       min-height="250px"
       max-height="720px"
-      src="../../../../assets/wall_main.jpg"
+      src="@/assets/wall_main.jpg"
       align="left"
       justify="left"
     >

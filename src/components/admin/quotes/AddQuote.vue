@@ -29,9 +29,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { QuoteInput, Quote } from '../../../core/models/QuoteInterface'
+import { QuoteInput, Quote } from '@/core/models/QuoteInterface'
 import { required, minLength, maxLength } from 'vuelidate/lib/validators';
-import { quotesCollection } from '../../../main'
+import { quotesCollection } from '@/main'
 
 export default Vue.extend({
   data() {

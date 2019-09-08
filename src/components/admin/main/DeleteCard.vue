@@ -24,7 +24,7 @@
 
 
 <script lang="ts">
-import { articlesCollection, quotesCollection } from '../../../main'
+import { articlesCollection, quotesCollection } from '@/main'
 export default {
   props: {
     isArticle: {

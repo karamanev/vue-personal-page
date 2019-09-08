@@ -8,7 +8,7 @@
         </div>
       </v-flex>
       <v-flex md2 class= "text-left">
-        <img class="rotate" src="../../../../assets/koritsa_sm.jpg" width="100%">
+        <img class="rotate" src="@/assets/koritsa_sm.jpg" width="100%">
         <router-link class="first--text text-left" :to="{name:'dodeto'}">Още за романа</router-link>
       </v-flex>
       <v-flex md5>
