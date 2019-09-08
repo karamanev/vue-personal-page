@@ -12,7 +12,7 @@ const webpackConfig = {
     main: helpers.root('src', 'main.ts')
   },
   resolve: {
-    extensions: ['.js', '.vue'],
+    extensions: ['.ts', '.js', '.json', '.vue'],
     alias: {
       'vue$': isDev ? 'vue/dist/vue.runtime.js' : 'vue/dist/vue.runtime.min.js',
       '@': helpers.root('src')
