@@ -17,9 +17,9 @@
 
 
 <script lang="ts">
-import { Article } from '@/core/models/ArticleInterface';
-import { Quote } from '@/core/models/QuoteInterface';
-import { articlesCollection, quotesCollection } from '@/main';
+import { Article } from '../../../core/models/ArticleInterface';
+import { Quote } from '../../../core/models/QuoteInterface';
+import { articlesCollection, quotesCollection } from '../../../main';
 import AdminItem from './AdminItem.vue'
 
 export default {

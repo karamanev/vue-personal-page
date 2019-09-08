@@ -15,8 +15,8 @@
 
 <script lang="ts">
 
-import { Quote } from '@/core/models/QuoteInterface';
-import { quotesCollection } from '@/main';
+import { Quote } from '../../../core/models/QuoteInterface';
+import { quotesCollection } from '../../../main';
 import SingleQuoteItem from './SingleQuoteItem.vue'
 import WelcomeQuotes from './WelcomeQuotes.vue'
 

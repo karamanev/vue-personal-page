@@ -10,10 +10,10 @@
         </v-layout>
       </v-flex>
    	  <v-flex xs2>
-    		<img class="mr-1 fbImg" src="@/assets/icons/goodreads.svg" href="#" />
-    		<img class="mr-1 fbImg" src="@/assets/icons/facebook.svg" href="#" />
-    		<img class="mr-1 fbImg" src="@/assets/icons/instagram.svg" href="#" />
-		    <img class="mr-1 fbImg" src="@/assets/icons/linkedin.svg" href="#" />
+    		<img class="mr-1 fbImg" src="../../../assets/icons/facebook.svg" href="#" />
+    		<img class="mr-1 fbImg" src="../../../assets/icons/goodreads.svg" href="#" />
+    		<img class="mr-1 fbImg" src="../../../assets/icons/instagram.svg" href="#" />
+		    <img class="mr-1 fbImg" src="../../../assets/icons/linkedin.svg" href="#" />
   	  </v-flex>
       <v-flex xs2>
         <div class="copy">&copy; Георги Караманев {{ new Date().getFullYear() }}</div>

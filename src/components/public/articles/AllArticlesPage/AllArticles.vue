@@ -33,10 +33,10 @@
 
 <script lang="ts">
 
-import { articlesCollection } from '@/main'
-import { Article } from '@/core/models/ArticleInterface'
+import { articlesCollection } from '../../../../main'
+import { Article } from '../../../../core/models/ArticleInterface'
 import TopicsChips from './TopicsChips.vue'
-import BigCommonArticle from '@/common/articles/BigCommonArticle.vue'
+import BigCommonArticle from '../../../common/articles/BigCommonArticle.vue'
 import ArticlesHeader from './ArticlesHeader.vue'
 import TopArticle from './TopArticle.vue'
 

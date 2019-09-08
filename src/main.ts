@@ -1,14 +1,14 @@
 import Vue from 'vue'
 import { firestorePlugin } from 'vuefire'
 import firebase from 'firebase'
-import firebaseConfig from '@/core/config/firebaseConfig'
+import firebaseConfig from './core/config/firebaseConfig'
 import App from './App.vue'
 import Vuelidate from 'vuelidate'
-import router from '@/core/router/router'
-import vuetify from '@/core/plugins/vuetify'
-import EventBus from '@/core/eventBus/eventBus'
-import '@/core/filters/filters'
-import Loader from '@/src/components/common/alerts/Loader.vue'
+import router from './core/router/router'
+import vuetify from './core/plugins/vuetify'
+import EventBus from './core/eventBus/eventBus'
+import './core/filters/filters'
+import Loader from '../src/components/common/alerts/Loader.vue'
 
 Vue.config.productionTip = false
 Vue.config.devtools = true

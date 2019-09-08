@@ -4,7 +4,7 @@
       <v-img
         min-height="250px"
         max-height="420px"
-        src="@/assets/03.jpg"
+        src="../../../assets/03.jpg"
         align="left"
         justify="left"
         id="welcome"

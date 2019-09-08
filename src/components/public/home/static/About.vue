@@ -16,7 +16,7 @@
       </v-flex>
       <v-spacer></v-spacer>
       <v-flex md5>
-        <img class="rotate" src="@/assets/karamanev.jpg" width="100%">
+        <img class="rotate" src="../../../../assets/karamanev.jpg" width="100%">
 
       </v-flex>
     </v-layout>

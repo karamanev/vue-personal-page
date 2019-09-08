@@ -23,4 +23,6 @@ Vue.filter("date", (value) => {
   return time;
 })
 
-Vue.filter("topics", value => value.join(', '))
+Vue.filter("topics", (value) => {
+  return value.join(', ');
+})

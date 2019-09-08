@@ -13,7 +13,7 @@
 
 
 <script lang="ts">
-import { articlesCollection, quotesCollection } from '@/main'
+import { articlesCollection, quotesCollection } from '../../../main'
 import DeleteCard from './DeleteCard.vue'
 
 export default {

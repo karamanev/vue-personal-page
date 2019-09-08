@@ -34,7 +34,7 @@ import {
   email
 } from 'vuelidate/lib/validators';
 import AuthenticationService from './AuthenticationService'
-import { User } from '@/core/models/UserInterface'
+import { User } from '../../../core/models/UserInterface'
 
 export default {
   data() {

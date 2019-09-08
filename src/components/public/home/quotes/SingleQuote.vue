@@ -22,7 +22,7 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import { Quote } from '@/core/models/QuoteInterface'
+import { Quote } from '../../../../core/models/QuoteInterface'
 
 
 export default Vue.extend({
@@ -32,7 +32,7 @@ export default Vue.extend({
   },
   methods: {
     getImageUrl(url) {
-      var images = require.context('@/assets/', false, /\.jpg$/)
+      var images = require.context('../../../../assets/', false, /\.jpg$/)
       return images('./' + url + ".jpg")
     }
   },
