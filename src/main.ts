@@ -8,7 +8,7 @@ import router from './core/router/router'
 import vuetify from './core/plugins/vuetify'
 import EventBus from './core/eventBus/eventBus'
 import './core/filters/filters'
-import Loader from '@/src/components/common/alerts/Loader.vue'
+import Loader from '@/components/common/alerts/Loader.vue'
 
 Vue.config.productionTip = false
 Vue.config.devtools = true

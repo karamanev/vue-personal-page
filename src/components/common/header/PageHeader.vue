@@ -1,5 +1,5 @@
 <template>
-    <v-app-bar row fixed color="secondary" justify-space-around src="@/assets/bar.jpg">
+    <v-app-bar row fixed color="secondary" justify-space-around :src="require('@/assets/bar.jpg')">
       <template v-slot:img="{ props }">
         <v-img v-bind="props"></v-img>
       </template>
@@ -63,8 +63,8 @@
      drawer: false
 -->
 
-<script>
-import AuthenticationService from '@/admin/authentication/AuthenticationService'
+<script lang="ts">
+import AuthenticationService from '../../admin/authentication/AuthenticationService'
 
 export default {
   data() {

@@ -1,6 +1,7 @@
 'use strict';
 
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin');
 const HtmlPlugin = require('html-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const helpers = require('./helpers');
@@ -9,7 +10,7 @@ const isDev = process.env.NODE_ENV === 'development';
 const webpackConfig = {
   entry: {
     polyfill: '@babel/polyfill',
-    main: helpers.root('src', 'main.ts')
+    main: helpers.root('src', 'main')
   },
   resolve: {
     extensions: ['.ts', '.js', '.json', '.vue'],
@@ -29,6 +30,21 @@ const webpackConfig = {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [helpers.root('src')]
+      },
+      {
+        test: /\.ts$/,
+        use: [
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+              appendTsSuffixTo: [
+                '\\.vue$'
+              ],
+              happyPackMode: false
+            }
+          }
+        ]
       },
       {
         test: /\.css$/,
@@ -52,12 +68,42 @@ const webpackConfig = {
           { loader: 'css-loader', options: { sourceMap: isDev } },
           { loader: 'sass-loader', options: { sourceMap: isDev } }
         ]
+      },
+      {
+        test: /\.(png|jpe?g|gif|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'images',
+              publicPath: '../images',
+              useRelativePaths: true
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
+        use: {
+          loader: "url-loader",
+          options: {
+            limit: 50000,
+            mimetype: "application/font-woff",
+            name: "./fonts/[name].[ext]"
+          }
+        }
       }
     ]
   },
   plugins: [
     new VueLoaderPlugin(),
-    new HtmlPlugin({ template: 'index.html', chunksSortMode: 'dependency' })
+    new HtmlPlugin({
+      BASE_URL: '"/"',
+      template: './public/index.html',
+      chunksSortMode: 'dependency'
+    }),
+    new VuetifyLoaderPlugin()
   ]
 };
 
