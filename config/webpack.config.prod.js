@@ -25,11 +25,6 @@ const webpackConfig = merge(commonConfig, {
         cssProcessorPluginOptions: {
           preset: ['default', { discardComments: { removeAll: true } }]
         }
-      }),
-      new UglifyJSPlugin({
-        cache: true,
-        parallel: true,
-        sourceMap: false
       })
     ],
     splitChunks: {
