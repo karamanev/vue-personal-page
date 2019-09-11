@@ -4,11 +4,11 @@ const webpack = require('webpack');
 const merge = require('webpack-merge');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const helpers = require('./helpers');
 const commonConfig = require('./webpack.config.common');
-const environment = require('./env/prod.env');
+const environment = { NODE_ENV: 'production' };
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const webpackConfig = merge(commonConfig, {
   mode: 'production',
@@ -61,8 +61,16 @@ const webpackConfig = merge(commonConfig, {
       threshold: 10240,
       minRatio: 0.8
     }),
-    new webpack.HashedModuleIdsPlugin()
-  ]
+    new webpack.HashedModuleIdsPlugin(),
+    new BundleAnalyzerPlugin({
+      analyzerMode: 'disabled',
+      generateStatsFile: true,
+      statsOptions: { source: false }
+    })
+  ],
+  stats: {
+    children: false
+  }
 });
 
 module.exports = webpackConfig;

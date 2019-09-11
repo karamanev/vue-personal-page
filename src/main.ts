@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { firestorePlugin } from 'vuefire'
 import firebase from 'firebase'
-import firebaseConfig from './core/config/firebaseConfig'
+import firebaseConfig from '../config/firebase/firebaseConfig'
 import App from './App.vue'
 import Vuelidate from 'vuelidate'
 import router from './core/router/router'
