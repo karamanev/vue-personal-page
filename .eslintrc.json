@@ -20,10 +20,12 @@
   "rules": {
     "array-bracket-spacing": [ "error", "always" ],
     "arrow-spacing": "error",
+    "comma-dangle": ["error", "never"],
     "constructor-super": "error",
     "curly": "error",
     "indent": ["error", 4,  { "SwitchCase": 1 }],
     "keyword-spacing": "error",
+    "linebreak-style": "off",
     "no-console": 0,
     "no-const-assign": "error",
     "no-debugger": 0,
