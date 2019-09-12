@@ -12,7 +12,9 @@
 
 <script lang="ts">
 import Vue from 'vue'
-import firebase from 'firebase'
+import * as firebase from 'firebase/app';
+import 'firebase/auth';
+
 import PageHeader from './components/common/header/PageHeader.vue'
 import PageFooter from './components/common/footer/PageFooter.vue'
 

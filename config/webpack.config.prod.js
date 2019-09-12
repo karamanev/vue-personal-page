@@ -5,6 +5,7 @@ const merge = require('webpack-merge');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCSSExtractPlugin = require('mini-css-extract-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const helpers = require('./helpers');
 const commonConfig = require('./webpack.config.common');
 const environment = { NODE_ENV: 'production' };
@@ -66,7 +67,8 @@ const webpackConfig = merge(commonConfig, {
       analyzerMode: 'disabled',
       generateStatsFile: true,
       statsOptions: { source: false }
-    })
+    }),
+    new CleanWebpackPlugin()
   ],
   stats: {
     children: false

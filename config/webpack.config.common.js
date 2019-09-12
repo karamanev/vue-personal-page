@@ -54,15 +54,7 @@ const webpackConfig = {
         ]
       },
       {
-        test: /\.scss$/,
-        use: [
-          isDev ? 'vue-style-loader' : MiniCSSExtractPlugin.loader,
-          { loader: 'css-loader', options: { sourceMap: isDev } },
-          { loader: 'sass-loader', options: { sourceMap: isDev } }
-        ]
-      },
-      {
-        test: /\.sass$/,
+        test: /\.(scss|sass)$/,
         use: [
           isDev ? 'vue-style-loader' : MiniCSSExtractPlugin.loader,
           { loader: 'css-loader', options: { sourceMap: isDev } },
@@ -103,7 +95,16 @@ const webpackConfig = {
       template: './public/index.html',
       chunksSortMode: 'dependency'
     }),
-    new VuetifyLoaderPlugin()
+    new VuetifyLoaderPlugin({
+      match(originalTag, { kebabTag, camelTag, path, component }) {
+        if (kebabTag.startsWith('core-')) {
+          return [
+            camelTag,
+            `import ${camelTag} from '@/components/core/${camelTag.substring(4)}.vue'`
+          ]
+        }
+      }
+    })
   ]
 };
 
