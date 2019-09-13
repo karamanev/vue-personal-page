@@ -13,7 +13,7 @@ const webpackConfig = {
     main: helpers.root('src', 'main')
   },
   resolve: {
-    extensions: ['.ts', '.js', '.json', '.vue'],
+    extensions: [ '.ts', '.js', '.json', '.vue' ],
     alias: {
       'vue$': isDev ? 'vue/dist/vue.runtime.js' : 'vue/dist/vue.runtime.min.js',
       '@': helpers.root('src')
@@ -24,12 +24,12 @@ const webpackConfig = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        include: [helpers.root('src')]
+        include: [ helpers.root('src') ]
       },
       {
         test: /\.js$/,
-        loader: 'babel-loader',
-        include: [helpers.root('src')]
+        use: ['babel-loader', 'eslint-loader'],
+        include: [ helpers.root('src') ]
       },
       {
         test: /\.ts$/,
@@ -44,6 +44,14 @@ const webpackConfig = {
               happyPackMode: false
             }
           }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'postcss-loader'
         ]
       },
       {
@@ -78,11 +86,11 @@ const webpackConfig = {
       {
         test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
         use: {
-          loader: "url-loader",
+          loader: 'url-loader',
           options: {
             limit: 50000,
-            mimetype: "application/font-woff",
-            name: "./fonts/[name].[ext]"
+            mimetype: 'application/font-woff',
+            name: './fonts/[name].[ext]'
           }
         }
       }
@@ -96,12 +104,12 @@ const webpackConfig = {
       chunksSortMode: 'dependency'
     }),
     new VuetifyLoaderPlugin({
-      match(originalTag, { kebabTag, camelTag, path, component }) {
+      match (originalTag, { kebabTag, camelTag, path, component }) {
         if (kebabTag.startsWith('core-')) {
           return [
             camelTag,
             `import ${camelTag} from '@/components/core/${camelTag.substring(4)}.vue'`
-          ]
+          ];
         }
       }
     })

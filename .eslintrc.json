@@ -23,7 +23,7 @@
     "comma-dangle": ["error", "never"],
     "constructor-super": "error",
     "curly": "error",
-    "indent": ["error", 4,  { "SwitchCase": 1 }],
+    "indent": ["error", 2,  { "SwitchCase": 1 }],
     "keyword-spacing": "error",
     "linebreak-style": "off",
     "no-console": 0,

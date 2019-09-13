@@ -69,7 +69,7 @@ import AuthenticationService from '../../admin/authentication/AuthenticationServ
 export default {
   data() {
     return {
-      isLogged: this.checkIfIsLogged()
+      isLogged: (this as any).checkIfIsLogged()
     }
   },
   created() {

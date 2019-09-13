@@ -10,6 +10,7 @@ const helpers = require('./helpers');
 const commonConfig = require('./webpack.config.common');
 const environment = { NODE_ENV: 'production' };
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const TerserPlugin = require('terser-webpack-plugin');
 
 const webpackConfig = merge(commonConfig, {
   mode: 'production',
@@ -24,9 +25,10 @@ const webpackConfig = merge(commonConfig, {
     minimizer: [
       new OptimizeCSSAssetsPlugin({
         cssProcessorPluginOptions: {
-          preset: ['default', { discardComments: { removeAll: true } }]
+          preset: [ 'default', { discardComments: { removeAll: true } } ]
         }
-      })
+      }),
+      new TerserPlugin()
     ],
     splitChunks: {
       chunks: 'all',
@@ -35,7 +37,7 @@ const webpackConfig = merge(commonConfig, {
       cacheGroups: {
         vendor: {
           test: /[\\/]node_modules[\\/]/,
-          name(module) {
+          name (module) {
             const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
             return `npm.${packageName.replace('@', '')}`;
           }
