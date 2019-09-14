@@ -1,5 +1,9 @@
 <template>
-  <v-row align="center" justify="center" class="mt-n12">
+  <v-row
+    align="center"
+    justify="center"
+    class="mt-n12"
+  >
     <v-img
       min-height="250px"
       max-height="720px"
@@ -7,15 +11,19 @@
       align="left"
       justify="left"
     >
-      <h1 class="forth--text font-weight-thin">Окрилени<br>от бъдещето</h1>
-      <h2 class="third--text font-weight-thin">(Историята зад тази снимка)</h2>
+      <h1 class="forth--text font-weight-thin">
+        Окрилени<br>от бъдещето
+      </h1>
+      <h2 class="third--text font-weight-thin">
+        (Историята зад тази снимка)
+      </h2>
     </v-img>
   </v-row>
 </template>
 
 <script lang="ts">
 
-export default {}
+export default {};
 
 </script>
 

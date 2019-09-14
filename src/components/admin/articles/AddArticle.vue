@@ -31,10 +31,10 @@
 
 
 <script lang="ts">
-import Vue from 'vue'
-import { ArticleInput } from '@/core/models/ArticleInterface'
-import { required, minLength, maxLength } from 'vuelidate/lib/validators';
-import { articlesCollection } from '@/main'
+import Vue from 'vue';
+import { ArticleInput } from '@/core/models/ArticleInterface';
+import { maxLength, minLength, required } from 'vuelidate/lib/validators';
+import { articlesCollection } from '@/main';
 
 export default Vue.extend({
   data() {
@@ -49,7 +49,7 @@ export default Vue.extend({
         quotes: '',
         topics: ''
       } as ArticleInput
-    }
+    };
   },
   validations: {
     article: {
@@ -80,16 +80,16 @@ export default Vue.extend({
         quotes: this.article.quotes.split(',').map(item => item.trim()),
         date: new Date()
       })
-        .then(function (docRef) {
-          console.log("Document written with ID: ", docRef.id);
+        .then((docRef) => {
+          console.log('Document written with ID: ', docRef.id);
         })
-        .catch(function (error) {
-          console.error("Error adding document: ", error);
+        .catch((error) => {
+          console.error('Error adding document: ', error);
         });
       this.$router.push('/admin');
     }
   }
-})
+});
 
 </script>
 

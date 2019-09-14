@@ -1,20 +1,41 @@
 <template>
   <div>
-    <h2>{{title}}</h2>
-    <v-container v-if="isArticle === true" class="col-12 d-flex flex-row justify-space-around">
-      <v-btn color="first" class="third--text" :to="{ name:'editArticle', params: {id}}">Редактирай</v-btn>
+    <h2>{{ title }}</h2>
+    <v-container
+      v-if="isArticle === true"
+      class="col-12 d-flex flex-row justify-space-around"
+    >
+      <v-btn
+        color="first"
+        class="third--text"
+        :to="{ name:'editArticle', params: {id}}"
+      >
+        Редактирай
+      </v-btn>
     </v-container>
-    <v-container v-if="isArticle === false" class="col-12 d-flex flex-row justify-space-around">
-      <v-btn color="first" class="third--text" :to="{ name:'editQuote', params: {id}}">Редактирай</v-btn>
+    <v-container
+      v-if="isArticle === false"
+      class="col-12 d-flex flex-row justify-space-around"
+    >
+      <v-btn
+        color="first"
+        class="third--text"
+        :to="{ name:'editQuote', params: {id}}"
+      >
+        Редактирай
+      </v-btn>
     </v-container>
-    <delete-card :id="id" :isArticle="isArticle" />
+    <DeleteCard
+      :id="id"
+      :is-article="isArticle"
+    />
   </div>
 </template>
 
 
 <script lang="ts">
-import { articlesCollection, quotesCollection } from '@/main'
-import DeleteCard from './DeleteCard.vue'
+import { articlesCollection, quotesCollection } from '@/main';
+import DeleteCard from './DeleteCard.vue';
 
 export default {
   components: {
@@ -31,5 +52,5 @@ export default {
       type: Boolean
     }
   }
-}
+};
 </script>

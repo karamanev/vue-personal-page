@@ -1,12 +1,14 @@
 <template>
   <div>
-      <v-icon class="arrow">arrow-down-bold</v-icon>
-   </div>
+    <v-icon class="arrow">
+      arrow-down-bold
+    </v-icon>
+  </div>
 </template>
 
 <script lang="ts">
 
-export default { }
+export default { };
 
 </script>
 

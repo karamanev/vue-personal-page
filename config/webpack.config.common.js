@@ -28,8 +28,17 @@ const webpackConfig = {
       },
       {
         test: /\.js$/,
-        use: ['babel-loader', 'eslint-loader'],
+        use: [ 'babel-loader' ],
         include: [ helpers.root('src') ]
+      },
+      {
+        test: /\.(js|vue)$/,
+        loader: 'eslint-loader',
+        enforce: 'pre',
+        options: {
+          formatter: require('eslint-friendly-formatter'),
+          fix: true
+        }
       },
       {
         test: /\.ts$/,
@@ -104,7 +113,7 @@ const webpackConfig = {
       chunksSortMode: 'dependency'
     }),
     new VuetifyLoaderPlugin({
-      match (originalTag, { kebabTag, camelTag, path, component }) {
+      match(originalTag, { kebabTag, camelTag, path, component }) {
         if (kebabTag.startsWith('core-')) {
           return [
             camelTag,

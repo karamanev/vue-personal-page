@@ -1,22 +1,22 @@
 <template>
   <v-app id="app">
-    <page-header app/>
+    <PageHeader app />
     <v-content class="mt-12">
       <v-container fluid>
-        <router-view/>
+        <router-view />
       </v-container>
     </v-content>
-    <page-footer app/>
+    <PageFooter app />
   </v-app>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import Vue from 'vue';
 import * as firebase from 'firebase/app';
 import 'firebase/auth';
 
-import PageHeader from './components/common/header/PageHeader.vue'
-import PageFooter from './components/common/footer/PageFooter.vue'
+import PageHeader from './components/common/header/PageHeader.vue';
+import PageFooter from './components/common/footer/PageFooter.vue';
 
 export default Vue.extend({
   components: {
@@ -24,7 +24,7 @@ export default Vue.extend({
     PageFooter
   }
 
-})
+});
 </script>
 
 <style lang="scss">

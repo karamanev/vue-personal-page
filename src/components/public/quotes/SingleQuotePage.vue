@@ -5,8 +5,8 @@
      <loader/>
     </v-container>
     <div v-else>
-      <welcome-quotes :author="quote.author"/>
-      <single-quote-item :quote="quote"/>
+      <WelcomeQuotes :author="quote.author"/>
+      <SingleQuoteItem :quote="quote"/>
     </div>
 
   </div>
@@ -17,8 +17,8 @@
 
 import { Quote } from '@/core/models/QuoteInterface';
 import { quotesCollection } from '@/main';
-import SingleQuoteItem from './SingleQuoteItem.vue'
-import WelcomeQuotes from './WelcomeQuotes.vue'
+import SingleQuoteItem from './SingleQuoteItem.vue';
+import WelcomeQuotes from './WelcomeQuotes.vue';
 
 export default {
   components: {
@@ -28,14 +28,14 @@ export default {
   data() {
     return {
       quote: {} as Quote
-    }
+    };
   },
   firestore() {
     return {
       quote: quotesCollection.doc(this.$route.params.id)
-    }
+    };
   }
-}
+};
 </script>
 
 <style scoped lang="scss">

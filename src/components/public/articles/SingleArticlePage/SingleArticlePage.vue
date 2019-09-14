@@ -4,7 +4,7 @@
       <loader/>
     </v-container>
     <v-container v-else>
-      <single-article-item :article="article"/>
+      <SingleArticleItem :article="article"/>
     </v-container>
   </div>
 </template>
@@ -13,7 +13,7 @@
 
 import { Article } from '@/core/models/ArticleInterface';
 import { articlesCollection } from '@/main';
-import SingleArticleItem from './SingleArticleItem.vue'
+import SingleArticleItem from './SingleArticleItem.vue';
 
 export default {
   components: {
@@ -22,12 +22,12 @@ export default {
   data() {
     return {
       article: {} as Article
-    }
+    };
   },
   firestore() {
     return {
       article: articlesCollection.doc(this.$route.params.id)
-    }
+    };
   }
-}
+};
 </script>

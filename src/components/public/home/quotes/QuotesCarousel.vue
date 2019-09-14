@@ -1,20 +1,26 @@
 <template>
   <div>
-    <h1 class="topic">Срещи</h1>
+    <h1 class="topic">
+      Срещи
+    </h1>
     <v-container v-if="quotes === undefined || quotes.length < 1">
-      <loader/>
+      <loader />
     </v-container>
     <div v-else>
       <v-carousel>
-        <single-quote v-for="quote in quotes" :key="quote.id" :quote="quote"></single-quote>
+        <SingleQuote
+          v-for="quote in quotes"
+          :key="quote.id"
+          :quote="quote"
+        />
       </v-carousel>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { quotesCollection } from '@/main'
-import SingleQuote from './SingleQuote.vue'
+import { quotesCollection } from '@/main';
+import SingleQuote from './SingleQuote.vue';
 
 
 export default {
@@ -25,14 +31,14 @@ export default {
   data() {
     return {
       quotes: []
-    }
+    };
   },
   firestore() {
     return {
       quotes: quotesCollection.orderBy('date', 'desc')
-    }
+    };
   }
-}
+};
 
 </script>
 

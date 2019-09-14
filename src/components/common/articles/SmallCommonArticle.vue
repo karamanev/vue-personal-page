@@ -22,7 +22,7 @@ import { Article } from '@/core/models/ArticleInterface';
 export default {
   data() {
     return {
-    }
+    };
   },
   props: {
     article: {
@@ -31,14 +31,14 @@ export default {
   },
   computed: {
     normalizedText: function () {
-      let maxLength = 400;
+      const maxLength = 400;
       this.article.text.trim();
-      var trimmedString = this.article.text.substr(0, maxLength);
-      trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, (lastIndexOfRegex(/[.!?]/g, trimmedString) + 1)))
+      let trimmedString = this.article.text.substr(0, maxLength);
+      trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, (lastIndexOfRegex(/[.!?]/g, trimmedString) + 1)));
       return trimmedString;
 
       function lastIndexOfRegex(regex, text) {
-        var match = text.match(regex);
+        const match = text.match(regex);
         return match ? text.lastIndexOf(match[match.length - 1]) : -1;
       }
     },
@@ -46,7 +46,7 @@ export default {
       return this.article.id;
     }
   }
-}
+};
 </script>
 
 <style scoped lang="scss">

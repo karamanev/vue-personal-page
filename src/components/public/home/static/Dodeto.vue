@@ -1,15 +1,33 @@
 <template>
   <div>
-    <h1 class="topic py-6">И додето...</h1>
-      <v-layout mx-12 row align-stretch>
+    <h1 class="topic py-6">
+      И додето...
+    </h1>
+    <v-layout
+      mx-12
+      row
+      align-stretch
+    >
       <v-flex md5>
         <div class="dodeto second--text ma-10">
           <p>Дебютният роман на Георги Караманев, издаден през 2016 г., е магическа, но и съвсем реална приказка, разговор за изкуството, приятелството, за важните мигове в живота...</p>
         </div>
       </v-flex>
-      <v-flex md2 class= "text-left">
-        <img class="rotate" src="@/assets/koritsa_sm.jpg" width="100%">
-        <router-link class="first--text text-left" :to="{name:'dodeto'}">Още за романа</router-link>
+      <v-flex
+        md2
+        class="text-left"
+      >
+        <img
+          class="rotate"
+          src="@/assets/koritsa_sm.jpg"
+          width="100%"
+        >
+        <router-link
+          class="first--text text-left"
+          :to="{name:'dodeto'}"
+        >
+          Още за романа
+        </router-link>
       </v-flex>
       <v-flex md5>
         <div class="dodeto second--text ma-10">
@@ -17,12 +35,11 @@
         </div>
       </v-flex>
     </v-layout>
-
   </div>
 </template>
 
 <script lang="ts">
-export default { }
+export default {};
 
 </script>
 

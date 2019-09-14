@@ -7,14 +7,14 @@
         <router-link id="logo" class="text-capitalize forth--text" text :to="{name:'home'}">Георги Караманев</router-link>
       </v-toolbar-title>
 
-       	<v-layout row align-center justify-space-around>
+      <v-layout row align-center justify-space-around>
           <v-btn class="menu-item third--text text-capitalize" text :to="{name:'allArticles'}">Публикации</v-btn>
           <v-btn class="menu-item third--text text-capitalize" text :to="{name:'dodeto'}">И додето</v-btn>
           <v-btn v-if="isLogged === false" class="menu-item third--text text-capitalize" text :to="{name:'register'}">Регистрация</v-btn>
           <v-btn v-if="isLogged === false" class="menu-item third--text text-capitalize" text :to="{name:'login'}">Вход</v-btn>
           <v-btn v-if="isLogged === true" class="menu-item third--text text-capitalize" text :to="{name:'adminMenu'}">Админ</v-btn>
           <v-btn v-if="isLogged === true" class="menu-item third--text text-capitalize" text @click="logout">Изход</v-btn>
-       	</v-layout>
+      </v-layout>
       <v-btn icon>
         <v-icon>mdi-magnify</v-icon>
       </v-btn>
@@ -64,41 +64,41 @@
 -->
 
 <script lang="ts">
-import AuthenticationService from '../../admin/authentication/AuthenticationService'
+import AuthenticationService from '../../admin/authentication/AuthenticationService';
 
 export default {
   data() {
     return {
       isLogged: (this as any).checkIfIsLogged()
-    }
+    };
   },
   created() {
     this.$bus.$on('logged', () => {
-      this.isLogged = this.checkIfIsLogged()
-    })
+      this.isLogged = this.checkIfIsLogged();
+    });
   },
   methods: {
     logout() {
       AuthenticationService.logout().then(() => {
-        localStorage.removeItem('access_token')
-        this.isLogged = this.checkIfIsLogged()
+        localStorage.removeItem('access_token');
+        this.isLogged = this.checkIfIsLogged();
         this.$router.push('/home');
       },
       (err) => {
         alert('Oops. ' + err.message);
       }
-      )
+      );
     },
     checkIfIsLogged() {
-      let token = localStorage.getItem('access_token')
+      const token = localStorage.getItem('access_token');
       if (token) {
-        return true
+        return true;
       } else {
-        return false
+        return false;
       }
     }
   }
-}
+};
 </script>
 
 <style scoped lang="scss">

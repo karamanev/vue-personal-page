@@ -1,16 +1,24 @@
 <template>
   <div>
-    <v-row align="center" justify="center" class="mt-n12">
+    <v-row
+      align="center"
+      justify="center"
+      class="mt-n12"
+    >
       <v-img
+        id="welcome"
         min-height="250px"
         max-height="420px"
-        src="@/assets/03.jpg"
+        :src="require('@/assets/03.jpg')"
         align="left"
         justify="left"
-        id="welcome"
+      />
+      <h1
+        id="big-heading"
+        class="first--text font-weight-thin"
       >
-      </v-img>
-      <h1 class="first--text font-weight-thin" id="big-heading">{{ author }}:</h1>
+        {{ author }}:
+      </h1>
     </v-row>
   </div>
 </template>
@@ -19,9 +27,12 @@
 
 export default {
   props: {
-    author: String
+    author: {
+      type: String,
+      default: ''
+    }
   }
-}
+};
 </script>
 
 <style scoped lang="scss">

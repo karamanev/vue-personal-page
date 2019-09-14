@@ -27,13 +27,13 @@
 
 <script lang="ts">
 import {
-  required,
-  minLength,
+  email,
   maxLength,
-  email
-} from 'vuelidate/lib/validators'
-import AuthenticationService from './AuthenticationService'
-import { User } from '@/core/models/UserInterface'
+  minLength,
+  required
+} from 'vuelidate/lib/validators';
+import AuthenticationService from './AuthenticationService';
+import { User } from '@/core/models/UserInterface';
 
 export default {
   data() {
@@ -48,7 +48,7 @@ export default {
         timeout: 3000,
         text: ''
       }
-    }
+    };
   },
   validations: {
     user: {
@@ -68,8 +68,8 @@ export default {
       this.snackbar.show = true;
       AuthenticationService.login(this.user.email, this.user.password).then(
         (user: any) => {
-          localStorage.setItem('access_token', user.token)
-          this.$bus.$emit('logged', 'User logged')
+          localStorage.setItem('access_token', user.token);
+          this.$bus.$emit('logged', 'User logged');
           setTimeout(this.$router.push('/admin'), 2300);
         },
         (err) => {
@@ -79,7 +79,7 @@ export default {
       );
     }
   }
-}
+};
 </script>
 
 <style scoped lang="scss">

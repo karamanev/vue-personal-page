@@ -27,7 +27,7 @@ import { Quote } from '@/core/models/QuoteInterface';
 export default {
   data() {
     return {
-    }
+    };
   },
   props: {
     quote: {
@@ -36,16 +36,16 @@ export default {
   },
   methods: {
     getImageUrl(url) {
-      var images = require.context('@/assets/', false, /\.jpg$/)
-      return images('./' + url + ".jpg")
+      const images = require.context('@/assets/', false, /\.jpg$/);
+      return images('./' + url + '.jpg');
     }
   },
   computed: {
     textFormated: function () {
-      return this.quote.text.split(/\n\r|\n|\r|\s\s/g).filter(item => item !== '')
+      return this.quote.text.split(/\n\r|\n|\r|\s\s/g).filter(item => item !== '');
     }
   }
-}
+};
 </script>
 
 <style scoped lang="scss">

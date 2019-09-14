@@ -21,19 +21,19 @@
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-import { Quote } from '@/core/models/QuoteInterface'
+import Vue from 'vue';
+import { Quote } from '@/core/models/QuoteInterface';
 
 
 export default Vue.extend({
   data() {
     return {
-    }
+    };
   },
   methods: {
     getImageUrl(url) {
-      var images = require.context('@/assets/', false, /\.jpg$/)
-      return images('./' + url + ".jpg")
+      const images = require.context('@/assets/', false, /\.jpg$/);
+      return images('./' + url + '.jpg');
     }
   },
   props: {
@@ -42,7 +42,7 @@ export default Vue.extend({
       default: () => ({})
     }
   }
-})
+});
 
 </script>
 

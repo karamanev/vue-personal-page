@@ -1,19 +1,20 @@
 <template>
   <div class="text-center">
     <v-chip
+      v-for="(topic, index) in topics"
+      :key="index"
       class="ma-2 text-uppercase"
       color="second"
       text-color="white"
-      v-for="(topic, index) in topics" :key="index"
       @click="filter(topic)"
     >
-      {{topic}}
+      {{ topic }}
     </v-chip>
   </div>
 </template>
 
 <script lang="ts">
-import { Topics } from '@/core/models/ArticleInterface'
+import { Topics } from '@/core/models/ArticleInterface';
 
 export default {
   data() {
@@ -28,12 +29,12 @@ export default {
         'Пътеки',
         'От архива'
       ]
-    }
+    };
   },
   methods: {
     filter(topic) {
       this.$emit('onFilter', topic);
     }
   }
-}
+};
 </script>

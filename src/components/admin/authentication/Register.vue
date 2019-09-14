@@ -28,13 +28,13 @@
 
 <script lang="ts">
 import {
-  required,
-  minLength,
+  email,
   maxLength,
-  email
+  minLength,
+  required
 } from 'vuelidate/lib/validators';
-import AuthenticationService from './AuthenticationService'
-import { User } from '@/core/models/UserInterface'
+import AuthenticationService from './AuthenticationService';
+import { User } from '@/core/models/UserInterface';
 
 export default {
   data() {
@@ -49,7 +49,7 @@ export default {
         timeout: 3000,
         text: ''
       }
-    }
+    };
   },
   validations: {
     user: {
@@ -84,7 +84,7 @@ export default {
     }
   }
 
-}
+};
 </script>
 
 <style scoped lang="scss">

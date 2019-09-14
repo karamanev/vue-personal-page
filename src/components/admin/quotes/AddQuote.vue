@@ -28,10 +28,10 @@
 
 
 <script lang="ts">
-import Vue from 'vue'
-import { QuoteInput, Quote } from '@/core/models/QuoteInterface'
-import { required, minLength, maxLength } from 'vuelidate/lib/validators';
-import { quotesCollection } from '@/main'
+import Vue from 'vue';
+import { Quote, QuoteInput } from '@/core/models/QuoteInterface';
+import { maxLength, minLength, required } from 'vuelidate/lib/validators';
+import { quotesCollection } from '@/main';
 
 export default Vue.extend({
   data() {
@@ -43,7 +43,7 @@ export default Vue.extend({
         image: '',
         biography: ''
       } as QuoteInput
-    }
+    };
   },
   validations: {
     quote: {
@@ -72,17 +72,17 @@ export default Vue.extend({
         ...this.quote,
         date: new Date()
       } as Quote)
-        .then(function (docRef) {
+        .then((docRef) => {
           console.log(docRef);
-          console.log("Document written with ID: ", docRef.id);
+          console.log('Document written with ID: ', docRef.id);
         })
-        .catch(function (error) {
-          console.error("Error adding document: ", error);
+        .catch((error) => {
+          console.error('Error adding document: ', error);
         });
-      this.$router.push('/admin')
+      this.$router.push('/admin');
     }
   }
-})
+});
 
 </script>
 

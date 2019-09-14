@@ -31,7 +31,7 @@ import { Article } from '@/core/models/ArticleInterface';
 export default {
   data() {
     return {
-    }
+    };
   },
   props: {
     article: {
@@ -45,10 +45,10 @@ export default {
   methods: {
     getClass(paragraph, index) {
       if (index === 0) {
-        return 'with-initial'
+        return 'with-initial';
       }
       if (paragraph.length <= 40) {
-        return 'small-heading'
+        return 'small-heading';
       }
     },
     hasImage(index) {
@@ -60,7 +60,7 @@ export default {
       return false;
     },
     getImage(index) {
-      return this.article.images[index / 5]
+      return this.article.images[index / 5];
     }
   },
   computed: {
@@ -68,10 +68,10 @@ export default {
       return this.article.images[0];
     },
     textFormated: function () {
-      return this.article.text.split(/\n\r|\n|\r|\s\s/g).filter(item => item !== '')
+      return this.article.text.split(/\n\r|\n|\r|\s\s/g).filter(item => item !== '');
     }
   }
-}
+};
 </script>
 
 <style scoped lang="scss">
